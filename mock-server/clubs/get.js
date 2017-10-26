@@ -1,4 +1,4 @@
-const Chance = require("chance");
+const Chance = require('chance');
 
 const chance = new Chance();
 
