@@ -11,6 +11,13 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "mock-server": "mock-server --serveConfig --watch"
+  },
+  "devDependencies": {
+    "@staticdeploy/app-server": "^1.1.1",
+    "@staticdeploy/mock-server": "^1.6.2",
+    "chance": "^1.0.12",
+    "npm-run-all": "^4.1.1"
   }
 }
