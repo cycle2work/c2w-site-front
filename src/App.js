@@ -2,13 +2,11 @@ import React, {Component} from 'react';
 import {Col, Menu, Row} from 'antd';
 
 import './App.css';
+import Menu from './components/Menu/index';
 import FirstSection from './components/sections/first';
 import FactsAndFigures from './components/sections/factsAndFigures';
 
 import logo from './assets/images/logo_cycle2work.svg';
-
-const SubMenu = Menu.SubMenu;
-const MenuItemGroup = Menu.ItemGroup;
 
 export default class App extends Component {
 
@@ -35,23 +33,7 @@ export default class App extends Component {
                             onClick={this.handleClick}
                             selectedKeys={[this.state.current]}
                             mode='horizontal'
-                        >
-                            <Menu.Item key='features'>
-                                {'FEATURES'}
-                            </Menu.Item>
-                            <Menu.Item key='how_it_works'>
-                                {'HOW IT WORKS'}
-                            </Menu.Item>
-                            <Menu.Item key='facts_and_figures'>
-                                {'FACTS AND FIGURES'}
-                            </Menu.Item>
-                            <Menu.Item key='why'>
-                                {'WHY'}
-                            </Menu.Item>
-                            <Menu.Item key='contacts'>
-                                {'CONTACTS'}
-                            </Menu.Item>
-                        </Menu>
+                        />
                     </Col>
                 </Row>
                 <FirstSection />
