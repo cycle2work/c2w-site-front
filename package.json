@@ -7,17 +7,33 @@
     "react-dom": "^16.0.0",
     "react-scripts": "1.0.14"
   },
+  "devDependencies": {
+    "@staticdeploy/app-server": "^1.1.1",
+    "@staticdeploy/mock-server": "^1.6.2",
+    "chance": "^1.0.12",
+    "chai": "^4.1.2",
+    "enzyme": "^3.1.0",
+    "enzyme-adapter-react-15": "^1.0.1",
+    "eslint": "^4.8.0",
+    "eslint-config-react-app": "^2.0.1",
+    "eslint-loader": "1.9.0",
+    "eslint-plugin-flowtype": "2.35.0",
+    "eslint-plugin-import": "2.7.0",
+    "eslint-plugin-jsx-a11y": "5.1.1",
+    "eslint-plugin-react": "7.1.0",
+    "mocha": "^4.0.0",
+    "react-test-renderer": "^15.6.2",
+    "sinon": "^4.0.1",
+    "sinon-chai": "^2.8.0"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
+    "coverage": "cross-env-shell NODE_ENV=test NODE_PATH=src \"nyc mocha --require babel-register --require test/setup.js --recursive test\"",
+    "lint": "eslint src test mock-server --ext .jsx --ext .js",
+    "test": "cross-env-shell NODE_ENV=test NODE_PATH=src \"mocha --require babel-register --compilers jsx:babel-register --require test/setup.js --recursive\"",
     "mock-server": "mock-server --serveConfig --watch"
-  },
-  "devDependencies": {
-    "@staticdeploy/app-server": "^1.1.1",
-    "@staticdeploy/mock-server": "^1.6.2",
-    "chance": "^1.0.12",
-    "npm-run-all": "^4.1.1"
   }
 }
