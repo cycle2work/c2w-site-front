@@ -2,9 +2,11 @@ import React, {Component} from 'react';
 import {Col, Menu, Row} from 'antd';
 
 import './App.css';
+import {blue} from './commons/colors';
 import Button from './components/Button/index';
 
 import logo from './assets/images/logo_cycle2work.svg';
+import homeCyclist from './assets/images/home_cyclist.png';
 
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
@@ -24,7 +26,7 @@ export default class App extends Component {
 
     render() {
         return (
-            <div>
+            <div style={{margin: 'auto', maxWidth: 1200}}>
                 <Row>
                     <Col md={3} xs={24}>
                         <img alt='Logo' src={logo} style={{height: 100, width: 100}} />
@@ -54,9 +56,23 @@ export default class App extends Component {
                     </Col>
                 </Row>
                 <Row>
+                    <img
+                        alt='home_cycling'
+                        src={homeCyclist}
+                        style={{
+                            position: 'fixed',
+                            right: 0,
+                            width: 800
+                        }}
+                    />
                     <h1>{'Cycle2Work'}</h1>
-                    <h2>{'For a helthier, happier world'}</h2>
-                    <div>
+                    <h2 style={{color: blue}}>{'For a helthier, happier world'}</h2>
+                    <div
+                        style={{
+                            marginBottom: 60,
+                            marginTop: 60
+                        }}
+                    >
                         <div>{'Want to improve your health and your planet?'}</div>
                         <div>{'Cycle2Work is here to help! Simply create a'}</div>
                         <div>{'company team on Strava, connect to'}</div>

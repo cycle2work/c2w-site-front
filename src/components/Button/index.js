@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React, {Component} from 'react';
 
-import {blue} from '../../commons/colors';
+import {blue, white} from '../../commons/colors';
 
 export default class Button extends Component {
 
@@ -21,12 +21,15 @@ export default class Button extends Component {
                 onClick={onClick}
                 style={{
                     background: blue,
-                    borderRadius: 5,
+                    borderRadius: 20,
+                    color: white,
+                    cursor: 'pointer',
+                    display: 'table-cell',
                     height: 40,
                     padding: 5,
                     textAlign: 'center',
                     verticalAlign: 'middle',
-                    width: 100,
+                    width: 140,
                 }}
             >
                 {label}
