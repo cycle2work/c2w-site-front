@@ -4,23 +4,24 @@ import {Col, Row} from 'antd';
 import './App.css';
 import Menu from './components/Menu/index';
 import FirstSection from './components/sections/first';
+import FactsAndFigures from './components/sections/factsAndFigures';
 
 import logo from './assets/images/logo_cycle2work.svg';
 
 export default class App extends Component {
 
     state = {
-        current: 'mail'
+        current: 'mail',
     }
 
     handleClick = (e) => {
         console.log('click ', e);
         this.setState({
-            current: e.key
+            current: e.key,
         });
     }
 
-    render () {
+    render() {
         return (
             <div style={{margin: 'auto', maxWidth: 1200}}>
                 <Row>
@@ -36,6 +37,7 @@ export default class App extends Component {
                     </Col>
                 </Row>
                 <FirstSection />
+                <FactsAndFigures />
             </div>
         );
     }
