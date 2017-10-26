@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Col, Menu, Row} from 'antd';
+import {Col, Row} from 'antd';
 
 import './App.css';
 import Menu from './components/Menu/index';
