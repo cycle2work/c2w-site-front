@@ -1,30 +1,28 @@
 import React, {Component} from 'react';
-import {Col, Menu, Row} from 'antd';
+import {Col, Row} from 'antd';
 
 import './App.css';
 import {blue} from './commons/colors';
 import Button from './components/Button/index';
+import Menu from './components/Menu/index';
 
 import logo from './assets/images/logo_cycle2work.svg';
 import homeCyclist from './assets/images/home_cyclist.png';
 
-const SubMenu = Menu.SubMenu;
-const MenuItemGroup = Menu.ItemGroup;
-
 export default class App extends Component {
 
     state = {
-        current: 'mail',
+        current: 'mail'
     }
 
     handleClick = (e) => {
         console.log('click ', e);
         this.setState({
-            current: e.key,
+            current: e.key
         });
     }
 
-    render() {
+    render () {
         return (
             <div style={{margin: 'auto', maxWidth: 1200}}>
                 <Row>
@@ -36,23 +34,7 @@ export default class App extends Component {
                             onClick={this.handleClick}
                             selectedKeys={[this.state.current]}
                             mode='horizontal'
-                        >
-                            <Menu.Item key='features'>
-                                {'FEATURES'}
-                            </Menu.Item>
-                            <Menu.Item key='how_it_works'>
-                                {'HOW IT WORKS'}
-                            </Menu.Item>
-                            <Menu.Item key='facts_and_figures'>
-                                {'FACTS AND FIGURES'}
-                            </Menu.Item>
-                            <Menu.Item key='why'>
-                                {'WHY'}
-                            </Menu.Item>
-                            <Menu.Item key='contacts'>
-                                {'CONTACTS'}
-                            </Menu.Item>
-                        </Menu>
+                        />
                     </Col>
                 </Row>
                 <Row>
@@ -80,7 +62,7 @@ export default class App extends Component {
                         <div>{'footprint today.'}</div>
                     </div>
                 </Row>
-                <Button label={'JOIN NOW'} onClick={() => {}}/>
+                <Button label={'JOIN NOW'} onClick={() => {}} />
             </div>
         );
     }
