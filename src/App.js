@@ -2,9 +2,8 @@ import React, {Component} from 'react';
 import {Col, Menu, Row} from 'antd';
 
 import './App.css';
-import {blue} from './commons/colors';
-import Button from './components/Button/index';
 import FirstSection from './components/sections/first';
+import FactsAndFigures from './components/sections/factsAndFigures';
 
 import logo from './assets/images/logo_cycle2work.svg';
 
@@ -56,6 +55,7 @@ export default class App extends Component {
                     </Col>
                 </Row>
                 <FirstSection />
+                <FactsAndFigures />
             </div>
         );
     }
