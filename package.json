@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "antd": "^2.13.7",
     "babel-polyfill": "^6.26.0",
+    "prop-types": "^15.6.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-scripts": "1.0.14"
@@ -13,11 +15,11 @@
     "@staticdeploy/mock-server": "^1.6.2",
     "babel-preset-env": "^1.6.1",
     "babel-register": "^6.26.0",
-    "chai": "^4.1.2",
     "chance": "^1.0.12",
+    "chai": "^4.1.2",
     "cross-env": "^5.1.0",
     "enzyme": "^3.1.0",
-    "enzyme-adapter-react-16": "^1.0.2",
+    "enzyme-adapter-react-16": "^1.0.1",
     "eslint": "^4.8.0",
     "eslint-config-react-app": "^2.0.1",
     "eslint-loader": "1.9.0",
@@ -26,8 +28,7 @@
     "eslint-plugin-jsx-a11y": "5.1.1",
     "eslint-plugin-react": "7.1.0",
     "mocha": "^4.0.0",
-    "nyc": "^11.2.1",
-    "react-test-renderer": "^16.0.0",
+    "react-test-renderer": "^15.6.2",
     "sinon": "^4.0.1",
     "sinon-chai": "^2.8.0"
   },
@@ -37,7 +38,7 @@
     "eject": "react-scripts eject",
     "coverage": "cross-env-shell NODE_ENV=test NODE_PATH=src \"nyc mocha --require babel-register --require test/setup.js --recursive test\"",
     "lint": "eslint src test mock-server --ext .jsx --ext .js",
-    "test": "cross-env-shell NODE_ENV=test NODE_PATH=src \"mocha --require babel-register --require test/setup.js --recursive\"",
+    "test": "cross-env-shell NODE_ENV=test NODE_PATH=src \"mocha --require babel-register --compilers jsx:babel-register --require test/setup.js --recursive\"",
     "mock-server": "mock-server --serveConfig --watch"
   }
 }
