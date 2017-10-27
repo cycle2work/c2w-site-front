@@ -11,7 +11,7 @@ export default class FeaturesSection extends Component {
 
     render () {
         return (
-            <div style={{marginTop: "20px"}}>
+            <div style={{marginTop: '20px'}}>
                 <Row>
                     <h2>{'Features'}</h2>
                 </Row>

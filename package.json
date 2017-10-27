@@ -5,6 +5,7 @@
   "dependencies": {
     "antd": "^2.13.7",
     "babel-polyfill": "^6.26.0",
+    "nyc": "^11.2.1",
     "prop-types": "^15.6.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
@@ -15,8 +16,8 @@
     "@staticdeploy/mock-server": "^1.6.2",
     "babel-preset-env": "^1.6.1",
     "babel-register": "^6.26.0",
-    "chance": "^1.0.12",
     "chai": "^4.1.2",
+    "chance": "^1.0.12",
     "cross-env": "^5.1.0",
     "enzyme": "^3.1.0",
     "enzyme-adapter-react-16": "^1.0.1",
