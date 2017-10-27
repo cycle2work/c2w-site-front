@@ -3,8 +3,6 @@ import React, {Component} from 'react';
 import {primaryColor, white} from '../../../commons/colors';
 import Button from '../../Button';
 
-import homeCyclist from '../../../assets/images/home_cyclist.png';
-
 export default class FirstSection extends Component {
 
     render () {

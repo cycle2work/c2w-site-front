@@ -18,26 +18,47 @@ export default class Card extends Component {
             <div
                 style={style}
             >
-                {icon
-                    ? <img style={{height: 80}} src={icon} />
+                {icon ?
+                    <div
+                        style={{
+                            borderRadius: '50%',
+                            width: '80px',
+                            height: '80px',
+                            verticalAlign: 'middle',
+                            boxShadow:
+                            `0 0 0 2px hsl(0, 0%, 92%),
+                            0 3px 0 6px hsl(0, 0%, 94%),
+                            0 6px 0 13px hsl(0, 0%, 98%)`
+                        }}
+                    >
+                        <img
+                            style={{
+                                height: 50,
+                                marginTop: 15
+                            }}
+                            src={icon}
+                        />
+                    </div>
                     : null}
-                <div
-                    style={{
-                        fontSize: 28,
-                        fontWeight: 'bold',
-                        color: black
-                    }}
-                >
-                    {title}
-                </div>
-                <div
-                    style={{
-                        fontSize: 20,
-                        textAlign: 'center',
-                        color: grey
-                    }}
-                >
-                    {text}
+                <div style={{paddingTop: 20}}>
+                    <div
+                        style={{
+                            fontSize: 28,
+                            fontWeight: 'bold',
+                            color: black
+                        }}
+                    >
+                        {title}
+                    </div>
+                    <div
+                        style={{
+                            fontSize: 20,
+                            textAlign: 'center',
+                            color: grey
+                        }}
+                    >
+                        {text}
+                    </div>
                 </div>
             </div>
         );
