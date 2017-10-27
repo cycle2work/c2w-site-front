@@ -1,47 +1,8 @@
-import PropTypes from 'prop-types';
 import React, {Component} from 'react';
 import BurgerMenu from 'react-burger-menu';
 import './index.css';
 
-class MenuWrap extends Component {
-
-    static propTypes = {
-        children: PropTypes.object,
-        side: PropTypes.string
-    };
-
-    constructor (props) {
-        super(props);
-        this.state = {
-            hidden: false
-        };
-    }
-
-    show () {
-        this.setState({hidden: false});
-    }
-
-    render () {
-        let style;
-        const {children, side} = this.props;
-
-        if (this.state.hidden) {
-            style = {display: 'none'};
-        }
-
-        return (
-            <div style={style} className={side}>
-                {children}
-            </div>
-        );
-    }
-}
-
 class MenuComponent extends Component {
-
-    static propTypes = {
-        menus: PropTypes.object
-    };
 
     constructor (props) {
         super(props);
@@ -60,11 +21,10 @@ class MenuComponent extends Component {
     }
 
     getItem (item) {
-        let href = '#' + item;
         return (
             <a
                 key={item}
-                href={href}
+                href={'#'.concat(item)}
             >
                 <i className='fa fa-fw fa-star-o' /><span>{this.state.menus[item]}</span>
             </a>
@@ -83,17 +43,17 @@ class MenuComponent extends Component {
         ];
 
         return (
-            <MenuWrap side={this.state.side}>
+            <div className={this.state.side}>
                 <Menu
                     id={this.state.currentMenu}
                     pageWrapId={'page-wrap'}
                     outerContainerId={'outer-container'}
                     right={true}
-                    width={'280px'}
+                    width={'17.5em'}
                 >
                     {items}
                 </Menu>
-            </MenuWrap>
+            </div>
         );
     }
 
