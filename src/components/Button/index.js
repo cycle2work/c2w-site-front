@@ -29,7 +29,7 @@ export default class Button extends Component {
                     padding: 5,
                     textAlign: 'center',
                     verticalAlign: 'middle',
-                    width: 140,
+                    width: 140
                 }}
             >
                 {label}

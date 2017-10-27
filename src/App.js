@@ -6,23 +6,24 @@ import Menu from './components/Menu/index';
 import FirstSection from './components/sections/first';
 import FactsAndFigures from './components/sections/factsAndFigures';
 import FeaturesSection from './components/sections/features';
+import Why from './components/sections/why';
 
 import logo from './assets/images/logo_cycle2work.svg';
 
 export default class App extends Component {
 
     state = {
-        current: 'mail',
+        current: 'mail'
     }
 
     handleClick = (e) => {
         console.log('click ', e);
         this.setState({
-            current: e.key,
+            current: e.key
         });
     }
 
-    render() {
+    render () {
         return (
             <div>
                 <Row>
@@ -40,6 +41,7 @@ export default class App extends Component {
                 <FirstSection />
                 <FeaturesSection />
                 <FactsAndFigures />
+                <Why />
             </div>
         );
     }

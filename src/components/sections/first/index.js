@@ -33,7 +33,7 @@ export default class FirstSection extends Component {
                     <div>{'Cycle2Work and start reducing your carbon'}</div>
                     <div>{'footprint today.'}</div>
                 </div>
-                <Button label={'JOIN NOW'} onClick={() => console.log("join_now")} />
+                <Button label={'JOIN NOW'} onClick={() => console.log('join_now')} />
             </Row>
         );
     }
