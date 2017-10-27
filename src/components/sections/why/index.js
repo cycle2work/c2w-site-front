@@ -6,63 +6,25 @@ import Community from '../../../assets/images/icons/icon_community.svg';
 import Leaf from '../../../assets/images/icons/icon_leaf.svg';
 
 import Card from './card';
-import {white} from '../../../commons/colors';
 
-const styles = {
-    headerCardStyle: {
-        align: 'center',
-        alignItems: 'center',
-        display: 'flex',
-        flexDirection: 'column',
-        maxWidth: 800
-    },
-    boxCardStyle: {
-        alignItems: 'center',
-        display: 'flex',
-        flexDirection: 'column',
-        height: 250,
-        width: 300
-    },
-    rowStyle: {
-        textAlign: 'center',
-        paddingBottom: 30
-    },
-    containerStyle: {
-        background: white,
-        marginTop: '20px',
-        maxWidth: 1800
-    }
-};
+import {style} from './style';
 
 export default class Why extends Component {
 
     render () {
         return (
-            <Row style={styles.containerStyle}>
-                <Row
-                    style={styles.rowStyle}
-                    type={'flex'}
-                    justify={'center'}
-                >
-                    <Card
-                        text={
-                            `Cycle2Work was created by the mondora team as a way
-                                of rewarding workers who choose to commute by bicycle.
-                                We are creating positive impact for:`
-                        }
-                        style={styles.headerCardStyle}
-                        title={'Why'}
-                    />
-                </Row>
-                <Row
-                    style={styles.rowStyle}
-                    type={'flex'}
-                    justify={'center'}
-                >
+            <div style={style.container}>
+                <div style={style.titleWrp}>
+                    <h2 style={style.sectionTitle}>{'Why'}</h2>
+                    <p style={style.paragraph}>
+                        {'Cycle2Work was created by the mondora team as a way of rewarding workers who choose to commute by bicycle. We are creating positive impact for:'}
+                    </p>
+                </div>
+                <Row style={style.customRow}>
                     <Col xs={24} md={8}>
                         <Card
                             icon={Workers}
-                            style={styles.boxCardStyle}
+                            style={style.boxCardStyle}
                             text={
                                 `various studies claim cycling reduces stress levels
                                 and the risk of certain diseases, thus improving overall
@@ -74,7 +36,7 @@ export default class Why extends Component {
                     <Col xs={24} md={8}>
                         <Card
                             icon={Leaf}
-                            style={styles.boxCardStyle}
+                            style={style.boxCardStyle}
                             text={
                                 `cycling is an eco-friendly means of travel and reduces
                                 the carbon footprint of commuting to work, as well as
@@ -86,7 +48,7 @@ export default class Why extends Component {
                     <Col xs={24} md={8}>
                         <Card
                             icon={Community}
-                            style={styles.boxCardStyle}
+                            style={style.boxCardStyle}
                             text={
                                 `local bycicle shops see a rise in sales as more colleagues
                                 joins the programme. Earned travel reimbursements are
@@ -96,7 +58,7 @@ export default class Why extends Component {
                         />
                     </Col>
                 </Row>
-            </Row>
+            </div>
         );
     }
 

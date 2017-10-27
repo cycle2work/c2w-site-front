@@ -19,12 +19,12 @@ export default class Card extends Component {
                 style={style}
             >
                 {icon
-                    ? <img style={{height: 80}} src={icon} />
+                    ? <img alt={icon} style={{height: 80}} src={icon} />
                     : null}
                 <div
                     style={{
-                        fontSize: 28,
-                        fontWeight: 'bold',
+                        fontSize: 'calc(14px + 0.5vw)',
+                        fontWeight: 500,
                         color: black
                     }}
                 >
@@ -32,7 +32,7 @@ export default class Card extends Component {
                 </div>
                 <div
                     style={{
-                        fontSize: 20,
+                        fontSize: 'calc(12px + 0.3vw)',
                         textAlign: 'center',
                         color: grey
                     }}
