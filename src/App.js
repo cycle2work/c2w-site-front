@@ -7,6 +7,7 @@ import FirstSection from './components/sections/first';
 import FactsAndFigures from './components/sections/factsAndFigures';
 import FeaturesSection from './components/sections/features';
 import Why from './components/sections/why';
+import How from './components/sections/how';
 
 import logo from './assets/images/logo_cycle2work.svg';
 import Mondora from './components/sections/mondora';
@@ -41,6 +42,7 @@ export default class App extends Component {
                 </Row>
                 <FirstSection />
                 <FeaturesSection />
+                <How />
                 <FactsAndFigures />
                 <Why />
                 <Mondora />
