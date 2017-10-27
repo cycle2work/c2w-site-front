@@ -1,6 +1,6 @@
 import {Row} from 'antd';
 import React, {Component} from 'react';
-import {blue, white} from '../../../commons/colors';
+import {primaryColor, white} from '../../../commons/colors';
 import Button from '../../Button';
 
 import homeCyclist from '../../../assets/images/home_cyclist.png';
@@ -10,7 +10,7 @@ export default class FirstSection extends Component {
     render () {
         return (
             <Row style={{margin: 'auto', maxWidth: 1200}}>
-                <img
+                {/* <img
                     alt='home_cycling'
                     src={homeCyclist}
                     style={{
@@ -18,9 +18,9 @@ export default class FirstSection extends Component {
                         right: 0,
                         width: 800
                     }}
-                />
+                /> */}
                 <h1>{'Cycle2Work'}</h1>
-                <h2 style={{color: blue}}>{'For a helthier, happier world'}</h2>
+                <h2 style={{color: primaryColor}}>{'For a helthier, happier world'}</h2>
                 <div
                     style={{
                         marginBottom: 60,
@@ -34,9 +34,9 @@ export default class FirstSection extends Component {
                     <div>{'footprint today.'}</div>
                 </div>
                 <Button
-                    backgroundColor={blue}
+                    backgroundColor={primaryColor}
                     label={'JOIN NOW'}
-                    onClick={() => console.log("join_now")}
+                    onClick={() => console.log('join_now')}
                     textColor={white}
                 />
             </Row>

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React, {Component} from 'react';
 
-import {blue, white} from '../../commons/colors';
+import {primaryColor, white} from '../../commons/colors';
 
 export default class Button extends Component {
 
@@ -13,7 +13,7 @@ export default class Button extends Component {
     }
 
     static defaultProps = {
-        backgroundColor: blue,
+        backgroundColor: primaryColor,
         label: '',
         textColor: white
     }
