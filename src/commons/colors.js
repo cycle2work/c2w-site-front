@@ -7,11 +7,7 @@ export const transparent = 'transparent';
 export const lighterGrey = '#E9EDF3';
 export const lightGrey = '#C3CEDB';
 export const grey = '#95a1b5';
-export const backToTop = '#7E8389';
-export const scrollToBottom = '#ffffff';
-export const silver = '#2E343D';
-export const darkGrey = '#171B23';
-export const black = '#000000';
+export const black = '#171B23';
 export const blackOpacity = 'rgba(0, 0, 0, 0.9)';
 export const bgModalOpacity = 'rgba(0, 0, 0, 0.7)';
 
