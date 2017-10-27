@@ -5,6 +5,7 @@ import './App.css';
 import Menu from './components/Menu/index';
 import FirstSection from './components/sections/first';
 import FactsAndFigures from './components/sections/factsAndFigures';
+import FeaturesSection from './components/sections/features';
 
 import logo from './assets/images/logo_cycle2work.svg';
 
@@ -37,6 +38,7 @@ export default class App extends Component {
                     </Col>
                 </Row>
                 <FirstSection />
+                <FeaturesSection />
                 <FactsAndFigures />
             </div>
         );
