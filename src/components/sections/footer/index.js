@@ -25,6 +25,7 @@ const styles = {
         fontSize: 12,
         fontWeight: 300
     },
+    h1: {textAlign: 'center', color: 'white'},
     textWrp: {
         '@media screen and (max-width: 991px)': {
             border: 'none',
@@ -46,6 +47,7 @@ export default class Footer extends Component {
     render () {
         return (
             <div style={styles.footerWrp}>
+                <h1 id='contacts' style={styles.h1}>{'Contacts'}</h1>
                 <Row gutter={30} style={styles.customRow}>
                     <Col xs={24} md={12} style={styles.footerCol}>
                         <div style={styles.textWrp}>
@@ -76,7 +78,7 @@ export default class Footer extends Component {
                             <br />
                             <span>
                                 <strong>{'Tel: '}</strong>
-                                <a href='tel:+3903421856264' style={{ color: colors.lighterGrey}}>
+                                <a href='tel:+3903421856264' style={{color: colors.lighterGrey}}>
                                     {'+39 0342 1856 264 '}
                                 </a>
                             </span>

@@ -14,7 +14,7 @@ export default class Why extends Component {
         return (
             <div style={style.container}>
                 <div style={style.titleWrp}>
-                    <h2 style={style.sectionTitle}>{'Why'}</h2>
+                    <h2 id='why' style={style.sectionTitle}>{'Why'}</h2>
                     <p style={style.paragraph}>
                         {'Cycle2Work was created by the mondora team as a way of rewarding workers who choose to commute by bicycle. We are creating positive impact for:'}
                     </p>

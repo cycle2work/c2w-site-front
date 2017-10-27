@@ -15,7 +15,7 @@ export default class FeaturesSection extends Component {
             <div style={style.container}>
                 <Row gutter={30} style={style.featureBox}>
                     <Col xs={24}>
-                        <h2 style={style.sectionTitle}>{'Features'}</h2>
+                        <h2 id='features' style={style.sectionTitle}>{'Features'}</h2>
                         <Row gutter={30}>
                             <Col lg={6} sm={12} xs={24}>
                                 <div style={style.iconBox}>

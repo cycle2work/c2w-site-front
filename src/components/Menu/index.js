@@ -1,44 +1,110 @@
 import PropTypes from 'prop-types';
 import React, {Component} from 'react';
-import {Menu} from 'antd';
+import BurgerMenu from 'react-burger-menu';
+import './index.css';
 
-export default class Button extends Component {
+class MenuWrap extends Component {
 
     static propTypes = {
-        mode: PropTypes.string,
-        onClick: PropTypes.func,
-        selectedKeys: PropTypes.array
+        children: PropTypes.object,
+        side: PropTypes.string
+    };
+
+    constructor (props) {
+        super(props);
+        this.state = {
+            hidden: false
+        };
+    }
+
+    show () {
+        this.setState({hidden: false});
     }
 
     render () {
-        const {mode, onClick, selectedKeys} = this.props;
-        return (
-            <Menu
-                onClick={onClick}
-                selectedKeys={selectedKeys}
-                mode={mode}
-            >
-                <Menu.Item key='features'>
-                    {'FEATURES'}
-                </Menu.Item>
-                <Menu.Item key='how_it_works'>
-                    {'HOW IT WORKS'}
-                </Menu.Item>
-                <Menu.Item key='facts_and_figures'>
-                    {'FACTS AND FIGURES'}
-                </Menu.Item>
-                <Menu.Item key='why'>
-                    {'WHY'}
-                </Menu.Item>
-                <Menu.Item key='join'>
-                    {'JOIN'}
-                </Menu.Item>
-                <Menu.Item key='standings'>
-                    {'STANDINGS'}
-                </Menu.Item>
-            </Menu>
+        let style;
+        const {children, side} = this.props;
 
+        if (this.state.hidden) {
+            style = {display: 'none'};
+        }
+
+        return (
+            <div style={style} className={side}>
+                {children}
+            </div>
+        );
+    }
+}
+
+class MenuComponent extends Component {
+
+    static propTypes = {
+        menus: PropTypes.object
+    };
+
+    constructor (props) {
+        super(props);
+        this.state = {
+            currentMenu: 'slide',
+            menus: {
+                firstSection: 'Cycle2Work',
+                features: 'Features',
+                howItWorks: 'How it works',
+                factsAndFigures: 'Facts and figures',
+                why: 'Why',
+                contacts: 'Contacts'
+            },
+            side: 'right'
+        };
+    }
+
+    getItem (item) {
+        let href = '#' + item;
+        return (
+            <a
+                key={item}
+                href={href}
+            >
+                <i className='fa fa-fw fa-star-o' /><span>{this.state.menus[item]}</span>
+            </a>
         );
     }
 
+    getMenu () {
+        const Menu = BurgerMenu[this.state.currentMenu];
+        const items = [
+            this.getItem('firstSection'),
+            this.getItem('features'),
+            this.getItem('howItWorks'),
+            this.getItem('factsAndFigures'),
+            this.getItem('why'),
+            this.getItem('contacts')
+        ];
+
+        return (
+            <MenuWrap side={this.state.side}>
+                <Menu
+                    id={this.state.currentMenu}
+                    pageWrapId={'page-wrap'}
+                    outerContainerId={'outer-container'}
+                    right={true}
+                    width={'280px'}
+                >
+                    {items}
+                </Menu>
+            </MenuWrap>
+        );
+    }
+
+    render () {
+        return (
+            <div id='outer-container'>
+                {this.getMenu()}
+            </div>
+        );
+    }
 }
+
+export default MenuComponent;
+

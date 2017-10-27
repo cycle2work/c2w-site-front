@@ -3,7 +3,7 @@ import {Col, Row} from 'antd';
 import Radium from 'radium';
 
 import './App.css';
-import Menu from './components/Menu/index';
+import MenuComponent from './components/Menu';
 import FirstSection from './components/sections/first';
 import FactsAndFigures from './components/sections/factsAndFigures';
 import FeaturesSection from './components/sections/features';
@@ -31,16 +31,10 @@ class App extends Component {
     render () {
         return (
             <div>
+                <MenuComponent />
                 <Row>
                     <Col md={3} xs={24}>
                         <img alt='Logo' src={logo} style={{height: 100, width: 100}} />
-                    </Col>
-                    <Col md={21} xs={24}>
-                        <Menu
-                            onClick={this.handleClick}
-                            selectedKeys={[this.state.current]}
-                            mode='horizontal'
-                        />
                     </Col>
                 </Row>
                 <FirstSection />

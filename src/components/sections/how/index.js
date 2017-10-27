@@ -40,6 +40,7 @@ export default class Why extends Component {
             <Row style={styles.containerStyle}>
                 <Row style={styles.headerStyle}>
                     <p
+                        id='howItWorks'
                         style={{
                             fontSize: 40,
                             fontWeight: 'bold',
