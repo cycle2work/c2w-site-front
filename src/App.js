@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Col, Row} from 'antd';
+import Radium from 'radium';
 
 import './App.css';
 import Menu from './components/Menu/index';
@@ -12,18 +13,19 @@ import How from './components/sections/how';
 import logo from './assets/images/logo_cycle2work.svg';
 import Mondora from './components/sections/mondora';
 
-export default class App extends Component {
+
+class App extends Component {
 
     state = {
         current: 'mail'
-    }
+    };
 
     handleClick = (e) => {
         console.log('click ', e);
         this.setState({
             current: e.key
         });
-    }
+    };
 
     render () {
         return (
@@ -51,3 +53,5 @@ export default class App extends Component {
     }
 
 }
+
+export default Radium(App);
