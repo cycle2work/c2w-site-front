@@ -23,7 +23,7 @@ export default class App extends Component {
 
     render() {
         return (
-            <div style={{margin: 'auto', maxWidth: 1200}}>
+            <div>
                 <Row>
                     <Col md={3} xs={24}>
                         <img alt='Logo' src={logo} style={{height: 100, width: 100}} />

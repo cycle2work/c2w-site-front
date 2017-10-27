@@ -9,7 +9,7 @@ export default class FirstSection extends Component {
 
     render () {
         return (
-            <Row>
+            <Row style={{margin: 'auto', maxWidth: 1200}}>
                 <img
                     alt='home_cycling'
                     src={homeCyclist}
