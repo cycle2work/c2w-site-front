@@ -33,7 +33,7 @@ export default class Mondora extends Component {
                         padding: 20
                     }}
                 >
-                    <img style={{marginTop: -110, width: 130}} src={mondoraLogo} />
+                    <img alt={'mondora-logo'} style={{marginTop: -110, width: 130}} src={mondoraLogo} />
                     <p style={{fontSize: 24, padding: 30, textAlign: 'center'}}>
                         {'In Mondora about '}
                         <b>35%</b>

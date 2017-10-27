@@ -19,6 +19,7 @@ export default class FeaturesSection extends Component {
                     <Col md={6} xs={24}>
                         <Row>
                             <img
+                                alt={'graph'}
                                 style={{height: 80}}
                                 src={graph}
                             />
@@ -28,6 +29,7 @@ export default class FeaturesSection extends Component {
                     <Col md={6} xs={24}>
                         <Row>
                             <img
+                                alt={'people'}
                                 style={{height: 80}}
                                 src={people}
                             />
@@ -39,6 +41,7 @@ export default class FeaturesSection extends Component {
                     <Col md={6} xs={24}>
                         <Row>
                             <img
+                                alt={'save'}
                                 style={{height: 80}}
                                 src={save}
                             />
@@ -48,6 +51,7 @@ export default class FeaturesSection extends Component {
                     <Col md={6} xs={24}>
                         <Row>
                             <img
+                                alt={'healt'}
                                 style={{height: 80}}
                                 src={health}
                             />
