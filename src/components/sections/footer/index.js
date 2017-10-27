@@ -69,8 +69,8 @@ export default class Footer extends Component {
                             <br />
                             <span>
                                 <strong>{'Email. '}</strong>
-                                <a href='mailto:info@entova.it' style={{ color: colors.lighterGrey}}>
-                                    {'info@entova.it'}
+                                <a href='mailto:info@cycle2work.io' style={{color: colors.lighterGrey}}>
+                                    {'info@cycle2work.io'}
                                 </a>
                             </span>
                             <br />
@@ -102,7 +102,7 @@ export default class Footer extends Component {
                     <Row gutter={30} style={styles.customRow}>
                         <Col xs={24}>
                             <p style={{margin: '0'}}>
-                                {`© Copyright 2017 - mondora S.r.l. -
+                                {`© Copyright 2017 - mondora S.r.l. - Cycle2Work
                                     Partita Iva 03680680968. Tutti i diritti riservati`}
                             </p>
                         </Col>
