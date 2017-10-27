@@ -7,6 +7,7 @@ import Menu from './components/Menu/index';
 import FirstSection from './components/sections/first';
 import FactsAndFigures from './components/sections/factsAndFigures';
 import FeaturesSection from './components/sections/features';
+import Footer from './components/sections/footer';
 import Why from './components/sections/why';
 import How from './components/sections/how';
 
@@ -48,6 +49,7 @@ class App extends Component {
                 <FactsAndFigures />
                 <Why />
                 <Mondora />
+                <Footer />
             </div>
         );
     }

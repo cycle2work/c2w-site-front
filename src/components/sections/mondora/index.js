@@ -4,7 +4,7 @@ import {Row} from 'antd';
 
 import gradient from '../../../assets/images/gradient_mondora.png';
 import mondoraLogo from '../../../assets/images/logo_mondora.png';
-import {black, white, secondaryColor} from '../../../commons/colors';
+import {black, white, grey, secondaryColor} from '../../../commons/colors';
 import Button from '../../Button';
 
 export default class Mondora extends Component {
@@ -18,23 +18,29 @@ export default class Mondora extends Component {
                     backgroundRepeat: 'repeat-y',
                     paddingBottom: 60,
                     paddingTop: 60,
-                    marginTop: 50
+                    margin: '50px 0'
                 }}
             >
                 <div
                     style={{
                         margin: 'auto',
-                        maxWidth: 1200,
+                        maxWidth: 1000,
                         display: 'flex',
                         flexDirection: 'column',
                         alignItems: 'center',
                         backgroundColor: white,
                         borderRadius: 10,
-                        padding: 20
+                        padding: '30px 0'
                     }}
                 >
-                    <img alt={'mondora-logo'} style={{marginTop: -110, width: 130}} src={mondoraLogo} />
-                    <p style={{fontSize: 24, padding: 30, textAlign: 'center'}}>
+                    <img alt={'mondora-logo'} style={{marginTop: -110, width: 'calc(100px + 3vw)'}} src={mondoraLogo} />
+                    <p
+                        style={{
+                            fontSize: 'calc(14px + 0.3vw)',
+                            color: grey,
+                            padding: 30, textAlign: 'center'
+                        }}
+                    >
                         {'In Mondora about '}
                         <b>{'35%'}</b>
                         {' of the company uses '}
