@@ -30,8 +30,11 @@ export default class Button extends Component {
                 <Menu.Item key='why'>
                     {'WHY'}
                 </Menu.Item>
-                <Menu.Item key='contacts'>
-                    {'CONTACTS'}
+                <Menu.Item key='join'>
+                    {'JOIN'}
+                </Menu.Item>
+                <Menu.Item key='standings'>
+                    {'STANDINGS'}
                 </Menu.Item>
             </Menu>
 
