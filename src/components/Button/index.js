@@ -25,15 +25,19 @@ export default class Button extends Component {
                 onClick={onClick}
                 style={{
                     background: backgroundColor,
-                    borderRadius: 20,
+                    borderRadius: 30,
                     color: textColor,
                     cursor: 'pointer',
+                    lineHeight: '45px',
                     display: 'table-cell',
-                    height: 40,
-                    padding: 5,
+                    padding: '0px 60px',
                     textAlign: 'center',
-                    verticalAlign: 'middle',
-                    width: 140
+                    fontSize: 'calc(14px + 0.2vw)',
+                    fontWeight: 500,
+                    textStyle: 'uppercase',
+                    WebkitBoxShadow: '0px 8px 40px -9px rgba(28, 27, 41, 0.5)',
+                    MozBoxShadow: '0px 8px 40px -9px rgba(28, 27, 41, 0.5)',
+                    boxShadow: '0px 8px 40px -9px rgba(28, 27, 41, 0.5)'
                 }}
             >
                 {label}
