@@ -1,46 +1,34 @@
-import {Row} from 'antd';
+import {Row, Col} from 'antd';
 import React, {Component} from 'react';
 import {primaryColor, white} from '../../../commons/colors';
 import Button from '../../Button';
 
-import homeCyclist from '../../../assets/images/home_cyclist.png';
+import {style} from './style';
 
 export default class FirstSection extends Component {
 
     render () {
         return (
-            <Row style={{margin: 'auto', maxWidth: 1200}}>
-                {/* <img
-                    alt='home_cycling'
-                    src={homeCyclist}
-                    style={{
-                        position: 'fixed',
-                        right: 0,
-                        width: 800
-                    }}
-                /> */}
-                <h1>{'Cycle2Work'}</h1>
-                <h2 style={{color: primaryColor}}>{'For a helthier, happier world'}</h2>
-                <div
-                    style={{
-                        marginBottom: 60,
-                        marginTop: 60
-                    }}
-                >
-                    <div>{'Want to improve your health and your planet?'}</div>
-                    <div>{'Cycle2Work is here to help! Simply create a'}</div>
-                    <div>{'company team on Strava, connect to'}</div>
-                    <div>{'Cycle2Work and start reducing your carbon'}</div>
-                    <div>{'footprint today.'}</div>
-                </div>
-                <Button
-                    backgroundColor={primaryColor}
-                    label={'JOIN NOW'}
-                    onClick={() => console.log('join_now')}
-                    textColor={white}
-                />
-            </Row>
+            <div style={style.container}>
+                <Row gutter={30} style={style.contentRow}>
+                    <Col lg={12} xs={24}>
+                        <h1>{'Cycle2Work'}</h1>
+                        <h2 style={{color: primaryColor}}>{'For a helthier, happier world'}</h2>
+                        <div>
+                            {'Want to improve your health and your planet? Cycle2Work is here to help! Simply create a company team on Strava, connect to Cycle2Work and start reducing your carbon footprint today.'}
+                        </div>
+                        <Button
+                            backgroundColor={primaryColor}
+                            label={'JOIN NOW'}
+                            onClick={() => console.log('join_now')}
+                            textColor={white}
+                        />
+                    </Col>
+                    <Col lg={12} xs={24} >
+                        <div style={style.div} />
+                    </Col>
+                </Row>
+            </div>
         );
     }
-
 }
