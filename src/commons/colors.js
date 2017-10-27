@@ -1,5 +1,6 @@
 // Common styles
 export const background = '#ffffff';
+export const backgroundHow = '#f2faff';
 export const backgroundError = '#ebccd1';
 export const errorText = '#a94442';
 export const white = '#ffffff';
@@ -20,5 +21,6 @@ export const secondaryColor = '#FFEA00';
 export const tertiaryColor = '#E62F72';
 export const green = '#06bc53';
 export const red = '#cc0000';
+export const blue2 = '#11b8c6';
 export const backgroundFooter = '#232934';
 export const backgroundBottomFooter = '#0c0e11';

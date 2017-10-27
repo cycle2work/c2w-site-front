@@ -1,4 +1,4 @@
-import {Col, Row} from 'antd';
+import {Row, Col} from 'antd';
 import React, {Component} from 'react';
 
 import Workers from '../../../assets/images/icons/icon_workers.svg';
@@ -6,7 +6,6 @@ import Community from '../../../assets/images/icons/icon_community.svg';
 import Leaf from '../../../assets/images/icons/icon_leaf.svg';
 
 import Card from './card';
-
 import {style} from './style';
 
 export default class Why extends Component {
