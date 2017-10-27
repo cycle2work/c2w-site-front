@@ -8,7 +8,6 @@ import health from '../../../assets/images/icons/icon_health.svg';
 
 import {style} from './style';
 
-
 export default class FeaturesSection extends Component {
 
     render () {

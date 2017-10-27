@@ -12,10 +12,10 @@ export const style = {
     featureBox: {
         textAlign: 'center',
         margin: '50px auto',
-        paddingBottom: '60px',
+        padding: '80px 0',
         maxWidth: 1200,
         backgroundColor: colors.white,
-        borderRadius: '20px',
+        borderRadius: '10px',
         WebkitBoxShadow: '0px 8px 60px -9px rgba(28, 27, 41, 0.3)',
         MozBoxShadow: '0px 8px 60px -9px rgba(28, 27, 41, 0.3)',
         boxShadow: '0px 8px 60px -9px rgba(28, 27, 41, 0.3)'
@@ -25,11 +25,12 @@ export const style = {
         margin: '20px auto'
     },
     sectionTitle: {
-        fontSize: 'calc(18px + 0.8vw)',
+        fontSize: 'calc(22px + 0.8vw)',
         color: colors.black,
-        padding: '40px 0'
+        paddingBottom: '40px'
     },
     paragraph: {
-        fontSize: 'calc(12px + 0.3vw)'
+        fontSize: 'calc(12px + 0.3vw)',
+        color: colors.grey
     }
 };
