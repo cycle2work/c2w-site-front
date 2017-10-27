@@ -1,6 +1,6 @@
 import {Row} from 'antd';
 import React, {Component} from 'react';
-import {blue} from '../../../commons/colors';
+import {blue, white} from '../../../commons/colors';
 import Button from '../../Button';
 
 import homeCyclist from '../../../assets/images/home_cyclist.png';
@@ -33,7 +33,12 @@ export default class FirstSection extends Component {
                     <div>{'Cycle2Work and start reducing your carbon'}</div>
                     <div>{'footprint today.'}</div>
                 </div>
-                <Button label={'JOIN NOW'} onClick={() => console.log("join_now")} />
+                <Button
+                    backgroundColor={blue}
+                    label={'JOIN NOW'}
+                    onClick={() => console.log("join_now")}
+                    textColor={white}
+                />
             </Row>
         );
     }

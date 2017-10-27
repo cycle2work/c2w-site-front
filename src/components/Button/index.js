@@ -6,23 +6,27 @@ import {blue, white} from '../../commons/colors';
 export default class Button extends Component {
 
     static propTypes = {
+        backgroundColor: PropTypes.string,
         label: PropTypes.string,
-        onClick: PropTypes.func.isRequired
+        onClick: PropTypes.func.isRequired,
+        textColor: PropTypes.string
     }
 
     static defaultProps = {
-        label: ''
+        backgroundColor: blue,
+        label: '',
+        textColor: white
     }
 
     render () {
-        const {label, onClick} = this.props;
+        const {backgroundColor, label, onClick, textColor} = this.props;
         return (
             <div
                 onClick={onClick}
                 style={{
-                    background: blue,
+                    background: backgroundColor,
                     borderRadius: 20,
-                    color: white,
+                    color: textColor,
                     cursor: 'pointer',
                     display: 'table-cell',
                     height: 40,

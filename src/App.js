@@ -8,6 +8,7 @@ import FactsAndFigures from './components/sections/factsAndFigures';
 import FeaturesSection from './components/sections/features';
 
 import logo from './assets/images/logo_cycle2work.svg';
+import Mondora from './components/sections/mondora';
 
 export default class App extends Component {
 
@@ -40,6 +41,7 @@ export default class App extends Component {
                 <FirstSection />
                 <FeaturesSection />
                 <FactsAndFigures />
+                <Mondora />
             </div>
         );
     }
