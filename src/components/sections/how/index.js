@@ -16,8 +16,7 @@ const styles = {
     boxCardStyle: {
         alignItems: 'center',
         display: 'flex',
-        flexDirection: 'column',
-        width: 400
+        flexDirection: 'column'
     },
     rowStyle: {
         textAlign: 'center',
@@ -29,11 +28,11 @@ const styles = {
         maxWidth: 1800
     },
     imageStyle: {
-        width: 450
+        width: '24em'
     }
 };
 
-export default class Why extends Component {
+export default class How extends Component {
 
     render () {
         return (
