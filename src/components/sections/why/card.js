@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 export default class Card extends Component {
 
     static propTypes = {
-        icon: PropTypes.object,
+        icon: PropTypes.string,
         style: PropTypes.object,
         text: PropTypes.string,
         title: PropTypes.string

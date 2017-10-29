@@ -27,12 +27,12 @@ const styles = {
     },
     h1: {textAlign: 'center', color: 'white'},
     textWrp: {
-        '@media screen and (max-width: 991px)': {
+        '@media screen and (maxWidth: 991px)': {
             border: 'none',
             height: 'auto',
             marginBottom: 20
         },
-        '@media screen and (min-width: 991px)': {
+        '@media screen and (minWidth: 991px)': {
             borderRight: `1px solid ${colors.grey}`,
             minHeight: 100
         }

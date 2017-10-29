@@ -59,6 +59,7 @@ export default class Why extends Component {
                         <img
                             src={HowItWorks1}
                             style={styles.imageStyle}
+                            alt={'signInStrava'}
                         />
                     </Col>
                     <Col xs={24} md={8}>
@@ -93,6 +94,7 @@ export default class Why extends Component {
                         <img
                             src={HowItWorks2}
                             style={styles.imageStyle}
+                            alt={'joinCycle2Work'}
                         />
                     </Col>
                 </Row>
@@ -105,6 +107,7 @@ export default class Why extends Component {
                         <img
                             src={HowItWorks3}
                             style={styles.imageStyle}
+                            alt={'startCycling'}
                         />
                     </Col>
                     <Col xs={24} md={8}>
