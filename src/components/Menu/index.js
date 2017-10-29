@@ -14,6 +14,7 @@ class MenuComponent extends Component {
                 howItWorks: 'How it works',
                 factsAndFigures: 'Facts and figures',
                 why: 'Why',
+                join: 'Join',
                 contacts: 'Contacts'
             },
             side: 'right'
@@ -39,6 +40,7 @@ class MenuComponent extends Component {
             this.getItem('howItWorks'),
             this.getItem('factsAndFigures'),
             this.getItem('why'),
+            this.getItem('join'),
             this.getItem('contacts')
         ];
 
@@ -67,4 +69,3 @@ class MenuComponent extends Component {
 }
 
 export default MenuComponent;
-

@@ -19,7 +19,7 @@ export default class Card extends Component {
         const {icon, lg, md, text, title, xs} = this.props;
         return (
             <Col
-                lg={lg}    
+                lg={lg}
                 xs={xs}
                 md={md}
             >
@@ -37,7 +37,7 @@ export default class Card extends Component {
                         MozBoxShadow: '0px 8px 60px -9px rgba(28, 27, 41, 0.3)',
                         boxShadow: '0px 8px 60px -9px rgba(28, 27, 41, 0.3)'
                     }}
-                > 
+                >
                     <img alt={'fact'} style={{height: 'calc(50px + 2vw)'}} src={icon} />
                     <div
                         style={{

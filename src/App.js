@@ -10,6 +10,7 @@ import FeaturesSection from './components/sections/features';
 import Footer from './components/sections/footer';
 import Why from './components/sections/why';
 import How from './components/sections/how';
+import Join from './components/sections/join';
 
 import logo from './assets/images/logo_cycle2work.svg';
 import Mondora from './components/sections/mondora';
@@ -43,6 +44,7 @@ class App extends Component {
                 <FactsAndFigures />
                 <Why />
                 <Mondora />
+                <Join />
                 <Footer />
             </div>
         );

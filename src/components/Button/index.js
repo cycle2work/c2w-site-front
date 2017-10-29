@@ -29,7 +29,7 @@ export default class Button extends Component {
                     color: textColor,
                     cursor: 'pointer',
                     lineHeight: '45px',
-                    display: 'table-cell',
+                    display: 'inline-block',
                     padding: '0px 60px',
                     textAlign: 'center',
                     fontSize: 'calc(14px + 0.2vw)',

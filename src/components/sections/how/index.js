@@ -54,14 +54,14 @@ export default class How extends Component {
                     justify='space-around'
                     style={styles.rowStyle}
                 >
-                    <Col xs={24} md={8}>
+                    <Col xs={{span: 24, order: 2}} md={{span: 8, order: 1}}>
                         <img
                             src={HowItWorks1}
                             style={styles.imageStyle}
                             alt={'signInStrava'}
                         />
                     </Col>
-                    <Col xs={24} md={8}>
+                    <Col xs={{span: 24, order: 1}} md={{span: 8, order: 2}}>
                         <Card
                             number={'01'}
                             text={
@@ -78,7 +78,7 @@ export default class How extends Component {
                     type={'flex'}
                     justify='space-around'
                 >
-                    <Col xs={24} md={8}>
+                    <Col xs={{span: 24, order: 1}} md={{span: 8, order: 1}}>
                         <Card
                             number={'02'}
                             text={
@@ -89,7 +89,7 @@ export default class How extends Component {
                             title={'Join Cycle2Work'}
                         />
                     </Col>
-                    <Col xs={24} md={8}>
+                    <Col xs={{span: 24, order: 2}} md={{span: 8, order: 2}}>
                         <img
                             src={HowItWorks2}
                             style={styles.imageStyle}
@@ -102,14 +102,14 @@ export default class How extends Component {
                     type={'flex'}
                     justify='space-around'
                 >
-                    <Col xs={24} md={8}>
+                    <Col xs={{span: 24, order: 2}} md={{span: 8, order: 1}}>
                         <img
                             src={HowItWorks3}
                             style={styles.imageStyle}
                             alt={'startCycling'}
                         />
                     </Col>
-                    <Col xs={24} md={8}>
+                    <Col xs={{span: 24, order: 1}} md={{span: 8, order: 2}}>
                         <Card
                             number={'03'}
                             text={
