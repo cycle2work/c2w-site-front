@@ -28,7 +28,7 @@ const styles = {
         maxWidth: 1800
     },
     imageStyle: {
-        width: '24em'
+        width: 'calc(200px + 20vw)'
     }
 };
 
