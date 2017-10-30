@@ -38,16 +38,16 @@ export default class How extends Component {
         return (
             <Row style={styles.containerStyle}>
                 <Row style={styles.headerStyle}>
-                    <p
+                    <h2
                         id='howItWorks'
                         style={{
-                            fontSize: 40,
-                            fontWeight: 'bold',
-                            color: black
+                            fontSize: 'calc(22px + 0.8vw)',
+                            color: black,
+                            paddingBottom: '40px'
                         }}
                     >
                         {'How it works'}
-                    </p>
+                    </h2>
                 </Row>
                 <Row
                     type='flex'
@@ -126,5 +126,5 @@ export default class How extends Component {
             </Row>
         );
     }
-
 }
+
