@@ -25,6 +25,7 @@ export default class Join extends Component {
                         style={style.imageContainer}
                     >
                         <img
+                            alt='Join Now'    
                             src={JoinImage}
                             style={style.image}
                         />
