@@ -27,7 +27,7 @@ export default class DownloadLink extends Component {
                 download={true}
                 style={{
                     cursor: 'pointer',
-                    fontSize: 'calc(11px + 0.2vw)',
+                    fontSize: 'calc(10px + 0.2vw)',
                     lineHeight: '35px',
                     display: 'inline-block',
                     color: textColor
