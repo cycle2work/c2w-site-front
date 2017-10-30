@@ -7,6 +7,7 @@ import Leaf from '../../../assets/images/icons/icon_leaf.svg';
 
 import Card from './card';
 import {style} from './style';
+import './style.css';
 
 export default class Why extends Component {
 
@@ -21,40 +22,43 @@ export default class Why extends Component {
                 </div>
                 <Row style={style.customRow}>
                     <Col xs={24} md={8}>
-                        <Card
-                            icon={Workers}
-                            style={style.boxCardStyle}
-                            text={
-                                `various studies claim cycling reduces stress levels
-                                and the risk of certain diseases, thus improving overall
-                                health and wellbeing for employees`
-                            }
-                            title={'Workers'}
-                        />
+                        <div className='cardWrp'> 
+                            <Card
+                                icon={Workers}
+                                text={
+                                    `various studies claim cycling reduces stress levels
+                                    and the risk of certain diseases, thus improving overall
+                                    health and wellbeing for employees`
+                                }
+                                title={'Workers'}
+                            />
+                        </div>
                     </Col>
                     <Col xs={24} md={8}>
-                        <Card
-                            icon={Leaf}
-                            style={style.boxCardStyle}
-                            text={
-                                `cycling is an eco-friendly means of travel and reduces
-                                the carbon footprint of commuting to work, as well as
-                                reducing traffic congestion`
-                            }
-                            title={'Environment'}
-                        />
+                        <div className='cardWrp'>     
+                            <Card
+                                icon={Leaf}
+                                text={
+                                    `cycling is an eco-friendly means of travel and reduces
+                                    the carbon footprint of commuting to work, as well as
+                                    reducing traffic congestion`
+                                }
+                                title={'Environment'}
+                            />
+                        </div>
                     </Col>
                     <Col xs={24} md={8}>
-                        <Card
-                            icon={Community}
-                            style={style.boxCardStyle}
-                            text={
-                                `local bycicle shops see a rise in sales as more colleagues
-                                joins the programme. Earned travel reimbursements are
-                                    paid out as gift cards for use in bycicle shops`
-                            }
-                            title={'Local community'}
-                        />
+                        <div className='cardWrp'>         
+                            <Card
+                                icon={Community}
+                                text={
+                                    `local bycicle shops see a rise in sales as more colleagues
+                                    joins the programme. Earned travel reimbursements are
+                                        paid out as gift cards for use in bycicle shops`
+                                }
+                                title={'Local community'}
+                            />
+                        </div>
                     </Col>
                 </Row>
             </div>

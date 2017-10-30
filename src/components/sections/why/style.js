@@ -25,9 +25,5 @@ export const style = {
         maxWidth: 900,
         margin: '0 auto',
         color: colors.grey
-    },
-    boxCardStyle: {
-        margin: 40,
-        height: 250
     }
 };
