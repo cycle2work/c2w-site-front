@@ -1,0 +1,23 @@
+@media screen and (max-width: 991px) {
+    .buttonWrp {
+        display: flex;
+        justify-content: flex-start;
+    }
+    .textWrp {
+        border: none;
+        height: auto;
+        margin-bottom: 10px;
+        padding: 5px 0;
+    }
+}
+@media screen and (min-width: 991px) {
+    .buttonWrp {
+        display: flex;
+        justify-content: flex-end;
+    }
+    .textWrp {
+        border-right: 1px solid #666;
+        min-height: 100px;
+        padding: 15px 0;
+    }
+}
