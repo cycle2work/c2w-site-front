@@ -16,7 +16,6 @@ export const bgModalOpacity = 'rgba(0, 0, 0, 0.7)';
 export const primaryColorLighter = '#D4EDFF';
 export const primaryColorLight = '#2ac1cd';
 export const primaryColor = '#2ac1cd';
-export const primaryColorDarker = '#19508C';
 export const secondaryColor = '#FFEA00';
 export const tertiaryColor = '#E62F72';
 export const green = '#06bc53';
