@@ -6,7 +6,7 @@ import HowItWorks2 from '../../../assets/images/howitworks_02.png';
 import HowItWorks3 from '../../../assets/images/howitworks_03.png';
 
 import Card from './card';
-import {backgroundHow, black} from '../../../commons/colors';
+import {white, black} from '../../../commons/colors';
 
 const styles = {
     headerStyle: {
@@ -23,7 +23,7 @@ const styles = {
         paddingBottom: 30
     },
     containerStyle: {
-        background: backgroundHow,
+        background: white,
         marginTop: '20px',
         maxWidth: 1800
     },
