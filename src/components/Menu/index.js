@@ -15,6 +15,7 @@ class MenuComponent extends Component {
                 factsAndFigures: 'Facts and figures',
                 why: 'Why',
                 join: 'Join',
+                standings: 'Company Standings',
                 contacts: 'Contacts'
             },
             side: 'right'
@@ -41,6 +42,7 @@ class MenuComponent extends Component {
             this.getItem('factsAndFigures'),
             this.getItem('why'),
             this.getItem('join'),
+            this.getItem('standings'),
             this.getItem('contacts')
         ];
 
@@ -51,7 +53,7 @@ class MenuComponent extends Component {
                     pageWrapId={'page-wrap'}
                     outerContainerId={'outer-container'}
                     right={true}
-                    width={'17.5em'}
+                    width={'18.5em'}
                 >
                     {items}
                 </Menu>
