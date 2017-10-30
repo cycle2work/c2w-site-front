@@ -4,40 +4,7 @@ import React, {Component} from 'react';
 import * as colors from '../../../commons/colors';
 import Button from '../../Button';
 
-const styles = {
-    footerWrp: {
-        backgroundColor: colors.backgroundFooter
-    },
-    footerCol: {
-        color: colors.lighterGrey,
-        fontSize: 14,
-        padding: '15px 0'
-    },
-    customRow: {
-        paddingTop: '20px',
-        paddingBottom: '20px',
-        maxWidth: 1200,
-        margin: '0 auto'
-    },
-    bottomFooterWrp: {
-        backgroundColor: colors.backgroundBottomFooter,
-        color: colors.lighterGrey,
-        fontSize: 12,
-        fontWeight: 300
-    },
-    h1: {textAlign: 'center', color: 'white'},
-    textWrp: {
-        '@media screen and (maxWidth: 991px)': {
-            border: 'none',
-            height: 'auto',
-            marginBottom: 20
-        },
-        '@media screen and (minWidth: 991px)': {
-            borderRight: `1px solid ${colors.grey}`,
-            minHeight: 100
-        }
-    }
-};
+import {style} from './style';
 
 export default class Footer extends Component {
     sendEmail () {
@@ -46,11 +13,10 @@ export default class Footer extends Component {
 
     render () {
         return (
-            <div style={styles.footerWrp}>
-                <h1 id='contacts' style={styles.h1}>{'Contacts'}</h1>
-                <Row gutter={30} style={styles.customRow}>
-                    <Col xs={24} md={12} style={styles.footerCol}>
-                        <div style={styles.textWrp}>
+            <div style={style.footerWrp}>
+                <Row gutter={30} style={style.customRow}>
+                    <Col xs={24} md={12} style={style.footerCol}>
+                        <div style={style.textWrp}>
                             <strong>
                                 {`mondora S.r.l. società soggetta
                                     all’attività di direzione e coordinamento di TeamSystem S.p.A. -
@@ -59,8 +25,8 @@ export default class Footer extends Component {
                             </strong>
                         </div>
                     </Col>
-                    <Col xs={24} md={6} style={styles.footerCol}>
-                        <div style={styles.textWrp}>
+                    <Col xs={24} md={6} style={style.footerCol}>
+                        <div style={style.textWrp}>
                             <a
                                 href='/#/privacy'
                                 style={{color: colors.lighterGrey}}
@@ -88,7 +54,7 @@ export default class Footer extends Component {
                         xs={24}
                         sm={12}
                         md={6}
-                        style={styles.footerCol}
+                        style={style.footerCol}
                     >
                         <div style={{display: 'flex', justifyContent: 'flex-end'}}>
                             <Button
@@ -100,8 +66,8 @@ export default class Footer extends Component {
                         </div>
                     </Col>
                 </Row>
-                <div style={styles.bottomFooterWrp}>
-                    <Row gutter={30} style={styles.customRow}>
+                <div style={style.bottomFooterWrp}>
+                    <Row gutter={30} style={style.customRow}>
                         <Col xs={24}>
                             <p style={{margin: '0'}}>
                                 {`© Copyright 2017 - mondora S.r.l. - Cycle2Work
