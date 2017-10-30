@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {Col, Row} from 'antd';
-import Radium from 'radium';
 
 import './App.css';
 import MenuComponent from './components/Menu';
@@ -8,6 +7,7 @@ import FirstSection from './components/sections/first';
 import FactsAndFigures from './components/sections/factsAndFigures';
 import FeaturesSection from './components/sections/features';
 import Footer from './components/sections/footer';
+import Standings from './components/sections/standings';
 import Why from './components/sections/why';
 import How from './components/sections/how';
 import Join from './components/sections/join';
@@ -16,7 +16,7 @@ import logo from './assets/images/logo_cycle2work.svg';
 import Mondora from './components/sections/mondora';
 
 
-class App extends Component {
+export default class App extends Component {
 
     state = {
         current: 'mail'
@@ -45,11 +45,10 @@ class App extends Component {
                 <Why />
                 <Mondora />
                 <Join />
+                <Standings />
                 <Footer />
             </div>
         );
     }
 
 }
-
-export default Radium(App);

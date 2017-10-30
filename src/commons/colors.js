@@ -1,6 +1,5 @@
 // Common styles
 export const background = '#ffffff';
-export const backgroundHow = '#f2faff';
 export const backgroundError = '#ebccd1';
 export const backgroundJoin = '#cae8ff';
 export const errorText = '#a94442';

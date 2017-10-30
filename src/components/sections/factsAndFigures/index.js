@@ -19,7 +19,7 @@ export default class FactsAndFigures extends Component {
                     <h2 id='factsAndFigures' style={style.sectionTitle}>
                         {'Facts and Figures'}
                     </h2>
-                    <Row gutter={30}>
+                    <Row>
                         <Card
                             icon={bike}
                             lg={6}
