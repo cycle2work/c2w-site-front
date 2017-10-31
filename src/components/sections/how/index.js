@@ -26,7 +26,7 @@ const styles = {
     },
     containerWrp: {
         background: white,
-        marginTop: 20
+        paddingTop: 100
     },
     container: {
         maxWidth: 1200,
@@ -43,10 +43,9 @@ export default class How extends Component {
 
     render () {
         return (
-            <div style={styles.containerWrp}>
+            <div id='howItWorks' style={styles.containerWrp}>
                 <div style={styles.container}>
                     <h2
-                        id='howItWorks'
                         style={{
                             fontSize: 'calc(22px + 0.8vw)',
                             color: black,

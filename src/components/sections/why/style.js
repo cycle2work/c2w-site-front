@@ -2,8 +2,7 @@ import * as colors from '../../../commons/colors';
 
 export const style = {
     container: {
-        padding: '0px 15px',
-        margin: '60px 0'
+        padding: '60px 15px'
     },
     customRow: {
         textAlign: 'center',

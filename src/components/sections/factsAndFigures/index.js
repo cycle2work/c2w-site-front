@@ -14,9 +14,9 @@ export default class FactsAndFigures extends Component {
 
     render () {
         return (
-            <div style={style.container} >
+            <div id='factsAndFigures' style={style.container} >
                 <Row style={style.customRow}>
-                    <h2 id='factsAndFigures' style={style.sectionTitle}>
+                    <h2 style={style.sectionTitle}>
                         {'Facts and Figures'}
                     </h2>
                     <Row>

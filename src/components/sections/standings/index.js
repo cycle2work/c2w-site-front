@@ -84,10 +84,10 @@ export default class StandingsSection extends Component {
 
     render () {
         return (
-            <div style={style.container}>
+            <div id='standings' style={style.container}>
                 <Row gutter={30} style={style.customRow}>
                     <Col xs={24}>
-                        <h2 id='standings' style={style.sectionTitle}>{'Company Standings'}</h2>
+                        <h2 style={style.sectionTitle}>{'Company Standings'}</h2>
                         <div style={style.tableWrp}>
                             <StandingsTable tableTitle={'Top green Companies'} data={this.state.dataTable1} />
                         </div>
