@@ -14,7 +14,7 @@ export default class Footer extends Component {
 
     render () {
         return (
-            <div style={style.footerWrp}>
+            <div id='contacts' style={style.footerWrp}>
                 <div style={style.footer}>
                     <Row gutter={14} style={style.customRow}>
                         <Col xs={24} md={12} style={style.footerCol}>

@@ -48,7 +48,7 @@ const dataTable2 = [{
     co2: 'x Co2'
 }];
 
-export default class FeaturesSection extends Component {
+export default class StandingsSection extends Component {
     state = {
         dataTable1,
         dataTable2
@@ -87,7 +87,7 @@ export default class FeaturesSection extends Component {
             <div style={style.container}>
                 <Row gutter={30} style={style.customRow}>
                     <Col xs={24}>
-                        <h2 style={style.sectionTitle}>{'Company Standings'}</h2>
+                        <h2 id='standings' style={style.sectionTitle}>{'Company Standings'}</h2>
                         <div style={style.tableWrp}>
                             <StandingsTable tableTitle={'Top green Companies'} data={this.state.dataTable1} />
                         </div>

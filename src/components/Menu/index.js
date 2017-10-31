@@ -15,17 +15,24 @@ class MenuComponent extends Component {
                 factsAndFigures: 'Facts and figures',
                 why: 'Why',
                 join: 'Join',
+                standings: 'Company Standings',
                 contacts: 'Contacts'
             },
-            side: 'right'
+            side: 'right',
+            isOpen: false
         };
     }
 
     getItem (item) {
         return (
             <a
-                key={item}
                 href={'#'.concat(item)}
+                key={item}
+                onClick={() => {
+                    return this.setState(() => ({
+                        isOpen: false
+                    }));
+                }}
             >
                 <i className='fa fa-fw fa-star-o' /><span>{this.state.menus[item]}</span>
             </a>
@@ -41,6 +48,7 @@ class MenuComponent extends Component {
             this.getItem('factsAndFigures'),
             this.getItem('why'),
             this.getItem('join'),
+            this.getItem('standings'),
             this.getItem('contacts')
         ];
 
@@ -51,7 +59,8 @@ class MenuComponent extends Component {
                     pageWrapId={'page-wrap'}
                     outerContainerId={'outer-container'}
                     right={true}
-                    width={'17.5em'}
+                    width={'18.5em'}
+                    isOpen={this.state.isOpen}
                 >
                     {items}
                 </Menu>
