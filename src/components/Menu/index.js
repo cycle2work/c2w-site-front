@@ -18,15 +18,21 @@ class MenuComponent extends Component {
                 standings: 'Company Standings',
                 contacts: 'Contacts'
             },
-            side: 'right'
+            side: 'right',
+            isOpen: false
         };
     }
 
     getItem (item) {
         return (
             <a
-                key={item}
                 href={'#'.concat(item)}
+                key={item}
+                onClick={() => {
+                    return this.setState(() => ({
+                        isOpen: false
+                    }));
+                }}
             >
                 <i className='fa fa-fw fa-star-o' /><span>{this.state.menus[item]}</span>
             </a>
@@ -54,6 +60,7 @@ class MenuComponent extends Component {
                     outerContainerId={'outer-container'}
                     right={true}
                     width={'18.5em'}
+                    isOpen={this.state.isOpen}
                 >
                     {items}
                 </Menu>
