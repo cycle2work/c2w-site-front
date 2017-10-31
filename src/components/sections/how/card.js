@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import {black, blue2, grey} from '../../../commons/colors';
+import {black, primaryColor, grey} from '../../../commons/colors';
 
 import PropTypes from 'prop-types';
-import './style.css'
+import './style.css';
 
 export default class Card extends Component {
 
@@ -22,7 +22,7 @@ export default class Card extends Component {
                 <div
                     className='cardNumber'    
                     style={{
-                        color: blue2,
+                        color: primaryColor,
                         width: '100%'
                     }}
                 >

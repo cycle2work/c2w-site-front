@@ -14,12 +14,9 @@ export const bgModalOpacity = 'rgba(0, 0, 0, 0.7)';
 
 // Site Style
 export const primaryColorLighter = '#D4EDFF';
-export const primaryColorLight = '#2ac1cd';
 export const primaryColor = '#2ac1cd';
 export const secondaryColor = '#FFEA00';
-export const tertiaryColor = '#E62F72';
 export const green = '#06bc53';
 export const red = '#cc0000';
-export const blue2 = '#11b8c6';
 export const backgroundFooter = '#232934';
 export const backgroundBottomFooter = '#0c0e11';
