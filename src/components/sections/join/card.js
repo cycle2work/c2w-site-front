@@ -3,12 +3,13 @@ import React, {Component} from 'react';
 
 import {style} from './style';
 import Button from '../../Button/index.js';
+import './style.css';
 
 export default class Card extends Component {
 
     render () {
         return (
-            <div style={style.box}>
+            <div style={style.box} className='cardJoin'>
                 <div style={{position: 'relative'}}>
                     <Icon
                         style={style.icon}

@@ -2,8 +2,8 @@ import * as colors from '../../../commons/colors';
 
 export const style = {
     container: {
-        margin: '50px 0',
-        padding: '40px 15px',
+        marginBottom: '50px',
+        padding: '60px 15px',
         textAlign: 'center'
     },
     titleWrp: {
@@ -53,10 +53,6 @@ export const style = {
         margin: '0 auto',
         maxWidth: 1200,
         textAlign: 'center'
-    },
-    image: {
-        verticalAlign: 'bottom',
-        width: 'calc(200px + 20vw)'
     },
     imageContainer: {
         textAlign: 'right'
