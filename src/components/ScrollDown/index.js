@@ -1,0 +1,40 @@
+import React, {Component} from 'react';
+import Scroll from 'react-scroll';
+import {Icon} from 'antd';
+
+import {primaryColorLighter} from '../../commons/colors';
+import './style.css';
+
+const styles = {
+    container: {
+        width: '100%',
+        position: 'relative'
+    },
+    button: {
+        fontSize: 60,
+        margin: '0px auto',
+        textAlign: 'center',
+        color: primaryColorLighter,
+        position: 'absolute',
+        zIndex: '100',
+        left: 'calc(50% - 30px)',
+        borderRadius: '50%'
+    }
+};
+
+export default class ScrollDown extends Component {
+    render () {
+        const scroll = Scroll.animateScroll;
+        return (
+            <div style={styles.container}>
+                <a onClick={() => scroll.scrollTo(1000)} className={'buttonScrollWrp'}>
+                    <Icon
+                        style={styles.button}
+                        type='down-circle'
+                        className='buttonScrollEffect'
+                    />
+                </a>
+            </div>
+        );
+    }
+}

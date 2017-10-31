@@ -1,0 +1,46 @@
+.buttonScrollWrp {
+    transition: opacity .3s;
+}
+
+.buttonScrollEffect {
+    -webkit-animation: scroll 1.5s 1;
+    animation: scroll 1.5s 3;
+    top: 500px;
+}
+
+@media screen and (max-width: 991px) {
+    .buttonScrollWrp {
+       display: none;
+    }
+}
+
+@-webkit-keyframes scroll {
+  0% {
+    opacity: 0;
+    top: 500px;
+  }
+  50% {
+    opacity: 1;
+    top: 460px;
+  }
+  100% {
+    opacity: 0;
+    top: 500px;
+  }
+}
+
+
+@keyframes scroll {
+  0% {
+    opacity: 0;
+    top: 500px;
+  }
+  50% {
+    opacity: 1;
+    top: 460px;
+  }
+  100% {
+    opacity: 0;
+    top: 500px;
+  }
+}

@@ -10,7 +10,8 @@
     "react": "^16.0.0",
     "react-burger-menu": "^2.1.9",
     "react-dom": "^16.0.0",
-    "react-scripts": "1.0.14"
+    "react-scripts": "1.0.14",
+    "react-scroll": "^1.6.4"
   },
   "devDependencies": {
     "@staticdeploy/app-server": "^1.1.1",
