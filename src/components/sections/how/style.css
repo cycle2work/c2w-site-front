@@ -1,0 +1,57 @@
+@media screen and (min-width: 991px) {
+    .cardWrp {
+        margin-top: 120px;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+    }
+    .cardNumber {
+        text-align: left;
+        font-size: calc(60px + 0.8vw);
+        line-height: calc(60px + 0.8vw);
+    }
+    .cardTitle {
+        text-align: left;
+    }
+    .cardText {
+        text-align: left;
+    }
+    .imageStyle {
+        max-width: 100%;
+    }
+    .dashedLines {
+        display: block;
+    }
+}
+@media screen and (max-width: 991px) {
+    .cardWrp {
+        margin-top: 20px;
+        padding-top: 30px;
+        margin-bottom: 30px;
+        -webkit-box-shadow: 0px 8px 60px -9px rgba(28, 27, 41, 0.3);
+        -moz-box-shadow: 0px 8px 60px -9px rgba(28, 27, 41, 0.3);
+        box-shadow: 0px 8px 60px -9px rgba(28, 27, 41, 0.3);
+        border-radius: 10px;
+        margin: 20px;
+    }
+    .cardNumber {
+        text-align: center;
+        font-size: calc(80px + 0.8vw);
+        line-height: calc(80px + 0.8vw);
+        font-weight: 600;
+    }
+    .cardTitle {
+        text-align: center;
+    }
+    .cardText {
+        text-align: center;
+    }
+    .imageStyle {
+        max-width: 400px;
+        width: 100%;
+        padding: 20px;
+    }
+    .dashedLines {
+        display: none;
+    }
+}

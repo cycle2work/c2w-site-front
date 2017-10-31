@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {black, blue2, grey} from '../../../commons/colors';
 
 import PropTypes from 'prop-types';
+import './style.css'
 
 export default class Card extends Component {
 
@@ -19,31 +20,33 @@ export default class Card extends Component {
                 style={style}
             >
                 <div
+                    className='cardNumber'    
                     style={{
-                        fontSize: 70,
                         color: blue2,
-                        textAlign: 'left',
                         width: '100%'
                     }}
                 >
                     {number}
                 </div>
                 <div
+                    className='cardTitle'    
                     style={{
-                        fontSize: 28,
-                        fontWeight: 'bold',
+                        lineHeight: 'calc(20px + 0.2vw)',
+                        fontSize: 'calc(20px + 0.2vw)',
+                        fontWeight: 500,
                         color: black,
-                        textAlign: 'left',
                         width: '100%'
                     }}
                 >
                     {title}
                 </div>
                 <div
+                    className='cardText'    
                     style={{
-                        fontSize: 20,
+                        lineHeight: 'calc(18px + 0.2vw)',
+                        fontSize: 'calc(12px + 0.2vw)',
+                        padding: '20px 0',
                         color: grey,
-                        textAlign: 'left',
                         width: '100%'
                     }}
                 >
