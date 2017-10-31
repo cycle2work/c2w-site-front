@@ -3,29 +3,37 @@ import React, {Component} from 'react';
 import {primaryColor, white} from '../../../commons/colors';
 import Button from '../../Button';
 
+import homeCyclist from '../../../assets/images/home_cyclist2.png';
 import {style} from './style';
+import './style.css';
 
 export default class FirstSection extends Component {
 
     render () {
         return (
-            <div id='firstSection' style={style.container}>
-                <Row gutter={30} style={style.contentRow}>
-                    <Col lg={12} xs={24}>
-                        <h1>{'Cycle2Work'}</h1>
-                        <h2 style={{color: primaryColor}}>{'For a helthier, happier world'}</h2>
-                        <div>
-                            {'Want to improve your health and your planet? Cycle2Work is here to help! Simply create a company team on Strava, connect to Cycle2Work and start reducing your carbon footprint today.'}
+            <div id='firstSection' className='containerTeaser'>
+                <Row style={style.contentRow}>
+                    <Col lg={12} md={10} xs={24}>
+                        <div className='teaserTextWrp'>
+                            <h1 style={style.sectionTitle}>{'Cycle2Work'}</h1>
+                            <h2 style={style.sectionSubtitle}>{'For a helthier, happier world'}</h2>
+                            <div style={style.paragraph}>
+                                {'Want to improve your health and your planet?'}
+                                <br />
+                                {'Cycle2Work is here to help! Simply create a company team on Strava, connect to Cycle2Work and start reducing your carbon footprint today.'}
+                            </div>
+                            <Button
+                                backgroundColor={primaryColor}
+                                label={'JOIN NOW'}
+                                onClick={() => console.log('join_now')}
+                                textColor={white}
+                            />
                         </div>
-                        <Button
-                            backgroundColor={primaryColor}
-                            label={'JOIN NOW'}
-                            onClick={() => console.log('join_now')}
-                            textColor={white}
-                        />
                     </Col>
-                    <Col lg={12} xs={24} >
-                        <div style={style.div} />
+                    <Col lg={12} md={10} xs={24}>
+                        <div className='teaserImageWrp' style={style.imageWrp}>
+                            <img alt={'cyclist'} src={homeCyclist} className='teaserImage' />
+                        </div>
                     </Col>
                 </Row>
             </div>

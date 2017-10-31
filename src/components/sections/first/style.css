@@ -1,0 +1,36 @@
+@media screen and (min-width: 991px) {
+    .containerTeaser {
+        background: url(../../../assets/images/home_cyclist.png);
+        background-position: right top;
+        background-repeat: no-repeat;
+        padding: 140px 0;
+        background-size: contain;
+    }
+    .teaserImageWrp {
+        display: none;
+    }
+    .teaserTextWrp {
+        margin: 0px 15px;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .containerTeaser {
+        background: none;
+        padding-top: 60px;
+    }
+    .teaserImageWrp {
+        display: block;
+        min-height: 200px;
+        text-align: center;
+        margin: 40px auto;
+    }
+    .teaserImage {
+        max-width: 600px;
+        width: 100%;
+    }
+    .teaserTextWrp {
+        margin: 40px 15px;
+        text-align: center;
+    }
+}
