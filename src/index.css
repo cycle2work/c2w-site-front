@@ -12,3 +12,20 @@ body {
   color: black;
   padding: 20px 8px 20px 8px !important;
 }
+
+@media screen and (min-width: 991px) {
+    .showMobile {
+        display: none;
+    }
+    .showDesktop {
+        display: block;
+    }
+}
+@media screen and (max-width: 991px) {
+    .showMobile {
+        display: block;
+    }
+    .showDesktop {
+        display: none;
+    }
+}

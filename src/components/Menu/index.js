@@ -2,8 +2,7 @@ import React, {Component} from 'react';
 import BurgerMenu from 'react-burger-menu';
 import './index.css';
 
-class MenuComponent extends Component {
-
+export default class MobileMenu extends Component {
     constructor (props) {
         super(props);
         this.state = {
@@ -15,8 +14,7 @@ class MenuComponent extends Component {
                 factsAndFigures: 'Facts and figures',
                 why: 'Why',
                 join: 'Join',
-                standings: 'Company Standings',
-                contacts: 'Contacts'
+                standings: 'Standings'
             },
             side: 'right',
             isOpen: false
@@ -34,7 +32,7 @@ class MenuComponent extends Component {
                     }));
                 }}
             >
-                <i className='fa fa-fw fa-star-o' /><span>{this.state.menus[item]}</span>
+                <span>{this.state.menus[item]}</span>
             </a>
         );
     }
@@ -48,8 +46,7 @@ class MenuComponent extends Component {
             this.getItem('factsAndFigures'),
             this.getItem('why'),
             this.getItem('join'),
-            this.getItem('standings'),
-            this.getItem('contacts')
+            this.getItem('standings')
         ];
 
         return (
@@ -58,7 +55,7 @@ class MenuComponent extends Component {
                     id={this.state.currentMenu}
                     pageWrapId={'page-wrap'}
                     outerContainerId={'outer-container'}
-                    right={true}
+                    right={false}
                     width={'18.5em'}
                     isOpen={this.state.isOpen}
                 >
@@ -76,5 +73,3 @@ class MenuComponent extends Component {
         );
     }
 }
-
-export default MenuComponent;
