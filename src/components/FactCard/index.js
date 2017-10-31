@@ -38,7 +38,7 @@ export default class Card extends Component {
                         boxShadow: '0px 8px 60px -9px rgba(28, 27, 41, 0.3)'
                     }}
                 >
-                    <img alt={'fact'} style={{height: 'calc(50px + 2vw)'}} src={icon} />
+                    <img alt={'fact'} style={{height: 'calc(65px + 1vw)'}} src={icon} />
                     <div
                         style={{
                             fontSize: 'calc(22px + 0.3vw)', fontWeight: 500, color: colors.black

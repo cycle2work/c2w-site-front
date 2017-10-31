@@ -4,3 +4,11 @@ body {
   font-family: 'Montserrat', sans-serif;
   font-weight: 300;
 }
+
+
+.ant-table-middle .ant-table-title, .ant-table-middle .ant-table-footer {
+  font-size: calc(14px + 0.2vw);
+  font-weight: 600;
+  color: black;
+  padding: 20px 8px 20px 8px !important;
+}

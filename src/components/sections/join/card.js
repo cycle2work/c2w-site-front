@@ -56,6 +56,7 @@ export default class Card extends Component {
                 </div>
                 <div style={style.button}>
                     <Button
+                        onClick={() => {}}    
                         label='JOIN NOW'
                     />
                 </div>
