@@ -22,7 +22,7 @@ export default class Why extends Component {
                 </div>
                 <Row style={style.customRow}>
                     <Col xs={24} md={8}>
-                        <div className='cardWrp'> 
+                        <div className='whyWrp'> 
                             <Card
                                 icon={Workers}
                                 text={
@@ -35,7 +35,7 @@ export default class Why extends Component {
                         </div>
                     </Col>
                     <Col xs={24} md={8}>
-                        <div className='cardWrp'>     
+                        <div className='whyWrp'>     
                             <Card
                                 icon={Leaf}
                                 text={
@@ -48,7 +48,7 @@ export default class Why extends Component {
                         </div>
                     </Col>
                     <Col xs={24} md={8}>
-                        <div className='cardWrp'>         
+                        <div className='whyWrp'>         
                             <Card
                                 icon={Community}
                                 text={

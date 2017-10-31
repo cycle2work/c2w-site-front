@@ -1,11 +1,11 @@
 @media screen and (min-width: 991px) {
-    .cardWrp {
+    .whyWrp {
         margin: 30px;
         height: 250px;
     }
 }
 @media screen and (max-width: 991px) {
-    .cardWrp {
+    .whyWrp {
         height: auto;
         margin: 0 0 20px 0;
         padding-bottom: 20px;

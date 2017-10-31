@@ -19,7 +19,7 @@ export default class Card extends Component {
                 style={style}
             >
                 {icon
-                    ? <img alt={icon} style={{height: 80}} src={icon} />
+                    ? <img alt={icon} style={{height: 'calc(65px + 1vw)'}} src={icon} />
                     : null}
                 <div
                     style={{
