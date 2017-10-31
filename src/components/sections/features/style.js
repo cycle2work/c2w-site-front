@@ -7,7 +7,7 @@ export const style = {
         backgroundPosition: 'left top',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'contain',
-        padding: '50px 15px'
+        padding: '50px 15px 0 15px'
     },
     featureBox: {
         textAlign: 'center',
