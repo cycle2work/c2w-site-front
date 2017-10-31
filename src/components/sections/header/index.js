@@ -4,6 +4,7 @@ import '../../../index.css';
 import {primaryColor, black} from '../../../commons/colors';
 
 import logo from '../../../assets/images/logo_cycle2work.svg';
+import './style.css';
 
 const styles = {
     mobileMenuWrp: {
@@ -20,23 +21,20 @@ const styles = {
         float: 'left'
     },
     logoDesktopMenu: {
-        height: 100,
-        width: 100,
-        float: 'left'
+        float: 'left',
+        marginLeft: 15
     },
     desktopMenuWrp: {
         maxWidth: 1200,
-        margin: '0 auto',
-        padding: '30px 0'
+        margin: '0 auto'
     },
     desktopMenu: {
         float: 'right',
-        width: 'calc(100% - 100px)',
-        lineHeight: '100px',
+        width: 'calc(100% - 115px)',
         textAlign: 'right'
     },
     desktopMenuLink: {
-        fontSize: 'calc(14px + 0.3wv)',
+        fontSize: '14px',
         fontWeight: 500,
         color: black,
         textTransform: 'uppercase',
@@ -48,6 +46,7 @@ export default class Header extends Component {
     constructor (props) {
         super(props);
         this.state = {
+            classFixed: '',
             menus: {
                 firstSection: 'Cycle2Work',
                 features: 'Features',
@@ -58,6 +57,29 @@ export default class Header extends Component {
                 standings: 'Standings'
             }
         };
+        this.handleScroll = this.handleScroll.bind(this);
+    }
+    
+    componentDidMount () {
+        window.addEventListener('scroll', this.handleScroll);
+    }
+
+    componentWillUnmount () {
+        window.removeEventListener('scroll', this.handleScroll);
+    }
+
+    handleScroll () {
+        /* Trucco per farlo funzionare anche su IE */
+        const topMultibrowser = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
+        if (topMultibrowser > 140) {
+            this.setState({
+                classFixed: 'fixed'
+            });
+        } else {
+            this.setState({
+                classFixed: ''
+            });
+        }
     }
 
     getItem (item) {
@@ -65,7 +87,7 @@ export default class Header extends Component {
             <a
                 href={'#'.concat(item)}
                 key={item}
-                style={styles.desktopMenuLink}
+                className='desktopMenuLink'
             >
                 <span>{this.state.menus[item]}</span>
             </a>
@@ -103,14 +125,31 @@ export default class Header extends Component {
                     </div>
                 </div>
                 <div className='showDesktop'>
-                    <div style={styles.desktopMenuWrp}>
-                        <img
-                            alt='Logo Cycle2Work'
-                            src={logo}
-                            style={styles.logoDesktopMenu}
-                        />    
-                        <div style={styles.desktopMenu}>
-                            {this.getMenu()}
+                    <div className={`customMenuRow ${this.state.classFixed}`}>
+                        <div
+                            style={{
+                                ...styles.desktopMenuWrp,
+                                padding: this.state.classFixed ? 0 : '30px 0',
+                                height: this.state.classFixed ? 60 : 160
+                            }}
+                        >
+                            <img
+                                alt='Logo Cycle2Work'
+                                src={logo}
+                                style={{
+                                    ...styles.logoDesktopMenu,
+                                    height: !this.state.classFixed ? 100 : 60,
+                                    width: !this.state.classFixed ? 100 : 60
+                                }}
+                            />    
+                            <div
+                                style={{
+                                    ...styles.desktopMenu,
+                                    lineHeight: !this.state.classFixed ? '100px' : '60px'
+                                }}
+                            >
+                                {this.getMenu()}
+                            </div>
                         </div>
                     </div>
                 </div>

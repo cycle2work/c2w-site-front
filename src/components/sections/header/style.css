@@ -1,0 +1,23 @@
+.customMenuRow.fixed {
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 1px 30px 0 rgba(0, 0, 0, .15), 0 1px 30px 0 rgba(0, 0, 0, .15);
+    position: fixed;
+    width: 100%;
+    max-width: 100%;
+    z-index: 100000;
+    height: 80px;
+    top: 0;
+    padding: 10px 0;
+}
+
+.desktopMenuLink {
+    font-size: 14px;
+    font-weight: 500;
+    color: black;
+    text-transform: uppercase;
+    padding: 0 15px;
+}
+
+.desktopMenuLink:hover {
+    color: #2ac1cd;
+}
