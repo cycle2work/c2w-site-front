@@ -1,8 +1,8 @@
 import {Col} from 'antd';
-import React, {Component} from 'react';
-import * as colors from '../../commons/colors';
-
 import PropTypes from 'prop-types';
+import React, {Component} from 'react';
+
+import * as colors from '../../commons/colors';
 
 export default class Card extends Component {
 
