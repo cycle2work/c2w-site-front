@@ -5,6 +5,8 @@
   "dependencies": {
     "antd": "^2.13.7",
     "babel-polyfill": "^6.26.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
     "eslint-plugin-jsx-a11y": "5",
     "nyc": "^11.2.1",
     "prop-types": "^15.6.0",
@@ -39,9 +41,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
-    "coverage": "cross-env-shell NODE_ENV=test NODE_PATH=src \"nyc mocha --require babel-register --require test/setup.js --recursive test\"",
+    "coverage": "nyc npm test",
     "lint": "eslint src test mock-server --ext .jsx --ext .js",
-    "test": "cross-env-shell NODE_ENV=test NODE_PATH=src \"mocha --require babel-register --compilers jsx:babel-register --require test/setup.js --recursive\"",
+    "test": "cross-env NODE_ENV=test NODE_PATH=src mocha --require babel-register --require test/setup.js",
+    "test-watch": "yarn test --watch",
     "mock-server": "mock-server --serveConfig --watch"
   }
 }

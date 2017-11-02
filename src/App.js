@@ -16,12 +16,14 @@ import Why from './components/sections/why';
 
 export default class App extends Component {
 
-    state = {
-        current: 'mail'
-    };
+    constructor (props) {
+        super(props);
+        this.state = {
+            current: 'mail'
+        };
+    }
 
-    handleClick = (e) => {
-        console.log('click ', e);
+    handleClick (e) {
         this.setState({
             current: e.key
         });

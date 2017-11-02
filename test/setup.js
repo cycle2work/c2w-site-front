@@ -16,3 +16,10 @@ global.window = document.defaultView;
 global.navigator = {
     userAgent: 'node.js'
 };
+
+const noop = () => {};
+
+// Prevent mocha test for breaking when import css file
+require.extensions['.css'] = noop;
+require.extensions['.png'] = noop;
+require.extensions['.svg'] = noop;
