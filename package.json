@@ -48,7 +48,7 @@
     "eject": "react-scripts eject",
     "coverage": "nyc npm test",
     "lint": "eslint src test mock-server --ext .jsx --ext .js",
-    "test": "cross-env NODE_ENV=test NODE_PATH=src mocha --require babel-register --require test/setup.js",
+    "test": "cross-env NODE_ENV=test NODE_PATH=src mocha --require babel-register --require test/setup.js --recursive",
     "test-watch": "yarn test --watch",
     "mock-server": "mock-server --serveConfig --watch"
   }
