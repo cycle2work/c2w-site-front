@@ -4,7 +4,7 @@ import bgSection from '../../../assets/images/bg_standings.png';
 export const style = {
     container: {
         backgroundImage: `url('${bgSection}')`,
-        backgroundPosition: 'left top',
+        backgroundPosition: 'center bottom',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
         padding: '100px 0px'
