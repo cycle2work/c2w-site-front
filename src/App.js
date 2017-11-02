@@ -1,4 +1,8 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import PropTypes from 'prop-types';
+import {setRegistration} from './actions/register';
 
 import './App.css';
 import BackToTop from './components/BackToTop';
@@ -14,7 +18,11 @@ import ScrollDown from './components/ScrollDown';
 import Standings from './components/sections/standings';
 import Why from './components/sections/why';
 
-export default class App extends Component {
+class App extends Component {
+
+    static propTypes = {
+        setRegistration: PropTypes.func
+    };
 
     constructor (props) {
         super(props);
@@ -34,7 +42,7 @@ export default class App extends Component {
             <div>
                 <Header />
                 <ScrollDown />
-                <FirstSection />
+                <FirstSection setRegistration={this.props.setRegistration} />
                 <FeaturesSection />
                 <How />
                 <FactsAndFigures />
@@ -49,3 +57,18 @@ export default class App extends Component {
     }
 
 }
+
+
+const mapStateToProps = (state) => {
+    return {
+        registration: state.registration
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        setRegistration: bindActionCreators(setRegistration, dispatch)
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -2,12 +2,17 @@ import {Row, Col} from 'antd';
 import React, {Component} from 'react';
 import {primaryColor, white} from '../../../commons/colors';
 import Button from '../../Button';
+import PropTypes from 'prop-types';
 
 import homeCyclist from '../../../assets/images/home_cyclist2.png';
 import {style} from './style';
 import './style.css';
 
 export default class FirstSection extends Component {
+
+    static propTypes = {
+        setRegistration: PropTypes.func
+    };
 
     render () {
         return (
@@ -25,7 +30,7 @@ export default class FirstSection extends Component {
                             <Button
                                 backgroundColor={primaryColor}
                                 label={'JOIN NOW'}
-                                onClick={() => console.log('join_now')}
+                                onClick={() => this.props.setRegistration()}
                                 textColor={white}
                             />
                         </div>
