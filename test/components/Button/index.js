@@ -4,6 +4,7 @@ import React from 'react';
 import * as sinon from 'sinon';
 
 import Button from '../../../src/components/Button';
+import {primaryColor, white} from '../../../src/commons/colors';
 
 describe('Button', () => {
 
@@ -32,6 +33,25 @@ describe('Button', () => {
     it('provides textColor prop to style of div element', () => {
         const element = shallow(<Button textColor={'color green'} onClick={sinon.spy()} />);
         expect(element.find('div').prop('style').color).to.equal('color green');
+    });
+
+    describe('for default props', () => {
+
+        it('sets backgroundColor to primaryColor', () => {
+            const element = shallow(<Button onClick={sinon.spy()} />);
+            expect(element.find('div').prop('style').background).to.equal(primaryColor);
+        });
+
+        it('sets label to empty string', () => {
+            const element = shallow(<Button onClick={sinon.spy()} />);
+            expect(element.find('div').text()).to.equal('');
+        });
+
+        it('sets textColor to white', () => {
+            const element = shallow(<Button onClick={sinon.spy()} />);
+            expect(element.find('div').prop('style').color).to.equal(white);
+        });
+
     });
 
 });
