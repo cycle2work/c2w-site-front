@@ -6,7 +6,7 @@ import sinon from 'sinon';
 
 import ScrollDown from '../../../src/components/ScrollDown';
 
-describe.only('ScrollDown', () => {
+describe('ScrollDown', () => {
 
     it('renders one a element', () => {
         const element = shallow(<ScrollDown />);
