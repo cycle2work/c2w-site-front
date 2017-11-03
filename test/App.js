@@ -4,7 +4,7 @@ import {shallow} from 'enzyme';
 import {Provider} from 'react-redux';
 
 import App from '../src/App';
-import store from '../src/store';
+import store from '../src/reducers';
 
 
 describe('App', () => {
