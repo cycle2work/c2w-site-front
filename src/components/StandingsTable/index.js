@@ -15,7 +15,7 @@ const columns = [ //todo make it dynamics
         dataIndex: 'company',
         key: 'company'
     }, {
-        title: 'Km/month',
+        title: 'Km',
         dataIndex: 'km',
         key: 'km'
     }, {

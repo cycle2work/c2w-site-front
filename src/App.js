@@ -2,7 +2,9 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import PropTypes from 'prop-types';
-import {setRegistration} from './actions/register';
+
+import { setRegistration } from './actions/register';
+import { fetchReports } from './actions/reports';
 
 import './App.css';
 import BackToTop from './components/BackToTop';
@@ -21,6 +23,10 @@ import Why from './components/sections/why';
 class App extends Component {
 
     static propTypes = {
+        fetchReports: PropTypes.func.isRequired,
+        reports: PropTypes.shape({
+            data: PropTypes.array
+        }),
         setRegistration: PropTypes.func
     };
 
@@ -31,13 +37,21 @@ class App extends Component {
         };
     }
 
+    componentDidMount() {
+        const { fetchReports } = this.props;
+        if (fetchReports) {
+            fetchReports();
+        }
+    }
+
     handleClick (e) {
         this.setState({
             current: e.key
         });
     };
 
-    render () {
+    render() {
+        const { reports } = this.props;
         return (
             <div>
                 <Header />
@@ -49,24 +63,24 @@ class App extends Component {
                 <Why />
                 <Mondora />
                 <Join />
-                <Standings />
+                <Standings reports={reports} />
                 <Footer />
                 <BackToTop />
             </div>
         );
     }
-
 }
-
 
 const mapStateToProps = (state) => {
     return {
-        registration: state.registration
+        registration: state.registration,
+        reports: state.reports
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
+        fetchReports: bindActionCreators(fetchReports, dispatch),
         setRegistration: bindActionCreators(setRegistration, dispatch)
     };
 };

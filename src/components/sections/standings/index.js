@@ -1,5 +1,7 @@
 import {Col, Row} from 'antd';
-import React, {Component} from 'react';
+
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 
 import Button from '../../Button';
 import StandingsTable from '../../StandingsTable';
@@ -49,6 +51,13 @@ const dataTable2 = [{
 }];
 
 export default class StandingsSection extends Component {
+
+    static propTypes = {
+        reports: PropTypes.shape({
+            data: PropTypes.array
+        })
+    };
+
     state = {
         dataTable1,
         dataTable2
@@ -83,16 +92,24 @@ export default class StandingsSection extends Component {
     }
 
     render () {
+        const { reports: { data } } = this.props;
+        const standingsData = (data || []).map((report, index) => {
+            return {
+                key: `${index}`,
+                position: `${index}`,
+                company: report.name,
+                km: `${Math.round(report.distance)}`,
+                co2: `${report.distance * 1.25}`,
+                mineCompany: true
+            };
+        });
         return (
             <div id='standings' style={style.container}>
                 <Row gutter={30} style={style.customRow}>
                     <Col xs={24}>
                         <h2 style={style.sectionTitle}>{'Company Standings'}</h2>
                         <div style={style.tableWrp}>
-                            <StandingsTable title={'Top green Companies'} data={this.state.dataTable1} />
-                        </div>
-                        <div style={style.tableWrp}>
-                            <StandingsTable title={'VS your Team'} data={this.state.dataTable2}  />
+                            <StandingsTable title={'Top green Companies'} data={standingsData} />
                         </div>
                         <Button
                             backgroundColor={colors.primaryColor}

@@ -19,6 +19,13 @@ export default class DownloadLink extends Component {
         textColor: black
     }
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            logged: false
+        };
+    }
+
     render () {
         const {filePath, label, textColor} = this.props;
         return (
