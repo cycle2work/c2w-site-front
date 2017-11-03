@@ -29,10 +29,6 @@ export default class Card extends Component {
                     </p>
                 </div>
                 <div style={{position: 'relative'}}>
-                    <Icon
-                        style={style.icon}
-                        type='check-circle-o'
-                    />
                     <p style={style.paragraph}>
                         {'Workers'}
                     </p>
