@@ -1,10 +1,9 @@
+import {Icon} from 'antd';
 import PropTypes from 'prop-types';
 import React, {Component} from 'react';
 
-import {Icon} from 'antd';
-import './style.css';
-
 import {black, white} from '../../commons/colors';
+import './style.css';
 
 export default class DownloadLink extends Component {
 
@@ -15,6 +14,7 @@ export default class DownloadLink extends Component {
     }
 
     static defaultProps = {
+        filePath: '',
         label: '',
         textColor: black
     }

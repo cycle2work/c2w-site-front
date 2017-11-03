@@ -2,7 +2,7 @@ import {Col, Row} from 'antd';
 import React, {Component} from 'react';
 
 import Button from '../../Button';
-import StandingsTable from '../../Table';
+import StandingsTable from '../../StandingsTable';
 
 import * as colors from '../../../commons/colors';
 import {style} from './style';
@@ -89,10 +89,10 @@ export default class StandingsSection extends Component {
                     <Col xs={24}>
                         <h2 style={style.sectionTitle}>{'Company Standings'}</h2>
                         <div style={style.tableWrp}>
-                            <StandingsTable tableTitle={'Top green Companies'} data={this.state.dataTable1} />
+                            <StandingsTable title={'Top green Companies'} data={this.state.dataTable1} />
                         </div>
                         <div style={style.tableWrp}>
-                            <StandingsTable tableTitle={'VS your Team'} data={this.state.dataTable2}  />
+                            <StandingsTable title={'VS your Team'} data={this.state.dataTable2}  />
                         </div>
                         <Button
                             backgroundColor={colors.primaryColor}
