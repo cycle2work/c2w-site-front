@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import MobileMenu from '../../Menu';
+import MobileMenu from '../../MobileMenu';
 import '../../../index.css';
 import {primaryColor, black} from '../../../commons/colors';
 
@@ -121,7 +121,17 @@ export default class Header extends Component {
                             src={logo}
                             style={styles.logoMobileMenu}
                         />
-                        <MobileMenu />
+                        <MobileMenu
+                            links={[
+                                {label: 'Cycle2Work', url: 'firstSection'},
+                                {label: 'Features', url: 'features'},
+                                {label: 'How it works', url: 'howItWorks'},
+                                {label: 'Facts and figures', url: 'factsAndFigures'},
+                                {label: 'Why', url: 'why'},
+                                {label: 'Join', url: 'join'},
+                                {label: 'Standings', url: 'standings'}
+                            ]}
+                        />
                     </div>
                 </div>
                 <div className='showDesktop'>
