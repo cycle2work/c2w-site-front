@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
-import Scroll from 'react-scroll';
 import {Icon} from 'antd';
+import React, {Component} from 'react';
+import {animateScroll} from 'react-scroll';
 
 import {primaryColorLighter} from '../../commons/colors';
 import './style.css';
@@ -23,11 +23,11 @@ const styles = {
 };
 
 export default class ScrollDown extends Component {
+
     render () {
-        const scroll = Scroll.animateScroll;
         return (
             <div style={styles.container}>
-                <a onClick={() => scroll.scrollTo(1000)} className={'buttonScrollWrp'}>
+                <a onClick={() => animateScroll.scrollTo(1000)} className={'buttonScrollWrp'}>
                     <Icon
                         style={styles.button}
                         type='down-circle'
@@ -37,4 +37,5 @@ export default class ScrollDown extends Component {
             </div>
         );
     }
+
 }
