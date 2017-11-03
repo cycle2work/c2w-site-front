@@ -26,10 +26,7 @@ export default class Card extends Component {
                     />
                     <p style={style.paragraph}>
                         {'Improve the wellbeing of'}
-                    </p>
-                </div>
-                <div style={{position: 'relative'}}>
-                    <p style={style.paragraph}>
+                        <br />
                         {'Workers'}
                     </p>
                 </div>
