@@ -1,19 +1,14 @@
 import React from 'react';
 import {expect} from 'chai';
 import {shallow} from 'enzyme';
-import {Provider} from 'react-redux';
 
-import App from '../src/App';
-import store from '../src/reducers';
+import Views from '../src/views';
 
-
-describe('App', () => {
+describe('Root view', () => {
 
     it('renders', () => {
         const element = shallow(
-            <Provider store={store}>
-                <App />
-            </Provider>
+            <Views />
         );
         expect(element).to.have.length(1);
     });
