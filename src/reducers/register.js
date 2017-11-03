@@ -1,9 +1,7 @@
 import {SET_REGISTRATION} from '../actions/register';
 
 const initialState = {
-    register: {
-        type: false
-    }
+    type: false
 };
 
 function getRegistrationState () {
