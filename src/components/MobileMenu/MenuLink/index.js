@@ -11,7 +11,6 @@ export default class MenuLink extends Component {
 
     render () {
         const {label, onClick, url} = this.props;
-        console.log('label', label);
         return (
             <a
                 href={'#'.concat(url)}
