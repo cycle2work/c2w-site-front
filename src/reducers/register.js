@@ -1,4 +1,4 @@
-import {SET_REGISTRATION} from '../actions/register';
+import {SET_REGISTRATION} from "../actions/register";
 
 const initialState = {
     type: false

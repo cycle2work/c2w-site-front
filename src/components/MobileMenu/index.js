@@ -1,9 +1,9 @@
-import PropTypes from 'prop-types';
-import React, {Component} from 'react';
-import {slide as SlideMenu} from 'react-burger-menu';
+import PropTypes from "prop-types";
+import React, {Component} from "react";
+import {slide as SlideMenu} from "react-burger-menu";
 
-import './index.css';
-import MenuLink from './MenuLink';
+import "./index.css";
+import MenuLink from "./MenuLink";
 
 export default class MobileMenu extends Component {
 
@@ -27,14 +27,14 @@ export default class MobileMenu extends Component {
         const {links} = this.props;
 
         return (
-            <div id='outer-container'>
-                <div className={'right'}>
+            <div id="outer-container">
+                <div className={"right"}>
                     <SlideMenu
-                        id={'slide'}
-                        pageWrapId={'page-wrap'}
-                        outerContainerId={'outer-container'}
+                        id={"slide"}
+                        pageWrapId={"page-wrap"}
+                        outerContainerId={"outer-container"}
                         right={false}
-                        width={'18.5em'}
+                        width={"18.5em"}
                         isOpen={this.state.isOpen}
                     >
                         {links.map((link) => (

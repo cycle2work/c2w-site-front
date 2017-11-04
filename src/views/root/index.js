@@ -1,23 +1,23 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
-import PropTypes from 'prop-types';
+import React, {Component} from "react";
+import {connect} from "react-redux";
+import {bindActionCreators} from "redux";
+import PropTypes from "prop-types";
 
-import { setRegistration } from '../../actions/register';
-import { fetchReports } from '../../actions/reports';
+import { setRegistration } from "../../actions/register";
+import { fetchReports } from "../../actions/reports";
 
-import BackToTop from '../../components/BackToTop';
-import FirstSection from '../../components/sections/first';
-import FactsAndFigures from '../../components/sections/factsAndFigures';
-import FeaturesSection from '../../components/sections/features';
-import Footer from '../../components/sections/footer';
-import Join from '../../components/sections/join';
-import Header from '../../components/sections/header';
-import How from '../../components/sections/how';
-import Mondora from '../../components/sections/mondora';
-import ScrollDown from '../../components/ScrollDown';
-import Standings from '../../components/sections/standings';
-import Why from '../../components/sections/why';
+import BackToTop from "../../components/BackToTop";
+import FirstSection from "../../components/sections/first";
+import FactsAndFigures from "../../components/sections/factsAndFigures";
+import FeaturesSection from "../../components/sections/features";
+import Footer from "../../components/sections/footer";
+import Join from "../../components/sections/join";
+import Header from "../../components/sections/header";
+import How from "../../components/sections/how";
+import Mondora from "../../components/sections/mondora";
+import ScrollDown from "../../components/ScrollDown";
+import Standings from "../../components/sections/standings";
+import Why from "../../components/sections/why";
 
 class RootPage extends Component {
 
@@ -32,7 +32,7 @@ class RootPage extends Component {
     constructor (props) {
         super(props);
         this.state = {
-            current: 'mail'
+            current: "mail"
         };
     }
 

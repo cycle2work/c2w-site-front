@@ -5,7 +5,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import RootPage from "./root";
 import ThankYouPage from "./thank-you";
 
-import store from '../reducers';
+import store from "../reducers";
 
 export default class Views extends Component {
     render() {

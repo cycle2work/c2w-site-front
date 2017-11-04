@@ -1,12 +1,12 @@
-import React from 'react';
-import {expect} from 'chai';
-import {shallow} from 'enzyme';
+import React from "react";
+import {expect} from "chai";
+import {shallow} from "enzyme";
 
-import Views from '../src/views';
+import Views from "../src/views";
 
-describe('Root view', () => {
+describe("Root view", () => {
 
-    it('renders', () => {
+    it("renders", () => {
         const element = shallow(
             <Views />
         );

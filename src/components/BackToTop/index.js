@@ -1,7 +1,7 @@
-import {BackTop, Icon} from 'antd';
-import React, {Component} from 'react';
+import {BackTop, Icon} from "antd";
+import React, {Component} from "react";
 
-import {grey} from '../../commons/colors';
+import {grey} from "../../commons/colors";
 
 export default class BackToTop extends Component {
 
@@ -12,13 +12,13 @@ export default class BackToTop extends Component {
                     style={{
                         fontSize: 60,
                         color: grey,
-                        position: 'fixed',
-                        right: '20px',
-                        borderRadius: '50%',
-                        boxShadow: '0 1px 6px rgba(0, 0, 0, .06), 0 2px 32px rgba(0, 0, 0, .16)',
-                        bottom: '40px'
+                        position: "fixed",
+                        right: "20px",
+                        borderRadius: "50%",
+                        boxShadow: "0 1px 6px rgba(0, 0, 0, .06), 0 2px 32px rgba(0, 0, 0, .16)",
+                        bottom: "40px"
                     }}
-                    type='up-circle'
+                    type="up-circle"
                 />
             </BackTop>
         );

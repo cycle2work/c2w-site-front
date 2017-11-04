@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
-import {black, grey} from '../../../commons/colors';
+import React, {Component} from "react";
+import {black, grey} from "../../../commons/colors";
 
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 export default class Card extends Component {
 
@@ -19,11 +19,11 @@ export default class Card extends Component {
                 style={style}
             >
                 {icon
-                    ? <img alt={icon} style={{height: 'calc(65px + 1vw)'}} src={icon} />
+                    ? <img alt={icon} style={{height: "calc(65px + 1vw)"}} src={icon} />
                     : null}
                 <div
                     style={{
-                        fontSize: 'calc(14px + 0.5vw)',
+                        fontSize: "calc(14px + 0.5vw)",
                         fontWeight: 500,
                         color: black
                     }}
@@ -32,8 +32,8 @@ export default class Card extends Component {
                 </div>
                 <div
                     style={{
-                        fontSize: 'calc(12px + 0.3vw)',
-                        textAlign: 'center',
+                        fontSize: "calc(12px + 0.3vw)",
+                        textAlign: "center",
                         color: grey
                     }}
                 >

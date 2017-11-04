@@ -2,7 +2,7 @@ import {
     FETCH_REPORTS_START,
     FETCH_REPORTS_SUCCESS,
     FETCH_REPORTS_ERROR
-} from '../actions/reports';
+} from "../actions/reports";
 
 const defaultState = {
     started: false,

@@ -1,8 +1,8 @@
-import React from 'react';
-import { render } from 'react-dom';
+import React from "react";
+import { render } from "react-dom";
 
 import Views from "./views";
 
-import './index.css';
+import "./index.css";
 
-render(<Views />, document.getElementById('root'));
+render(<Views />, document.getElementById("root"));

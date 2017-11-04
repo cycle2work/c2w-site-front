@@ -1,10 +1,10 @@
-import axios from 'axios';
+import axios from "axios";
 
-import { REACT_APP_AWS_REPORTS_API } from '../config';
+import { REACT_APP_AWS_REPORTS_API } from "../config";
 
-export const FETCH_REPORTS_START = 'FETCH_REPORTS_START';
-export const FETCH_REPORTS_SUCCESS = 'FETCH_REPORTS_SUCCESS';
-export const FETCH_REPORTS_ERROR = 'FETCH_REPORTS_ERROR';
+export const FETCH_REPORTS_START = "FETCH_REPORTS_START";
+export const FETCH_REPORTS_SUCCESS = "FETCH_REPORTS_SUCCESS";
+export const FETCH_REPORTS_ERROR = "FETCH_REPORTS_ERROR";
 
 export function fetchReports(month = 10) {
     return dispatch => {

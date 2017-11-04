@@ -1,53 +1,53 @@
-import {Col, Row} from 'antd';
+import {Col, Row} from "antd";
 
-import PropTypes from 'prop-types';
-import React, { Component } from 'react';
+import PropTypes from "prop-types";
+import React, { Component } from "react";
 
-import Button from '../../Button';
-import StandingsTable from '../../StandingsTable';
+import Button from "../../Button";
+import StandingsTable from "../../StandingsTable";
 
-import * as colors from '../../../commons/colors';
-import {style} from './style';
+import * as colors from "../../../commons/colors";
+import {style} from "./style";
 
 const dataTable1 = [{
-    key: '1',
-    position: '1',
-    company: 'Company Name1',
-    km: '168,7 km',
-    co2: 'x Co2'
+    key: "1",
+    position: "1",
+    company: "Company Name1",
+    km: "168,7 km",
+    co2: "x Co2"
 }, {
-    key: '2',
-    position: '2',
-    company: 'Company Name2',
-    km: '155,1 km',
-    co2: 'x Co2'
+    key: "2",
+    position: "2",
+    company: "Company Name2",
+    km: "155,1 km",
+    co2: "x Co2"
 }, {
-    key: '3',
-    position: '3',
-    company: 'Company Name3',
-    km: '120,5 km',
-    co2: 'x Co2'
+    key: "3",
+    position: "3",
+    company: "Company Name3",
+    km: "120,5 km",
+    co2: "x Co2"
 }];
 
 const dataTable2 = [{
-    key: '34',
-    position: '34',
-    company: 'Company Name34',
-    km: '55,5 km',
-    co2: 'x Co2'
+    key: "34",
+    position: "34",
+    company: "Company Name34",
+    km: "55,5 km",
+    co2: "x Co2"
 }, {
-    key: '35',
-    position: '35',
-    company: 'Company Name35',
-    km: '42,3 km',
-    co2: 'x Co2',
+    key: "35",
+    position: "35",
+    company: "Company Name35",
+    km: "42,3 km",
+    co2: "x Co2",
     mineCompany: true
 }, {
-    key: '36',
-    position: '36',
-    company: 'Company Name36',
-    km: '32,9 km',
-    co2: 'x Co2'
+    key: "36",
+    position: "36",
+    company: "Company Name36",
+    km: "32,9 km",
+    co2: "x Co2"
 }];
 
 export default class StandingsSection extends Component {
@@ -65,7 +65,7 @@ export default class StandingsSection extends Component {
 
     onSearch = (index) => {
         const {searchText} = this.state;
-        const reg = new RegExp(searchText, 'gi');
+        const reg = new RegExp(searchText, "gi");
         this.setState({
             data: dataTable1.map((record) => {
                 const match = record.company.match(reg);
@@ -78,7 +78,7 @@ export default class StandingsSection extends Component {
                         <span>
                             {record.company.split(reg).map((text, i) => (
                                 i > 0 ? [
-                                    <span key={index} className='highlight'>
+                                    <span key={index} className="highlight">
                                         {match[0]}
                                     </span>,
                                     text
@@ -104,16 +104,16 @@ export default class StandingsSection extends Component {
             };
         });
         return (
-            <div id='standings' style={style.container}>
+            <div id="standings" style={style.container}>
                 <Row gutter={30} style={style.customRow}>
                     <Col xs={24}>
-                        <h2 style={style.sectionTitle}>{'Company Standings'}</h2>
+                        <h2 style={style.sectionTitle}>{"Company Standings"}</h2>
                         <div style={style.tableWrp}>
-                            <StandingsTable title={'Top green Companies'} data={standingsData} />
+                            <StandingsTable title={"Top green Companies"} data={standingsData} />
                         </div>
                         <Button
                             backgroundColor={colors.primaryColor}
-                            label={'JOIN NOW'}
+                            label={"JOIN NOW"}
                             onClick={() => { }}
                             textColor={colors.white}
                         />

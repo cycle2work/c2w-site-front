@@ -1,23 +1,23 @@
-import {Row, Col} from 'antd';
-import React, {Component} from 'react';
+import {Row, Col} from "antd";
+import React, {Component} from "react";
 
-import JoinImage from '../../../assets/images//bg_join.png';
+import JoinImage from "../../../assets/images//bg_join.png";
 
-import Card from './card';
-import {style} from './style';
-import './style.css';
+import Card from "./card";
+import {style} from "./style";
+import "./style.css";
 
 export default class Join extends Component {
 
     render () {
         return (
-            <div id='join' style={style.container} className='bgMobile'>
+            <div id="join" style={style.container} className="bgMobile">
                 <div style={style.titleWrp}>
-                    <h2 style={style.sectionTitle}>{'Join Cycle2Work to...'}</h2>
+                    <h2 style={style.sectionTitle}>{"Join Cycle2Work to..."}</h2>
                 </div>
                 <Row
-                    type='flex'
-                    justify='space-around'
+                    type="flex"
+                    justify="space-around"
                     style={style.row}
                 >
                     <Col
@@ -26,10 +26,10 @@ export default class Join extends Component {
                         style={style.imageContainer}
                     >
                         <img
-                            alt='Join Now'    
+                            alt="Join Now"    
                             src={JoinImage}
                             style={style.image}
-                            className='bgImageJoin'
+                            className="bgImageJoin"
                         />
                     </Col>
                     <Col

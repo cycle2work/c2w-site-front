@@ -1,8 +1,8 @@
-import {Col} from 'antd';
-import PropTypes from 'prop-types';
-import React, {Component} from 'react';
+import {Col} from "antd";
+import PropTypes from "prop-types";
+import React, {Component} from "react";
 
-import * as colors from '../../commons/colors';
+import * as colors from "../../commons/colors";
 
 export default class Card extends Component {
 
@@ -27,28 +27,28 @@ export default class Card extends Component {
                     style={{
                         backgroundColor: colors.white,
                         borderRadius: 10,
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'center',
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
                         minHeight: 250,
                         margin: 20,
                         padding: 20,
-                        WebkitBoxShadow: '0px 8px 60px -9px rgba(28, 27, 41, 0.3)',
-                        MozBoxShadow: '0px 8px 60px -9px rgba(28, 27, 41, 0.3)',
-                        boxShadow: '0px 8px 60px -9px rgba(28, 27, 41, 0.3)'
+                        WebkitBoxShadow: "0px 8px 60px -9px rgba(28, 27, 41, 0.3)",
+                        MozBoxShadow: "0px 8px 60px -9px rgba(28, 27, 41, 0.3)",
+                        boxShadow: "0px 8px 60px -9px rgba(28, 27, 41, 0.3)"
                     }}
                 >
-                    <img alt={'fact'} style={{height: 'calc(65px + 1vw)'}} src={icon} />
+                    <img alt={"fact"} style={{height: "calc(65px + 1vw)"}} src={icon} />
                     <div
                         style={{
-                            fontSize: 'calc(22px + 0.3vw)', fontWeight: 500, color: colors.black
+                            fontSize: "calc(22px + 0.3vw)", fontWeight: 500, color: colors.black
                         }}
                     >
                         {title}
                     </div>
                     <div
                         style={{
-                            fontSize: 'calc(12px + 0.3vw)', textAlign: 'center', color: colors.grey
+                            fontSize: "calc(12px + 0.3vw)", textAlign: "center", color: colors.grey
                         }}
                     >
                         {text}

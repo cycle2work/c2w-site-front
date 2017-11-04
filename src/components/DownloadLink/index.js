@@ -1,9 +1,9 @@
-import {Icon} from 'antd';
-import PropTypes from 'prop-types';
-import React, {Component} from 'react';
+import {Icon} from "antd";
+import PropTypes from "prop-types";
+import React, {Component} from "react";
 
-import {black, white} from '../../commons/colors';
-import './style.css';
+import {black, white} from "../../commons/colors";
+import "./style.css";
 
 export default class DownloadLink extends Component {
 
@@ -14,8 +14,8 @@ export default class DownloadLink extends Component {
     }
 
     static defaultProps = {
-        filePath: '',
-        label: '',
+        filePath: "",
+        label: "",
         textColor: black
     }
 
@@ -33,22 +33,22 @@ export default class DownloadLink extends Component {
                 href={filePath}
                 download={true}
                 style={{
-                    cursor: 'pointer',
-                    fontSize: 'calc(10px + 0.2vw)',
-                    lineHeight: '35px',
-                    display: 'inline-block',
+                    cursor: "pointer",
+                    fontSize: "calc(10px + 0.2vw)",
+                    lineHeight: "35px",
+                    display: "inline-block",
                     color: textColor
                 }}
             >    
                 <Icon
-                    className='bgIcon'
-                    type='cloud-download'    
+                    className="bgIcon"
+                    type="cloud-download"    
                     style={{
                         width: 30,
                         height: 30,
                         marginRight: 5,
-                        borderRadius: '30px',
-                        lineHeight: '30px',
+                        borderRadius: "30px",
+                        lineHeight: "30px",
                         color: white,
                         fontSize: 16
                     }}

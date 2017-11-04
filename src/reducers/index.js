@@ -1,9 +1,9 @@
-import { applyMiddleware, createStore, combineReducers } from 'redux';
-import { createLogger } from 'redux-logger';
-import thunk from 'redux-thunk';
+import { applyMiddleware, createStore, combineReducers } from "redux";
+import { createLogger } from "redux-logger";
+import thunk from "redux-thunk";
 
-import register from './register';
-import reports from './reports';
+import register from "./register";
+import reports from "./reports";
 
 const reducers = combineReducers({
     register,

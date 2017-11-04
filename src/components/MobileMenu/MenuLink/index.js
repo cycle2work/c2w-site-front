@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types';
-import React, {Component} from 'react';
+import PropTypes from "prop-types";
+import React, {Component} from "react";
 
 export default class MenuLink extends Component {
 
@@ -13,7 +13,7 @@ export default class MenuLink extends Component {
         const {label, onClick, url} = this.props;
         return (
             <a
-                href={'#'.concat(url)}
+                href={"#".concat(url)}
                 key={label}
                 onClick={onClick}
             >

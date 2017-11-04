@@ -1,4 +1,4 @@
-import * as colors from '../../../commons/colors';
+import * as colors from "../../../commons/colors";
 
 export const style = {
     footerWrp: {
@@ -6,15 +6,15 @@ export const style = {
     },
     footer: {
         maxWidth: 1200,
-        margin: '0 auto',
-        padding: '15px 0'
+        margin: "0 auto",
+        padding: "15px 0"
     },
     footerCol: {
         color: colors.lighterGrey,
         fontSize: 14
     },
     customRow: {
-        margin: '0 10px'
+        margin: "0 10px"
     },
     bottomFooterWrp: {
         backgroundColor: colors.backgroundBottomFooter,
