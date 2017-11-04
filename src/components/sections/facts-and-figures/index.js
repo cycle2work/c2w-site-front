@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 
-import Card from "../../FactCard/index";
+import Card from "../../fact-card";
 import {Row} from "antd";
 
 import bike from "../../../assets/images/icons/icon_bike.svg";

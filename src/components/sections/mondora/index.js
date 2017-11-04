@@ -5,7 +5,7 @@ import {Row, Col} from "antd";
 import gradient from "../../../assets/images/gradient_mondora.png";
 import mondoraLogo from "../../../assets/images/logo_mondora.png";
 import {black, white, grey, secondaryColor} from "../../../commons/colors";
-import Button from "../../Button";
+import Button from "../../button";
 
 export default class Mondora extends Component {
 

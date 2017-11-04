@@ -2,7 +2,7 @@ import {Row, Col} from "antd";
 import React, {Component} from "react";
 
 import * as colors from "../../../commons/colors";
-import Button from "../../Button";
+import Button from "../../button";
 
 import {style} from "./style";
 import "./style.css";

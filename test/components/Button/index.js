@@ -3,7 +3,7 @@ import {shallow} from "enzyme";
 import React from "react";
 import * as sinon from "sinon";
 
-import Button from "../../../src/components/Button";
+import Button from "../../../src/components/button";
 import {primaryColor, white} from "../../../src/commons/colors";
 
 describe("Button", () => {

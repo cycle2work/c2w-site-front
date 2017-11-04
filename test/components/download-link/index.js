@@ -3,7 +3,7 @@ import {expect} from "chai";
 import {shallow} from "enzyme";
 import React from "react";
 
-import DownloadLink from "../../../src/components/DownloadLink";
+import DownloadLink from "../../../src/components/download-link";
 import {black} from "../../../src/commons/colors";
 
 describe("DownloadLink", () => {

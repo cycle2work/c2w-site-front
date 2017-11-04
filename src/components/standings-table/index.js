@@ -2,7 +2,7 @@ import {Table} from "antd";
 import PropTypes from "prop-types";
 import React, {Component} from "react";
 
-import DownloadLink from "../../components/DownloadLink";
+import DownloadLink from "../../components/download-link";
 
 const columns = [ //todo make it dynamics
     {

@@ -3,7 +3,7 @@ import React, {Component} from "react";
 import {slide as SlideMenu} from "react-burger-menu";
 
 import "./index.css";
-import MenuLink from "./MenuLink";
+import MenuLink from "./menu-link";
 
 export default class MobileMenu extends Component {
 

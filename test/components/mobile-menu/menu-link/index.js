@@ -3,7 +3,7 @@ import {shallow} from "enzyme";
 import React from "react";
 import * as sinon from "sinon";
 
-import MenuLink from "../../../../src/components/MobileMenu/MenuLink";
+import MenuLink from "../../../../src/components/mobile-menu/menu-link";
 
 describe("MenuLink", () => {
 

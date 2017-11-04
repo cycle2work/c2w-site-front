@@ -3,7 +3,7 @@ import {expect} from "chai";
 import {shallow} from "enzyme";
 import React from "react";
 
-import BackToTop from "../../../src/components/BackToTop";
+import BackToTop from "../../../src/components/back-to-top";
 
 describe("BackToTop", () => {
 

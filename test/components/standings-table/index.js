@@ -3,7 +3,7 @@ import {expect} from "chai";
 import {shallow} from "enzyme";
 import React from "react";
 
-import StandingsTable from "../../../src/components/StandingsTable";
+import StandingsTable from "../../../src/components/standings-table";
 
 describe("StandingsTable", () => {
 

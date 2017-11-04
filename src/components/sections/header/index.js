@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import MobileMenu from "../../MobileMenu";
+import MobileMenu from "../../mobile-menu";
 import "../../../index.css";
 import {primaryColor, black} from "../../../commons/colors";
 

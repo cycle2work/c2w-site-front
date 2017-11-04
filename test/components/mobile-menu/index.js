@@ -3,8 +3,8 @@ import {shallow} from "enzyme";
 import React from "react";
 import {slide as SlideMenu} from "react-burger-menu";
 
-import MenuLink from "../../../src/components/MobileMenu/MenuLink";
-import MobileMenu from "../../../src/components/MobileMenu";
+import MenuLink from "../../../src/components/mobile-menu/menu-link";
+import MobileMenu from "../../../src/components/mobile-menu";
 
 describe("MobileMenu", () => {
 

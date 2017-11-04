@@ -1,7 +1,7 @@
 import {Row, Col} from "antd";
 import React, {Component} from "react";
 import {primaryColor, white} from "../../../commons/colors";
-import Button from "../../Button";
+import Button from "../../button";
 import PropTypes from "prop-types";
 
 import homeCyclist from "../../../assets/images/home_cyclist2.png";

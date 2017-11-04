@@ -3,8 +3,8 @@ import {Col, Row} from "antd";
 import PropTypes from "prop-types";
 import React, { Component } from "react";
 
-import Button from "../../Button";
-import StandingsTable from "../../StandingsTable";
+import Button from "../../button";
+import StandingsTable from "../../standings-table";
 
 import * as colors from "../../../commons/colors";
 import {style} from "./style";
