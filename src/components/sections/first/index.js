@@ -1,18 +1,13 @@
-import {Row, Col} from "antd";
-import React, {Component} from "react";
-import {primaryColor, white} from "../../../commons/colors";
-import Button from "../../button";
-import PropTypes from "prop-types";
+import { Row, Col } from "antd";
+import React, { Component } from "react";
+
+import JoinNow from "../../join-now";
 
 import homeCyclist from "../../../assets/images/home_cyclist2.png";
-import {style} from "./style";
+import { style } from "./style";
 import "./style.css";
 
 export default class FirstSection extends Component {
-
-    static propTypes = {
-        setRegistration: PropTypes.func
-    };
 
     render () {
         return (
@@ -27,12 +22,7 @@ export default class FirstSection extends Component {
                                 <br />
                                 {"Cycle2Work is here to help! Simply create a company team on Strava, connect to Cycle2Work and start reducing your carbon footprint today."}
                             </div>
-                            <Button
-                                backgroundColor={primaryColor}
-                                label={"JOIN NOW"}
-                                onClick={() => this.props.setRegistration()}
-                                textColor={white}
-                            />
+                            <JoinNow />
                         </div>
                     </Col>
                     <Col lg={12} md={10} xs={24}>

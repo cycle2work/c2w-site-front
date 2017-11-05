@@ -8,7 +8,7 @@ export default class Button extends Component {
     static propTypes = {
         backgroundColor: PropTypes.string,
         label: PropTypes.string,
-        onClick: PropTypes.func.isRequired,
+        onClick: PropTypes.func,
         textColor: PropTypes.string
     }
 

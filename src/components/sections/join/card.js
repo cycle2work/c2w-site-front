@@ -1,8 +1,9 @@
 import {Icon} from "antd";
 import React, {Component} from "react";
 
+import JoinNow from "../../join-now";
+
 import {style} from "./style";
-import Button from "../../button";
 import "./style.css";
 
 export default class Card extends Component {
@@ -49,10 +50,7 @@ export default class Card extends Component {
                     </p>
                 </div>
                 <div style={style.button}>
-                    <Button
-                        onClick={() => {}}    
-                        label="JOIN NOW"
-                    />
+                    <JoinNow />
                 </div>
             </div>
         );

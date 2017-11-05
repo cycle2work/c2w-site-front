@@ -3,7 +3,6 @@ import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import PropTypes from "prop-types";
 
-import { setRegistration } from "../../actions/register";
 import { fetchReports } from "../../actions/reports";
 
 import BackToTop from "../../components/back-to-top";
@@ -25,16 +24,8 @@ class RootPage extends Component {
         fetchReports: PropTypes.func.isRequired,
         reports: PropTypes.shape({
             data: PropTypes.array
-        }),
-        setRegistration: PropTypes.func
+        })
     };
-
-    constructor (props) {
-        super(props);
-        this.state = {
-            current: "mail"
-        };
-    }
 
     componentDidMount() {
         const { fetchReports } = this.props;
@@ -43,19 +34,13 @@ class RootPage extends Component {
         }
     }
 
-    handleClick (e) {
-        this.setState({
-            current: e.key
-        });
-    };
-
     render() {
         const { reports } = this.props;
         return (
             <div>
                 <Header />
                 <ScrollDown />
-                <FirstSection setRegistration={this.props.setRegistration} />
+                <FirstSection />
                 <FeaturesSection />
                 <How />
                 <FactsAndFigures />
@@ -72,15 +57,14 @@ class RootPage extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        registration: state.registration,
+        strava: state.strava,
         reports: state.reports
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchReports: bindActionCreators(fetchReports, dispatch),
-        setRegistration: bindActionCreators(setRegistration, dispatch)
+        fetchReports: bindActionCreators(fetchReports, dispatch)
     };
 };
 

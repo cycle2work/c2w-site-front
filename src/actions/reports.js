@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { REACT_APP_AWS_REPORTS_API } from "../config";
+import { AWS_REPORTS_API } from "../config";
 
 export const FETCH_REPORTS_START = "FETCH_REPORTS_START";
 export const FETCH_REPORTS_SUCCESS = "FETCH_REPORTS_SUCCESS";
@@ -12,7 +12,7 @@ export function fetchReports(month = 10) {
             type: FETCH_REPORTS_START
         });
 
-        axios.get(`${REACT_APP_AWS_REPORTS_API}?month=${month}`).then(result => {
+        axios.get(`${AWS_REPORTS_API}?month=${month}`).then(result => {
             dispatch({
                 type: FETCH_REPORTS_SUCCESS,
                 payload: result.data
