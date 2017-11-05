@@ -17,10 +17,10 @@ export function fetchReports(month = 10) {
                 type: FETCH_REPORTS_SUCCESS,
                 payload: result.data
             });
-        }).catch((err) => {
+        }).catch((error) => {
             dispatch({
                 type: FETCH_REPORTS_ERROR,
-                payload: err
+                payload: error
             });
         });
     };

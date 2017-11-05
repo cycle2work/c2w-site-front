@@ -7,9 +7,7 @@ import Views from "../src/views";
 describe("Root view", () => {
 
     it("renders", () => {
-        const element = shallow(
-            <Views />
-        );
+        const element = shallow(Views);
         expect(element).to.have.length(1);
     });
 
