@@ -11,7 +11,7 @@ import { navigate } from "../actions/location";
 
 import store from "../reducers";
 
-class Views extends Component {
+export class Routes extends Component {
 
     static propTypes = {
         location: PropTypes.shape({
@@ -59,12 +59,16 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-const ConnectedViews = connect(mapStateToProps, mapDispatchToProps)(withRouter(Views));
+export const ConnectedRoutes = connect(mapStateToProps, mapDispatchToProps)(withRouter(Routes));
 
-export default (
-    <Provider store={store}>
-        <BrowserRouter> 
-            <ConnectedViews />
-        </BrowserRouter>
-    </Provider>
-);
+export default class Views extends Component {
+    render() {
+        return (
+            <Provider store={store}>
+                <BrowserRouter>
+                    <ConnectedRoutes />
+                </BrowserRouter>
+            </Provider>
+        );
+    }
+}
