@@ -47,7 +47,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "netlify": "echo '/*    /index.html   200' > build/_redirects",
+    "build": "react-scripts build && yarn netlify",
     "eject": "react-scripts eject",
     "coverage": "nyc npm test",
     "lint": "eslint src test mock-server --ext .jsx --ext .js",
