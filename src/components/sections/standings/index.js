@@ -23,8 +23,8 @@ export default class StandingsSection extends Component {
                 key: `${index}`,
                 position: `${index}`,
                 company: report.name,
-                km: `${Math.round(report.distance)}`,
-                co2: `${report.distance * 1.25}`,
+                km: `${Math.round(report.distance / 1000)} km`,
+                co2: `${Math.round(report.distance / 7140)} g`,
                 mineCompany: true
             };
         });
