@@ -2,7 +2,7 @@ import {Table} from "antd";
 import PropTypes from "prop-types";
 import React, {Component} from "react";
 
-import DownloadLink from "../../components/download-link";
+//import DownloadLink from "../../components/download-link";
 
 const columns = [ //todo make it dynamics
     {
@@ -22,18 +22,18 @@ const columns = [ //todo make it dynamics
         title: "CO2",
         dataIndex: "co2",
         key: "co2"
-    },
-    {
-        title: "Download data",
-        dataIndex: "download",
-        key: "download",
-        render: () => (
-            <DownloadLink
-                label="Download CSV"
-                filePath="https://botw-pd.s3.amazonaws.com/styles/logo-original-577x577/s3/112013/logo_strava_0.png?itok=Z7ZZWsjO"
-            />
-        )
     }
+    // {
+    //     title: "Download data",
+    //     dataIndex: "download",
+    //     key: "download",
+    //     render: () => (
+    //         <DownloadLink
+    //             label="Download CSV"
+    //             filePath="https://botw-pd.s3.amazonaws.com/styles/logo-original-577x577/s3/112013/logo_strava_0.png?itok=Z7ZZWsjO"
+    //         />
+    //     )
+    // }
 ];
 
 export default class StandingsTable extends Component {
