@@ -9,7 +9,7 @@ import "./style.css";
 
 export default class Footer extends Component {
     sendEmail () {
-        window.location = "mailto:info@entova.it";
+        window.location = "mailto:info@mondora.com";
     }
 
     render () {
