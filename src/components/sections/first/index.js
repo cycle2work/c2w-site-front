@@ -16,7 +16,7 @@ export default class FirstSection extends Component {
                     <Col lg={12} md={10} xs={24}>
                         <div className="teaserTextWrp">
                             <h1 style={style.sectionTitle}>{"Cycle2Work"}</h1>
-                            <h2 style={style.sectionSubtitle}>{"For a helthier, happier world"}</h2>
+                            <h2 style={style.sectionSubtitle}>{"For a healthier, happier world"}</h2>
                             <div style={style.paragraph}>
                                 {"Want to improve your health and your planet?"}
                                 <br />
