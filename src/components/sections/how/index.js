@@ -96,7 +96,7 @@ export default class How extends Component {
                                 <Card
                                     number={"02"}
                                     text={
-                                        `Click ont he "JOIN NOW" button below to connect your
+                                        `Click on the "JOIN NOW" button below to connect your
                                         strava team to the Cycle2Work programme.`
                                     }
                                     style={styles.boxCardStyle}
