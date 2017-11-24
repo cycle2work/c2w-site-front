@@ -8,7 +8,6 @@ import JoinNow from "../../join-now";
 import { style } from "./style";
 import "./style.css";
 import Cyclist from "../../../assets/images/cyclist.png";
-import { setTimeout } from "timers";
 
 export default class StandingsSection extends Component {
 
