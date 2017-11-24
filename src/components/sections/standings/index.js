@@ -8,6 +8,7 @@ import JoinNow from "../../join-now";
 import { style } from "./style";
 import "./style.css";
 import Cyclist from "../../../assets/images/cyclist.png";
+import { setTimeout } from "timers";
 
 export default class StandingsSection extends Component {
 
@@ -20,7 +21,7 @@ export default class StandingsSection extends Component {
     constructor() {
         super();
         this.state = {
-            addTransition: ""
+            reports: []
         };
         this.handleScroll = this.handleScroll.bind(this);
     }
@@ -44,18 +45,38 @@ export default class StandingsSection extends Component {
 
     handleScroll() {
         const topPage = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
+
+        const sorted = this.props.reports.data.sort((a, b) => a.distance > b.distance ? -1 : 1);
+        const [max] = sorted;
+
         if (topPage > this.getDocHeight()) {
-            this.setState({
-                addTransition: "addTransition80"
+
+            const mapped = sorted.map(report => {
+                return {
+                    ...report,
+                    percentage: Math.ceil(Math.floor(100 * report.distance / max.distance) / 10) * 10
+                };
             });
+
+            this.setState({ reports: mapped });
+
         } else {
-            this.setState({
-                addTransition: ""
+
+            const mapped = sorted.map(report => {
+                return {
+                    ...report,
+                    percentage: 0
+                };
             });
+
+            this.setState({ reports: mapped });
         }
     }
 
-    render () {
+    render() {
+
+        const { reports } = this.state;
+
         return (
             <div id="standings" style={style.container}>
                 <Row gutter={30} style={style.customRow}>
@@ -63,43 +84,30 @@ export default class StandingsSection extends Component {
                         <h2 style={style.sectionTitle}>{"Company Standings"}</h2>
                         <div style={style.graphWrp}>
                             <ul className="y-axis">
-                                <li style={style.li}><span>{"10"}</span></li>
-                                <li style={style.li}><span>{"20"}</span></li>
-                                <li style={style.li}><span>{"30"}</span></li>
-                                <li style={style.li}><span>{"40"}</span></li>
-                                <li style={style.li}><span>{"50"}</span></li>
+                                {reports.map((report, index) => (
+                                    <li style={style.li} key={index}>
+                                        <span>{++index}</span>
+                                    </li>
+                                ))}
                             </ul>
                             <div style={style.graph}>
-                                <div style={style.graphLine} className={`bgLine1 ${this.state.addTransition}`}>
-                                    {"Company 1"}
-                                    <img src={Cyclist} alt={"Cyclist"} style={style.cyclist} />
-                                </div>
-                                <div style={style.graphLine} className={`bgLine2 ${this.state.addTransition}`}>
-                                    {"Company 2"}
-                                    <img src={Cyclist} alt={"Cyclist"} style={style.cyclist} />
-                                </div>
-                                <div style={style.graphLine} className={`bgLine3 ${this.state.addTransition}`}>
-                                    {"Company 3"}
-                                    <img src={Cyclist} alt={"Cyclist"} style={style.cyclist} />
-                                </div>
-                                <div style={style.graphLine} className={`bgLine4 ${this.state.addTransition}`}>
-                                    {"Company 4"}
-                                    <img src={Cyclist} alt={"Cyclist"} style={style.cyclist} />
-                                </div>
-                                <div style={style.graphLine} className={`bgLine5 ${this.state.addTransition}`}>
-                                    {"Company 5"}
-                                    <img src={Cyclist} alt={"Cyclist"} style={style.cyclist} />
-                                </div>
+                                {reports.reverse().map((report, index) => (
+                                    <div
+                                        key={report.id}
+                                        style={style.graphLine}
+                                        className={`bgLine${++index} addTransition${report.percentage}`}
+                                    >
+                                        {report.name}
+                                        <img src={Cyclist} alt={"Cyclist"} style={style.cyclist} />
+                                    </div>
+                                ))}
                             </div>
                             <ul className="x-axis">
-                                <li><span>{"5"}</span></li>
-                                <li><span>{"10"}</span></li>
-                                <li><span>{"20"}</span></li>
-                                <li><span>{"30"}</span></li>
-                                <li><span>{"40"}</span></li>
-                                <li><span>{"50"}</span></li>
-                                <li><span>{"60"}</span></li>
-                                <li><span>{"70"}</span></li>
+                                {reports.map((report, index) => (
+                                    <li style={style.li} key={index}>
+                                        <span>{++index}</span>
+                                    </li>
+                                ))}
                             </ul>
                         </div>
                         <JoinNow />
