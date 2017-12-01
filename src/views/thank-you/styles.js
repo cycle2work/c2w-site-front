@@ -7,7 +7,7 @@ export const styles = {
         color: grey,
         backgroundImage: `url(${gradient})`,
         backgroundSize: "contain",
-        backgroundRepeat: "repeat-y",
+        backgroundRepeat: "repeat-y"
     },
     row: {
         height: "80%",

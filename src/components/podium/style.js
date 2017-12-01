@@ -28,7 +28,7 @@ export const style = {
     image: {
         height: "100px",
         borderRadius: "8px",
-        border: `4px solid ${colors.primaryColorLighter}`,
+        border: `4px solid ${colors.primaryColorLighter}`
     },
     sectionTitle: {
         fontSize: "calc(22px + 0.8vw)",
