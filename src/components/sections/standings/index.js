@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import React, { Component } from "react";
 
 import JoinNow from "../../join-now";
+import Podium from "../../podium";
 
 import { style } from "./style";
 import "./style.css";
@@ -80,7 +81,12 @@ export default class StandingsSection extends Component {
             <div id="standings" style={style.container}>
                 <Row gutter={30} style={style.customRow}>
                     <Col xs={24}>
-                        <h2 style={style.sectionTitle}>{"Company Standings"}</h2>
+                        <h2 style={style.sectionTitle}>
+                            {"Top 3 companies"}
+                        </h2>
+                        <Podium reports={this.props.reports} />
+                    </Col>    
+                    <Col xs={24}>
                         <div style={style.graphWrp}>
                             <ul className="y-axis">
                                 {reports.map((report, index) => (

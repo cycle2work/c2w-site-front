@@ -6,6 +6,8 @@ import PropTypes from "prop-types";
 import { fetchReports } from "../../actions/reports";
 
 import BackToTop from "../../components/back-to-top";
+import ScrollDown from "../../components/scroll-down";
+
 import FirstSection from "../../components/sections/first";
 import FactsAndFigures from "../../components/sections/facts-and-figures";
 import FeaturesSection from "../../components/sections/features";
@@ -14,7 +16,6 @@ import Join from "../../components/sections/join";
 import Header from "../../components/sections/header";
 import How from "../../components/sections/how";
 import Mondora from "../../components/sections/mondora";
-import ScrollDown from "../../components/scroll-down";
 import Standings from "../../components/sections/standings";
 import Why from "../../components/sections/why";
 
