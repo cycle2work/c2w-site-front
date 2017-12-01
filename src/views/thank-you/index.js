@@ -3,9 +3,18 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
+import {
+    Row,
+    Col
+} from "antd";
+
 import { parse } from "query-string";
 
 import { joinNow } from "../../actions/strava";
+
+import Button from "../../components/button";
+
+import { styles } from "./styles";
 
 class ThankYouPage extends Component {
 
@@ -26,7 +35,23 @@ class ThankYouPage extends Component {
 
     render() {
         return (
-            <div>{"Thank you!"}</div>
+            <div style={styles.container}>
+                <Row type="flex" align="middle" justify="center" style={styles.row}>
+                    <Col span={8}>
+                        <h1>{"Thank you!"}</h1>
+                        <br />
+                        <p style={styles.text}>
+                            {"You can now commute and start saving CO2."}
+                            <br />
+                            {"Thanks for making the world better!"}
+                        </p>
+                        <br />
+                        <Button label="Dashboard" />
+                    </Col>
+                </Row>
+
+
+            </div>
         );
     }
 }
