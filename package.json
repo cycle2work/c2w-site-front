@@ -13,6 +13,7 @@
     "nyc": "^11.2.1",
     "prop-types": "^15.6.0",
     "react": "^16.0.0",
+    "react-anime": "^2.0.1",
     "react-burger-menu": "^2.1.9",
     "react-dom": "^16.0.0",
     "react-redux": "^5.0.6",

@@ -46,30 +46,30 @@ export default class StandingsSection extends Component {
     handleScroll() {
         const topPage = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
 
-        const sorted = this.props.reports.data.sort((a, b) => a.distance > b.distance ? -1 : 1);
-        const [max] = sorted;
+        // const sorted = this.props.reports.data.sort((a, b) => a.distance > b.distance ? -1 : 1);
+        // const [max] = sorted;
 
         if (topPage > this.getDocHeight()) {
 
-            const mapped = sorted.map(report => {
-                return {
-                    ...report,
-                    percentage: Math.ceil(Math.floor(100 * report.distance / max.distance) / 10) * 10
-                };
-            });
+            // const mapped = sorted.map(report => {
+            //     return {
+            //         ...report,
+            //         percentage: Math.ceil(Math.floor(100 * report.distance / max.distance) / 10) * 10
+            //     };
+            // });
 
-            this.setState({ reports: mapped });
+            // this.setState({ reports: mapped });
 
         } else {
 
-            const mapped = sorted.map(report => {
-                return {
-                    ...report,
-                    percentage: 0
-                };
-            });
+            // const mapped = sorted.map(report => {
+            //     return {
+            //         ...report,
+            //         percentage: 0
+            //     };
+            // });
 
-            this.setState({ reports: mapped });
+        //     this.setState({ reports: mapped });
         }
     }
 
