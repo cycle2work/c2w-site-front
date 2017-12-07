@@ -29,7 +29,7 @@ export default class Podium extends Component {
         }
 
         return (
-            <Col xs={18} offset={3}>
+            <Col xs={18} offset={3} style={style.container}>
                 <Row>
                     <Col md={8} style={style.second}>
                         <Position position="2°" company={second} />

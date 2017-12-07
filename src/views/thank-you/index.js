@@ -47,6 +47,7 @@ class ThankYouPage extends Component {
                         </p>
                         <br />
                         <Button label="Dashboard" />
+                        <p>{"Coming soon"}</p>
                     </Col>
                 </Row>
 

@@ -18,12 +18,21 @@ export default class Position extends Component {
         const { company: { name, distance, profile }, position } = this.props;
         return (
             <div>
-                <p>{position}</p>
+                <p style={style.position}>
+                    {position}
+                </p>
                 <br />
                 <img alt={name} src={profile} style={style.image} />
                 <br />
-                <p>{name}</p>
-                <p>{`${Math.round((distance || 0) / 1000)} km`}</p>
+                <p style={style.name}>
+                    {name}
+                </p>
+                <p style={style.co2}>
+                    {`${Math.round((distance || 0) / 7140)} Co2`}
+                </p>
+                <p style={style.km}>
+                    {`${Math.round((distance || 0) / 1000)} km`}
+                </p>
             </div>
         );
     }
