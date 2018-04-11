@@ -14,6 +14,16 @@ export const style = {
         margin: "0 auto",
         maxWidth: 1200
     },
+    tableWrp: {
+        textAlign: "center",
+        margin: "50px auto",
+        padding: "10px",
+        backgroundColor: colors.white,
+        borderRadius: "10px",
+        WebkitBoxShadow: "0px 8px 60px -9px rgba(28, 27, 41, 0.3)",
+        MozBoxShadow: "0px 8px 60px -9px rgba(28, 27, 41, 0.3)",
+        boxShadow: "0px 8px 60px -9px rgba(28, 27, 41, 0.3)"
+    },
     sectionTitle: {
         fontSize: "calc(22px + 0.8vw)",
         color: colors.black,

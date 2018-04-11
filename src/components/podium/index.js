@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 
 import { Col, Row } from "antd";
 
-import AnimatedCyclist from "./animated-cyclist";
 import Position from "./position";
 
 import { style } from "./style";
@@ -43,10 +42,6 @@ export default class Podium extends Component {
                         <Position position="3°" company={third} />
                     </Col>
                 </Row>
-                <br />
-                <AnimatedCyclist translateX={13} delay={2000} />
-                <AnimatedCyclist translateX={5} delay={2200} />
-                <AnimatedCyclist translateX={2} delay={2400} />
             </Col>
         );
     }
