@@ -9,6 +9,7 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "eslint-plugin-jsx-a11y": "5",
+    "husky": "^0.14.3",
     "moment": "^2.19.1",
     "nyc": "^11.2.1",
     "prop-types": "^15.6.0",
@@ -48,6 +49,8 @@
     "sinon-chai": "^2.8.0"
   },
   "scripts": {
+    "preparecommitmsg": "node scripts/commit-check.js",
+    "format": "prettier --write 'src/**/*.js'",
     "start": "react-scripts start",
     "netlify": "echo '/*    /index.html   200' > build/_redirects",
     "build": "react-scripts build && yarn netlify",
