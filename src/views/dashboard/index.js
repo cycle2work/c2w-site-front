@@ -32,66 +32,64 @@ const MaxWidth = styled.div`
 class Dashboard extends Component {
     static propTypes = {
         rehydrated: PropTypes.bool.isRequired,
-        user: PropTypes.shape({})
+        user: PropTypes.object
     };
 
     render() {
-        const { rehydrated } = this.props;
-        return (
-            rehydrated && (
-                <Container>
-                    <MaxWidth>
-                        <Row type="flex" justify="center" gutter={24}>
-                            <Col xs={24}>
-                                <SubHeader label="Your mounth data" />
-                            </Col>
-                            <Col xs={22} lg={9}>
-                                <UserCard user={this.props.user} />
-                            </Col>
-                            <Col xs={20} lg={5}>
-                                <ActivityCard
-                                    fromColor={"#1e5799"}
-                                    toColor={"#207cca"}
-                                    title="Your total"
-                                    number={19}
-                                    unit={"Km"}
-                                    performance={"↓ 30km less"}
-                                    time={"than last month"}
-                                />
-                            </Col>
-                            <Col xs={20} lg={5}>
-                                <ActivityCard
-                                    fromColor={"#FF3E84"}
-                                    toColor={"#F9CB00"}
-                                    title="You saved"
-                                    number={0.03}
-                                    unit={"Kg/CO2"}
-                                    performance={"↓ 0.45Kg/CO2 less"}
-                                    time={"than last month"}
-                                />
-                            </Col>
-                            <Col xs={20} lg={5}>
-                                <ActivityCard
-                                    fromColor={"#8C1CC9"}
-                                    toColor={"#2CD1FF"}
-                                    title="You earned"
-                                    number={22}
-                                    unit={"€"}
-                                    performance={"↑ 10€ more"}
-                                    time={"than last month"}
-                                />
-                            </Col>
-                        </Row>
-                        <Row type="flex" justify="center" gutter={24}>
-                            <Col xs={24}>
-                                <SubHeader label="Your mounth data" />
-                            </Col>
-                        </Row>
-                    </MaxWidth>
-                    <Footer />
-                </Container>
-            )
-        );
+        const { rehydrated, user } = this.props;
+        return rehydrated ? (
+            <Container>
+                <MaxWidth>
+                    <Row type="flex" justify="center" gutter={24}>
+                        <Col xs={24}>
+                            <SubHeader label="Your mounth data" />
+                        </Col>
+                        <Col xs={22} lg={9}>
+                            <UserCard user={user} />
+                        </Col>
+                        <Col xs={20} lg={5}>
+                            <ActivityCard
+                                fromColor={"#1e5799"}
+                                toColor={"#207cca"}
+                                title="Your total"
+                                number={19}
+                                unit={"Km"}
+                                performance={"↓ 30km less"}
+                                time={"than last month"}
+                            />
+                        </Col>
+                        <Col xs={20} lg={5}>
+                            <ActivityCard
+                                fromColor={"#FF3E84"}
+                                toColor={"#F9CB00"}
+                                title="You saved"
+                                number={0.03}
+                                unit={"Kg/CO2"}
+                                performance={"↓ 0.45Kg/CO2 less"}
+                                time={"than last month"}
+                            />
+                        </Col>
+                        <Col xs={20} lg={5}>
+                            <ActivityCard
+                                fromColor={"#8C1CC9"}
+                                toColor={"#2CD1FF"}
+                                title="You earned"
+                                number={22}
+                                unit={"€"}
+                                performance={"↑ 10€ more"}
+                                time={"than last month"}
+                            />
+                        </Col>
+                    </Row>
+                    <Row type="flex" justify="center" gutter={24}>
+                        <Col xs={24}>
+                            <SubHeader label="Your mounth data" />
+                        </Col>
+                    </Row>
+                </MaxWidth>
+                <Footer />
+            </Container>
+        ) : null;
     }
 }
 

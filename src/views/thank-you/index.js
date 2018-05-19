@@ -35,7 +35,9 @@ class ThankYouPage extends Component {
         joinNow: PropTypes.func.isRequired,
         location: PropTypes.shape({
             search: PropTypes.string
-        })
+        }),
+        rehydrated: PropTypes.bool.isRequired,
+        user: PropTypes.object
     };
 
     componentWillReceiveProps() {
@@ -47,10 +49,11 @@ class ThankYouPage extends Component {
     }
 
     render() {
-        return (
+        const { rehydrated, user } = this.props;
+        return rehydrated ? (
             <Container>
                 <CenteredRow type="flex" align="middle" justify="center">
-                    <Col span={8}>
+                    <Col xs={20}>
                         <h1>{"Thank you!"}</h1>
                         <br />
                         <Text>
@@ -60,18 +63,20 @@ class ThankYouPage extends Component {
                         </Text>
                         <br />
                         <a href="/dashboard">
-                            <Button label="Dashboard" />
+                            <Button label={`${user ? "Dashboard" : "Wait..."}`} />
                         </a>
                     </Col>
                 </CenteredRow>
             </Container>
-        );
+        ) : null;
     }
 }
 
 function mapStateToProps(state) {
     return {
-        location: state.location
+        location: state.location,
+        rehydrated: state.rehydrated,
+        user: state.strava.user
     };
 }
 

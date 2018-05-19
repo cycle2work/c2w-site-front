@@ -53,7 +53,12 @@ const Where = styled.p`
 
 export default class ActivityCard extends Component {
     static propTypes = {
-        user: PropTypes.shape({})
+        user: PropTypes.shape({
+            firstname: PropTypes.string.isRequired,
+            lastname: PropTypes.string.isRequired,
+            state: PropTypes.string.isRequired,
+            country: PropTypes.string.isRequired
+        })
     };
 
     render() {
