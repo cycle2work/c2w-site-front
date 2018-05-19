@@ -8,13 +8,13 @@
         "babel-polyfill": "^6.26.0",
         "babel-preset-react": "^6.24.1",
         "babel-preset-stage-0": "^6.24.1",
+        "bluebird": "^3.5.1",
         "eslint-plugin-jsx-a11y": "5",
         "husky": "^0.14.3",
         "moment": "^2.19.1",
         "nyc": "^11.2.1",
         "prop-types": "^15.6.0",
         "react": "^16.0.0",
-        "react-anime": "^2.0.1",
         "react-burger-menu": "^2.1.9",
         "react-dom": "^16.0.0",
         "react-redux": "^5.0.6",
@@ -23,7 +23,7 @@
         "react-scroll": "^1.6.4",
         "redux": "^3.7.2",
         "redux-logger": "^3.0.6",
-        "redux-persist": "^5.2.2",
+        "redux-persist": "4",
         "redux-thunk": "^2.2.0",
         "styled-components": "^3.2.6"
     },
@@ -61,7 +61,8 @@
         "eject": "react-scripts eject",
         "coverage": "nyc npm test",
         "lint": "eslint src test mock-server --ext .jsx --ext .js",
-        "test": "cross-env NODE_ENV=test NODE_PATH=src mocha --require babel-register --require test/setup.js --recursive",
+        "test":
+            "cross-env NODE_ENV=test NODE_PATH=src mocha --require babel-register --require test/setup.js --recursive",
         "test-watch": "yarn test --watch",
         "mock-server": "mock-server --serveConfig --watch"
     }

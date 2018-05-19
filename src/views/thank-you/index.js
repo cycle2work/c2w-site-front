@@ -38,7 +38,7 @@ class ThankYouPage extends Component {
         })
     };
 
-    componentDidUpdate() {
+    componentWillReceiveProps() {
         const { location: { search }, joinNow } = this.props;
         const parsed = parse(search);
         if (parsed.code) {
@@ -59,9 +59,9 @@ class ThankYouPage extends Component {
                             {"Thanks for making the world better!"}
                         </Text>
                         <br />
-                        <Button label="Dashboard" />
-                        <br />
-                        <p>{"Coming soon"}</p>
+                        <a href="/dashboard">
+                            <Button label="Dashboard" />
+                        </a>
                     </Col>
                 </CenteredRow>
             </Container>

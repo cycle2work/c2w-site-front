@@ -1,9 +1,7 @@
 {
     "extends": "react-app",
     "parser": "babel-eslint",
-    "plugins": [
-        "react"
-    ],
+    "plugins": ["react"],
     "env": {
         "browser": true,
         "mocha": true,
@@ -11,76 +9,40 @@
         "es6": true
     },
     "rules": {
-        "brace-style": [2, "1tbs"],
-        "comma-dangle": [2],
-        "comma-spacing": [2, {"before": false, "after": true}],
-        "computed-property-spacing": [2, "never"],
-        "indent": [2, 4],
-        "jsx-a11y/alt-text": [0],
-        "jsx-quotes": [2, "prefer-double"],
-        "keyword-spacing": [2, {"before": true, "after": true, "overrides": {}}],
-        "new-cap": [2, {"capIsNew": false}],
-        "no-case-declarations": [0],
-        "no-console": [0],
-        "no-constant-condition": [0],
-        "no-multi-spaces": [0],
-        "no-restricted-globals": [0],
-        "no-throw-literal": [0],
-        "no-underscore-dangle": [0],
-        "no-unused-vars": [2, {"args": "after-used", "varsIgnorePattern": "React"}],
-        "no-useless-escape": [0],
-        "no-var": [2],
-        "one-var": [2, "never"],
-        "prefer-arrow-callback": [2],
-        "prefer-template": [2],
-        "quotes": [2, "double"],
-        "react/jsx-boolean-value": [2, "always"],
-        "react/jsx-closing-bracket-location": [2],
-        "react/jsx-curly-spacing": [2],
-        "react/jsx-equals-spacing": [2],
-        "react/jsx-first-prop-new-line": [2, "multiline"],
-        "react/jsx-indent": [2],
-        "react/jsx-indent-props": [2],
-        "react/jsx-key": [2],
-        "react/jsx-max-props-per-line": [2, {"maximum": 5}],
-        "react/jsx-no-duplicate-props": [2],
-        "react/jsx-no-literals": [2],
-        "react/jsx-no-undef": [2],
-        "react/jsx-pascal-case": [2],
-        "react/jsx-tag-spacing": [2, { "beforeSelfClosing": "always" }],
-        "react/jsx-uses-react": [2],
-        "react/jsx-uses-vars": [2],
-        "react/no-deprecated": [2],
-        "react/no-did-mount-set-state": [2],
-        "react/no-did-update-set-state": [2],
-        "react/no-direct-mutation-state": [2],
-        "react/no-is-mounted": [2],
-        "react/no-string-refs": [2],
-        "react/no-unknown-property": [2],
-        "react/prefer-es6-class": [2],
-        "react/prop-types": [2],
-        "react/react-in-jsx-scope": [2],
-        "react/require-render-return": [2],
-        "react/self-closing-comp": [2],
-        "react/sort-comp": [2, {
-            "order": [
-                "constructor",
-                "lifecycle",
-                "everything-else",
-                "rendering"
-            ],
-            "groups": {
-                "rendering": [
-                    "^render.+$/",
-                    "render"
-                ]
+        "jsx-a11y/alt-text": ["warn"],
+        "no-throw-literal": ["warn"],
+        "no-unused-vars": ["error", { "args": "after-used", "varsIgnorePattern": "React" }],
+        "no-useless-escape": ["warn"],
+        "no-var": ["error"],
+        "prefer-arrow-callback": ["error"],
+        "prefer-template": ["error"],
+        "react/jsx-boolean-value": ["error", "always"],
+        "react/jsx-key": ["error"],
+        "react/jsx-no-duplicate-props": ["error"],
+        "react/jsx-no-literals": ["error"],
+        "react/jsx-no-undef": ["error"],
+        "react/jsx-pascal-case": ["error"],
+        "react/jsx-uses-react": ["error"],
+        "react/no-deprecated": ["error"],
+        "react/no-did-mount-set-state": ["error"],
+        "react/no-did-update-set-state": ["error"],
+        "react/no-direct-mutation-state": ["error"],
+        "react/no-is-mounted": ["error"],
+        "react/no-string-refs": ["error"],
+        "react/no-unknown-property": ["error"],
+        "react/prefer-es6-class": ["error"],
+        "react/prop-types": ["error"],
+        "react/require-render-return": ["error"],
+        "react/self-closing-comp": ["error"],
+        "react/sort-comp": [
+            "error",
+            {
+                "order": ["constructor", "lifecycle", "everything-else", "rendering"],
+                "groups": {
+                    "rendering": ["^render.+$/", "render"]
+                }
             }
-        }],
-        "react/sort-prop-types": [2],
-        "react/jsx-wrap-multilines": [2],
-        "semi": [2, "always"],
-        "space-before-blocks": [2, "always"],
-        "space-in-parens": [2, "never"],
-        "strict": [2, "never"]
+        ],
+        "strict": ["error", "never"]
     }
 }
