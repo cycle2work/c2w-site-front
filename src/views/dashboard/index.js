@@ -27,6 +27,7 @@ const Container = styled.div`
 const MaxWidth = styled.div`
     max-width: 1400px;
     margin: auto;
+    padding: 0 16px;
 `;
 
 class Dashboard extends Component {
@@ -44,10 +45,10 @@ class Dashboard extends Component {
                         <Col xs={24}>
                             <SubHeader label="Your mounth data" />
                         </Col>
-                        <Col xs={22} lg={9}>
+                        <Col xs={22} sm={12} lg={9}>
                             <UserCard user={user} />
                         </Col>
-                        <Col xs={20} lg={5}>
+                        <Col xs={20} sm={10} lg={5}>
                             <ActivityCard
                                 fromColor={"#1e5799"}
                                 toColor={"#207cca"}
@@ -58,7 +59,7 @@ class Dashboard extends Component {
                                 time={"than last month"}
                             />
                         </Col>
-                        <Col xs={20} lg={5}>
+                        <Col xs={20} sm={10} lg={5}>
                             <ActivityCard
                                 fromColor={"#FF3E84"}
                                 toColor={"#F9CB00"}
@@ -69,7 +70,7 @@ class Dashboard extends Component {
                                 time={"than last month"}
                             />
                         </Col>
-                        <Col xs={20} lg={5}>
+                        <Col xs={20} sm={10} lg={5}>
                             <ActivityCard
                                 fromColor={"#8C1CC9"}
                                 toColor={"#2CD1FF"}
