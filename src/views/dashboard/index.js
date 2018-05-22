@@ -6,8 +6,6 @@ import { Col, Row } from "antd";
 
 import styled from "styled-components";
 
-import Footer from "../../components/sections/footer";
-
 import ActivityCard from "./components/activity-card";
 import UserCard from "./components/user-card";
 import SubHeader from "./components/sub-header";
@@ -32,13 +30,22 @@ const MaxWidth = styled.div`
 
 class Dashboard extends Component {
     static propTypes = {
-        rehydrated: PropTypes.bool.isRequired,
         user: PropTypes.object
     };
 
+    static defaultProps = {
+        user: {
+            profile: "",
+            firstname: "Firstname",
+            lastname: "Lastname",
+            country: "Country",
+            state: "State"
+        }
+    };
+
     render() {
-        const { rehydrated, user } = this.props;
-        return rehydrated ? (
+        const { user } = this.props;
+        return (
             <Container>
                 <MaxWidth>
                     <Row type="flex" justify="center" gutter={24}>
@@ -88,16 +95,14 @@ class Dashboard extends Component {
                         </Col>
                     </Row>
                 </MaxWidth>
-                <Footer />
             </Container>
-        ) : null;
+        );
     }
 }
 
 function mapStateToProps(state) {
     return {
-        user: state.strava.user,
-        rehydrated: state.rehydrated
+        user: state.strava.user
     };
 }
 

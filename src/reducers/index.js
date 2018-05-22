@@ -1,26 +1,20 @@
 import { applyMiddleware, createStore, combineReducers } from "redux";
 import { createLogger } from "redux-logger";
 import thunk from "redux-thunk";
-import { persistStore, autoRehydrate } from "redux-persist";
+import { save, load } from "redux-localstorage-simple";
 
-import location from "./location";
 import strava from "./strava";
 import reports from "./reports";
-import rehydrated from "./rehydrated";
 
 const reducers = combineReducers({
-    location,
     strava,
-    reports,
-    rehydrated
+    reports
 });
 
 const logger = createLogger({
     collapsed: true
 });
 
-const store = createStore(reducers, applyMiddleware(thunk, logger), autoRehydrate());
-
-persistStore(store);
+const store = createStore(reducers, load(), applyMiddleware(thunk, logger, save()));
 
 export default store;

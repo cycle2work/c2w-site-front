@@ -1,4 +1,4 @@
-import * as colors from "../../../commons/colors";
+import * as colors from "../../commons/colors";
 
 export const style = {
     footerWrp: {

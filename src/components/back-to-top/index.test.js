@@ -1,12 +1,11 @@
-import {BackTop, Icon} from "antd";
-import {expect} from "chai";
-import {shallow} from "enzyme";
+import { BackTop, Icon } from "antd";
+import { expect } from "chai";
+import { shallow } from "enzyme";
 import React from "react";
 
-import BackToTop from "../../../src/components/back-to-top";
+import BackToTop from "../back-to-top";
 
 describe("BackToTop", () => {
-
     it("renders one BackTop component", () => {
         const element = shallow(<BackToTop />);
         expect(element.find(BackTop)).to.have.length(1);
@@ -21,5 +20,4 @@ describe("BackToTop", () => {
         const element = shallow(<BackToTop />);
         expect(element.find(Icon).prop("type")).to.equal("up-circle");
     });
-
 });

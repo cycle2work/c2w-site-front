@@ -1,14 +1,16 @@
 import React, { Component } from "react";
-import { connect, Provider } from "react-redux";
+import { Provider } from "react-redux";
+
 import { BrowserRouter, Route, Switch, withRouter } from "react-router-dom";
-import { bindActionCreators } from "redux";
+
 import PropTypes from "prop-types";
 
-import Dashboard from "./dashboard";
-import RootPage from "./root";
-import ThankYouPage from "./thank-you";
+import BackToTop from "../components/back-to-top";
+import Footer from "../components/footer";
 
-import { navigate } from "../actions/location";
+import Dashboard from "./dashboard";
+import Homepage from "./homepage";
+import ThankYou from "./thank-you";
 
 import store from "../reducers";
 
@@ -17,50 +19,41 @@ export class Routes extends Component {
         location: PropTypes.shape({
             pathname: PropTypes.string,
             search: PropTypes.string
-        }),
-        navigate: PropTypes.func.isRequired
+        })
     };
 
     componentDidMount() {
         this.onNavigate();
     }
 
-    componentDidUpdate(prevProps) {
-        this.onNavigate(prevProps);
-    }
-
-    onNavigate(prevProps = {}) {
-        const { location, navigate } = this.props;
+    onNavigate = (prevProps = {}) => {
+        const { location } = this.props;
         if (location !== prevProps.location) {
             window.scrollTo(0, 0);
-            navigate(location);
         }
-    }
+    };
 
     render() {
         return (
-            <Switch>
-                <Route component={Dashboard} path="/dashboard" />
-                <Route component={ThankYouPage} path="/thank-you" />
-                <Route component={RootPage} path="/" />
-            </Switch>
+            <Route
+                render={props => (
+                    <div>
+                        <Switch>
+                            <Route path="/dashboard" component={Dashboard} />
+                            <Route path="/thank-you" render={() => <ThankYou location={props.location} />} />
+                            <Route path="/" component={Homepage} />
+                        </Switch>
+                        <Footer />
+                        <BackToTop />
+                    </div>
+                )}
+                path="/"
+            />
         );
     }
 }
 
-function mapStateToProps(state) {
-    return {
-        location: state.location
-    };
-}
-
-function mapDispatchToProps(dispatch) {
-    return {
-        navigate: bindActionCreators(navigate, dispatch)
-    };
-}
-
-export const ConnectedRoutes = connect(mapStateToProps, mapDispatchToProps)(withRouter(Routes));
+export const ConnectedRoutes = withRouter(Routes);
 
 export default class Views extends Component {
     render() {

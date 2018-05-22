@@ -1,13 +1,12 @@
-import {Icon} from "antd";
-import {expect} from "chai";
-import {shallow} from "enzyme";
+import { Icon } from "antd";
+import { expect } from "chai";
+import { shallow } from "enzyme";
 import React from "react";
 
 import DownloadLink from "../../../src/components/download-link";
-import {black} from "../../../src/commons/colors";
+import { black } from "../../../src/commons/colors";
 
 describe("DownloadLink", () => {
-
     it("renders one a element", () => {
         const element = shallow(<DownloadLink />);
         expect(element.find("a")).to.have.length(1);
@@ -34,7 +33,6 @@ describe("DownloadLink", () => {
     });
 
     describe("for default props", () => {
-
         it("sets filePath to empty string", () => {
             const element = shallow(<DownloadLink />);
             expect(element.find("a").prop("href")).to.equal("");
@@ -44,7 +42,5 @@ describe("DownloadLink", () => {
             const element = shallow(<DownloadLink />);
             expect(element.find("a").prop("style").color).to.equal(black);
         });
-
     });
-
 });

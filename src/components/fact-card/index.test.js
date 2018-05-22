@@ -1,12 +1,11 @@
-import {Col} from "antd";
-import {expect} from "chai";
-import {shallow} from "enzyme";
+import { Col } from "antd";
+import { expect } from "chai";
+import { shallow } from "enzyme";
 import React from "react";
 
 import FactCard from "../../../src/components/fact-card";
 
 describe("FactCard", () => {
-
     it("renders one Col component", () => {
         const element = shallow(<FactCard />);
         expect(element.find(Col)).to.have.length(1);
@@ -39,17 +38,26 @@ describe("FactCard", () => {
 
     it("renders text prop as a child of third div element", () => {
         const element = shallow(<FactCard text={"this is a text"} />);
-        expect(element.find("div").at(2).text()).to.equal("this is a text");
+        expect(
+            element
+                .find("div")
+                .at(2)
+                .text()
+        ).to.equal("this is a text");
     });
 
     it("renders title prop as a child of second div element", () => {
         const element = shallow(<FactCard title={"this is a title"} />);
-        expect(element.find("div").at(1).text()).to.equal("this is a title");
+        expect(
+            element
+                .find("div")
+                .at(1)
+                .text()
+        ).to.equal("this is a title");
     });
 
     it("provides xs prop to xs of Col element", () => {
         const element = shallow(<FactCard xs={345} />);
         expect(element.find(Col).prop("xs")).to.equal(345);
     });
-
 });

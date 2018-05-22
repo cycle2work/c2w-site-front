@@ -5,13 +5,11 @@ import PropTypes from "prop-types";
 
 import { fetchReports } from "../../actions/reports";
 
-import BackToTop from "../../components/back-to-top";
 import ScrollDown from "../../components/scroll-down";
 
 import FirstSection from "../../components/sections/first";
 import FactsAndFigures from "../../components/sections/facts-and-figures";
 import FeaturesSection from "../../components/sections/features";
-import Footer from "../../components/sections/footer";
 import Join from "../../components/sections/join";
 import Header from "../../components/sections/header";
 import How from "../../components/sections/how";
@@ -19,7 +17,7 @@ import Mondora from "../../components/sections/mondora";
 import Standings from "../../components/sections/standings";
 import Why from "../../components/sections/why";
 
-class RootPage extends Component {
+class Homepage extends Component {
     static propTypes = {
         fetchReports: PropTypes.func.isRequired,
         reports: PropTypes.shape({
@@ -48,8 +46,6 @@ class RootPage extends Component {
                 <Mondora />
                 <Join />
                 <Standings reports={reports} />
-                <Footer />
-                <BackToTop />
             </div>
         );
     }
@@ -68,4 +64,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(RootPage);
+export default connect(mapStateToProps, mapDispatchToProps)(Homepage);

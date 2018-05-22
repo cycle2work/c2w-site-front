@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { parse } from "query-string";
@@ -36,11 +37,10 @@ class ThankYouPage extends Component {
         location: PropTypes.shape({
             search: PropTypes.string
         }),
-        rehydrated: PropTypes.bool.isRequired,
         user: PropTypes.object
     };
 
-    componentWillReceiveProps() {
+    componentDidMount() {
         const { location: { search }, joinNow } = this.props;
         const parsed = parse(search);
         if (parsed.code) {
@@ -49,8 +49,8 @@ class ThankYouPage extends Component {
     }
 
     render() {
-        const { rehydrated, user } = this.props;
-        return rehydrated ? (
+        const { user } = this.props;
+        return (
             <Container>
                 <CenteredRow type="flex" align="middle" justify="center">
                     <Col xs={20}>
@@ -62,20 +62,18 @@ class ThankYouPage extends Component {
                             {"Thanks for making the world better!"}
                         </Text>
                         <br />
-                        <a href="/dashboard">
+                        <Link to="/dashboard">
                             <Button label={`${user ? "Dashboard" : "Wait..."}`} />
-                        </a>
+                        </Link>
                     </Col>
                 </CenteredRow>
             </Container>
-        ) : null;
+        );
     }
 }
 
 function mapStateToProps(state) {
     return {
-        location: state.location,
-        rehydrated: state.rehydrated,
         user: state.strava.user
     };
 }

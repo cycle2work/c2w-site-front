@@ -1,12 +1,11 @@
-import {expect} from "chai";
-import {shallow} from "enzyme";
+import { expect } from "chai";
+import { shallow } from "enzyme";
 import React from "react";
 import * as sinon from "sinon";
 
 import MenuLink from "../../../../src/components/mobile-menu/menu-link";
 
 describe("MenuLink", () => {
-
     it("renders one a element", () => {
         const element = shallow(<MenuLink onClick={sinon.spy()} />);
         expect(element.find("a")).to.have.length(1);
@@ -28,5 +27,4 @@ describe("MenuLink", () => {
         element.find("a").simulate("click");
         expect(onClick).to.have.callCount(1);
     });
-
 });
