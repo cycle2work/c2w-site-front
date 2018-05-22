@@ -9,21 +9,16 @@ const Container = styled.div`
     border-radius: 16px;
     color: black;
     margin: 24px 0;
+    padding: 45px 0;
     box-shadow: 0 1px 30px 0 rgba(0, 0, 0, 0.15), 0 1px 30px 0 rgba(0, 0, 0, 0.15);
-`;
-
-const Title = styled.div`
-    line-height: 35px;
-    font-weight: bold;
-    text-align: center;
-    color: transparent;
 `;
 
 const ProfileImage = styled.div`
     width: 180px;
     height: 180px;
     border-radius: 90px;
-    margin: 30px auto;
+    margin: 0px auto;
+    padding: 60px 0;
     border: 1px solid rgba(255, 255, 255, 0);
     box-shadow: 0px 0px 0px 15px rgba(0, 0, 0, 0.05);
     background-image: url(${props => props.imageUrl});
@@ -65,11 +60,10 @@ export default class ActivityCard extends Component {
         const { user } = this.props;
         return (
             <Container>
-                <Title>{"user"}</Title>
                 <ProfileImage imageUrl={user.profile} />
                 <Comparison>
                     <Username>{`${user.firstname} ${user.lastname}`}</Username>
-                    <Where>{`${user.state} - ${user.country}`}</Where>
+                    <Where>{`${user.state} ${user.country}`}</Where>
                 </Comparison>
             </Container>
         );

@@ -6,8 +6,10 @@ import { Col, Row } from "antd";
 
 import styled from "styled-components";
 
-import ActivityCard from "./components/activity-card";
-import UserCard from "./components/user-card";
+import ActivityCard from "./components/cards/activity-card";
+import UserCard from "./components/cards/user-card";
+import TeamCard from "./components/cards/team-card";
+import StatCard from "./components/cards/stat-card";
 import SubHeader from "./components/sub-header";
 
 import gradient from "../../assets/images/gradient_mondora.png";
@@ -15,7 +17,7 @@ import gradient from "../../assets/images/gradient_mondora.png";
 import { lighterGrey } from "../../commons/colors";
 
 const Container = styled.div`
-    height: 100vh;
+    min-height: 100vh;
     background-color: ${lighterGrey};
     background-image: url(${gradient});
     background-size: contain;
@@ -48,7 +50,7 @@ class Dashboard extends Component {
         return (
             <Container>
                 <MaxWidth>
-                    <Row type="flex" justify="center" gutter={24}>
+                    <Row type="flex" justify={"center"} gutter={24}>
                         <Col xs={24}>
                             <SubHeader label="Your mounth data" />
                         </Col>
@@ -89,9 +91,24 @@ class Dashboard extends Component {
                             />
                         </Col>
                     </Row>
-                    <Row type="flex" justify="center" gutter={24}>
+                    <Row type="flex" justify={"center"} gutter={24}>
                         <Col xs={24}>
-                            <SubHeader label="Your mounth data" />
+                            <SubHeader label="Team mounth data" />
+                        </Col>
+                        <Col xs={22} lg={12}>
+                            <TeamCard />
+                        </Col>
+                        <Col xs={18} lg={6}>
+                            <StatCard />
+                        </Col>
+                        <Col xs={18} lg={6}>
+                            <StatCard
+                                title="Team saved"
+                                number={2.3}
+                                unit={"Kg/CO2"}
+                                performance={"↑ 10€ more"}
+                                time={"than last month"}
+                            />
                         </Col>
                     </Row>
                 </MaxWidth>

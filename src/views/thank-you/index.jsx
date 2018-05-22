@@ -41,7 +41,10 @@ class ThankYouPage extends Component {
     };
 
     componentDidMount() {
-        const { location: { search }, joinNow } = this.props;
+        const {
+            location: { search },
+            joinNow
+        } = this.props;
         const parsed = parse(search);
         if (parsed.code) {
             joinNow(parsed.code);
