@@ -10,6 +10,9 @@ const Container = styled.div`
     color: white;
     margin: 24px 0;
     box-shadow: 0 1px 30px 0 rgba(0, 0, 0, 0.15), 0 1px 30px 0 rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 `;
 
 const Title = styled.div`
@@ -48,7 +51,7 @@ const Comparison = styled.div`
     background-color: white;
     border-radius: 30px;
     height: 50px;
-    margin: 60px 24px 0 24px;
+    margin: 16px 24px;
     text-align: center;
     line-height: 35px;
 `;
