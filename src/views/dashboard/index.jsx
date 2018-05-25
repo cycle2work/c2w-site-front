@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import moment from "moment";
 
 import { Col, Row } from "antd";
 
@@ -65,41 +66,69 @@ class Dashboard extends Component {
             dashboard: { activities }
         } = this.props;
 
-        const total = activities.reduce((total, activity) => {
-            return {
-                distance: (activity.distance / 1000).toFixed(0),
-                co2: (activity.distance / 600000).toFixed(2),
-                euro: (activity.distance / 1000 * 0.2).toFixed(0)
-            };
-        }, {});
+        const month = moment.utc().format("MM");
+        const previousMonth = moment
+            .utc()
+            .subtract({ months: 1 })
+            .format("MM");
+
+        const totalPrevious = activities
+            .filter(x => x.month === previousMonth)
+            .reduce((total, activity) => (total + activity.distance) / 1000, 0);
+
+        const total = activities
+            .filter(x => x.month === month)
+            .reduce((total, activity) => (total + activity.distance) / 1000, 0);
+
+        const more = total >= totalPrevious;
+
+        const delta = total - totalPrevious;
+
+        const stats = {
+            km: total,
+            deltaKm: delta,
+            co2: total / 600,
+            deltaCo2: delta / 600,
+            euro: total * 0.2,
+            deltaEuro: delta * 0.2
+        };
 
         const cards = [
             {
                 title: "Your total",
                 fromColor: "#1E5799",
                 toColor: "#207CCA",
-                number: total.distance,
+                number: stats.km.toFixed(0),
                 unit: "Km",
-                performance: "↓ 30km less",
-                time: "than last month"
+                performance: `${more ? "↑" : "↓"} ${stats.deltaKm.toFixed(0)}km ${
+                    more ? "more" : "less"
+                }`,
+                time: "than last month",
+                more
             },
             {
                 title: "You saved",
                 fromColor: "#FF3E84",
                 toColor: "#F9CB00",
-                number: total.co2,
+                number: stats.co2.toFixed(2),
                 unit: "Kg/CO2",
-                performance: "↓ 0.45Kg/CO2 less",
-                time: "than last month"
+                performance: `${!more ? "↑" : "↓"} ${stats.deltaCo2.toFixed(2)}Kg/CO2 ${
+                    !more ? "more" : "less"
+                }`,
+                time: "than last month",
+                more
             },
             {
                 title: "You earned",
                 fromColor: "#8C1CC9",
                 toColor: "#2CD1FF",
-                number: total.euro,
+                number: stats.euro.toFixed(0),
                 unit: "€",
-                performance: "↑ 10€ more",
-                time: "than last month"
+                performance: `${more ? "↑" : "↓"} ${stats.deltaEuro.toFixed(0)}€ ${
+                    more ? "more" : "less"
+                }`,
+                time: "than last month",
+                more
             }
         ];
 
@@ -123,6 +152,7 @@ class Dashboard extends Component {
                                     unit={card.unit}
                                     performance={card.performance}
                                     time={card.time}
+                                    more={card.more}
                                 />
                             </Col>
                         ))}

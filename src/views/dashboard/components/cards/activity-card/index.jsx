@@ -5,7 +5,11 @@ import styled from "styled-components";
 
 const Container = styled.div`
     height: 400px;
-    background: linear-gradient(135deg, ${props => props.fromColor} 20%, ${props => props.toColor} 80%);
+    background: linear-gradient(
+        135deg,
+        ${props => props.fromColor} 20%,
+        ${props => props.toColor} 80%
+    );
     border-radius: 16px;
     color: white;
     margin: 24px 0;
@@ -59,7 +63,7 @@ const Comparison = styled.div`
 const What = styled.p`
     font-size: 16px;
     font-weight: bold;
-    color: red;
+    color: ${props => (props.more ? "green" : "red")};
 `;
 
 const When = styled.p`
@@ -72,14 +76,19 @@ export default class ActivityCard extends Component {
         fromColor: PropTypes.string,
         toColor: PropTypes.string,
         title: PropTypes.string,
-        number: PropTypes.number,
+        number: PropTypes.string,
         unit: PropTypes.string,
         performance: PropTypes.string,
-        time: PropTypes.string
+        time: PropTypes.string,
+        more: PropTypes.bool
+    };
+
+    static defaultProps = {
+        number: "0"
     };
 
     render() {
-        const { fromColor, toColor, title, number, unit, performance, time } = this.props;
+        const { fromColor, toColor, title, number, unit, performance, time, more } = this.props;
         return (
             <Container fromColor={fromColor} toColor={toColor}>
                 <Title>{title.toUpperCase()}</Title>
@@ -88,7 +97,7 @@ export default class ActivityCard extends Component {
                     <Unit>{unit}</Unit>
                 </NumberContainer>
                 <Comparison>
-                    <What>{performance}</What>
+                    <What more={more}>{performance}</What>
                     <When>{time}</When>
                 </Comparison>
             </Container>
