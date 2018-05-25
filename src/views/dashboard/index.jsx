@@ -69,10 +69,39 @@ class Dashboard extends Component {
             return {
                 distance: (activity.distance / 1000).toFixed(0),
                 co2: (activity.distance / 600000).toFixed(2),
-                euro: (activity.distance / 450).toFixed(0)
+                euro: (activity.distance / 1000 * 0.2).toFixed(0)
             };
         }, {});
-        console.log({ total });
+
+        const cards = [
+            {
+                title: "Your total",
+                fromColor: "#1E5799",
+                toColor: "#207CCA",
+                number: total.distance,
+                unit: "Km",
+                performance: "↓ 30km less",
+                time: "than last month"
+            },
+            {
+                title: "You saved",
+                fromColor: "#FF3E84",
+                toColor: "#F9CB00",
+                number: total.co2,
+                unit: "Kg/CO2",
+                performance: "↓ 0.45Kg/CO2 less",
+                time: "than last month"
+            },
+            {
+                title: "You earned",
+                fromColor: "#8C1CC9",
+                toColor: "#2CD1FF",
+                number: total.euro,
+                unit: "€",
+                performance: "↑ 10€ more",
+                time: "than last month"
+            }
+        ];
 
         return (
             <Container>
@@ -84,39 +113,19 @@ class Dashboard extends Component {
                         <Col xs={22} sm={12} lg={9}>
                             <UserCard user={user} />
                         </Col>
-                        <Col xs={20} sm={10} lg={5}>
-                            <ActivityCard
-                                fromColor={"#1e5799"}
-                                toColor={"#207cca"}
-                                title="Your total"
-                                number={19}
-                                unit={"Km"}
-                                performance={"↓ 30km less"}
-                                time={"than last month"}
-                            />
-                        </Col>
-                        <Col xs={20} sm={10} lg={5}>
-                            <ActivityCard
-                                fromColor={"#FF3E84"}
-                                toColor={"#F9CB00"}
-                                title="You saved"
-                                number={0.03}
-                                unit={"Kg/CO2"}
-                                performance={"↓ 0.45Kg/CO2 less"}
-                                time={"than last month"}
-                            />
-                        </Col>
-                        <Col xs={20} sm={10} lg={5}>
-                            <ActivityCard
-                                fromColor={"#8C1CC9"}
-                                toColor={"#2CD1FF"}
-                                title="You earned"
-                                number={22}
-                                unit={"€"}
-                                performance={"↑ 10€ more"}
-                                time={"than last month"}
-                            />
-                        </Col>
+                        {cards.map((card, index) => (
+                            <Col xs={20} sm={10} lg={5} key={index}>
+                                <ActivityCard
+                                    fromColor={card.fromColor}
+                                    toColor={card.toColor}
+                                    title={card.title}
+                                    number={card.number}
+                                    unit={card.unit}
+                                    performance={card.performance}
+                                    time={card.time}
+                                />
+                            </Col>
+                        ))}
                     </Row>
                     <Row type="flex" justify={"center"} gutter={24}>
                         <Col xs={24}>
