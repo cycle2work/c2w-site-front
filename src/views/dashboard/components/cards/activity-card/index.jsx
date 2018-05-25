@@ -97,7 +97,9 @@ export default class ActivityCard extends Component {
                     <Unit>{unit}</Unit>
                 </NumberContainer>
                 <Comparison>
-                    <What more={more}>{performance}</What>
+                    <What more={more}>
+                        {`${more ? "↑" : "↓"} ${performance}${unit} ${more ? "more" : "less"}`}
+                    </What>
                     <When>{time}</When>
                 </Comparison>
             </Container>

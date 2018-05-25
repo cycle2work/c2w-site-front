@@ -100,9 +100,7 @@ class Dashboard extends Component {
                 toColor: "#207CCA",
                 number: stats.km.toFixed(0),
                 unit: "Km",
-                performance: `${more ? "↑" : "↓"} ${stats.deltaKm.toFixed(0)}km ${
-                    more ? "more" : "less"
-                }`,
+                performance: stats.deltaKm.toFixed(0),
                 time: "than last month",
                 more
             },
@@ -112,9 +110,7 @@ class Dashboard extends Component {
                 toColor: "#F9CB00",
                 number: stats.co2.toFixed(2),
                 unit: "Kg/CO2",
-                performance: `${!more ? "↑" : "↓"} ${stats.deltaCo2.toFixed(2)}Kg/CO2 ${
-                    !more ? "more" : "less"
-                }`,
+                performance: stats.deltaCo2.toFixed(2),
                 time: "than last month",
                 more
             },
@@ -124,9 +120,7 @@ class Dashboard extends Component {
                 toColor: "#2CD1FF",
                 number: stats.euro.toFixed(0),
                 unit: "€",
-                performance: `${more ? "↑" : "↓"} ${stats.deltaEuro.toFixed(0)}€ ${
-                    more ? "more" : "less"
-                }`,
+                performance: stats.deltaEuro.toFixed(0),
                 time: "than last month",
                 more
             }
