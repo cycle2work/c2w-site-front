@@ -6,6 +6,8 @@ import { Col, Row } from "antd";
 
 import styled from "styled-components";
 
+import { fetchData } from "../../actions/dashboard";
+
 import ActivityCard from "./components/cards/activity-card";
 import UserCard from "./components/cards/user-card";
 import TeamCard from "./components/cards/team-card";
@@ -32,10 +34,17 @@ const MaxWidth = styled.div`
 
 class Dashboard extends Component {
     static propTypes = {
-        user: PropTypes.object
+        user: PropTypes.object,
+        fetchData: PropTypes.func.isRequired,
+        dashboard: PropTypes.shape({
+            activities: PropTypes.array.isRequired
+        })
     };
 
     static defaultProps = {
+        dashboard: {
+            activities: []
+        },
         user: {
             profile: "",
             firstname: "Firstname",
@@ -45,8 +54,26 @@ class Dashboard extends Component {
         }
     };
 
+    componentDidMount() {
+        const { user, fetchData } = this.props;
+        fetchData(user.id);
+    }
+
     render() {
-        const { user } = this.props;
+        const {
+            user,
+            dashboard: { activities }
+        } = this.props;
+
+        const total = activities.reduce((total, activity) => {
+            return {
+                distance: (activity.distance / 1000).toFixed(0),
+                co2: (activity.distance / 600000).toFixed(2),
+                euro: (activity.distance / 450).toFixed(0)
+            };
+        }, {});
+        console.log({ total });
+
         return (
             <Container>
                 <MaxWidth>
@@ -117,10 +144,10 @@ class Dashboard extends Component {
     }
 }
 
-function mapStateToProps(state) {
-    return {
-        user: state.strava.user
-    };
-}
-
-export default connect(mapStateToProps, () => ({}))(Dashboard);
+export default connect(
+    state => ({
+        user: state.strava.user,
+        dashboard: state.dashboard
+    }),
+    { fetchData }
+)(Dashboard);

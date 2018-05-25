@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import PropTypes from "prop-types";
 
-import { fetchReports } from "../../actions/reports";
+import { fetchData } from "../../actions/reports";
 
 import ScrollDown from "../../components/scroll-down";
 
@@ -60,7 +60,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchReports: bindActionCreators(fetchReports, dispatch)
+        fetchReports: bindActionCreators(fetchData, dispatch)
     };
 };
 

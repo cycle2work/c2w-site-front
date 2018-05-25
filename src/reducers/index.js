@@ -4,10 +4,12 @@ import thunk from "redux-thunk";
 import { save, load } from "redux-localstorage-simple";
 
 import strava from "./strava";
+import dashboard from "./dashboard";
 import reports from "./reports";
 
 const reducers = combineReducers({
     strava,
+    dashboard,
     reports
 });
 
