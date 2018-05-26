@@ -102,6 +102,7 @@ class Dashboard extends Component {
                 unit: "Km",
                 performance: stats.deltaKm.toFixed(0),
                 time: "than last month",
+                delay: 150,
                 more
             },
             {
@@ -112,6 +113,7 @@ class Dashboard extends Component {
                 unit: "Kg/CO2",
                 performance: stats.deltaCo2.toFixed(2),
                 time: "than last month",
+                delay: 300,
                 more
             },
             {
@@ -122,6 +124,7 @@ class Dashboard extends Component {
                 unit: "€",
                 performance: stats.deltaEuro.toFixed(0),
                 time: "than last month",
+                delay: 450,
                 more
             }
         ];
@@ -147,6 +150,7 @@ class Dashboard extends Component {
                                     performance={card.performance}
                                     time={card.time}
                                     more={card.more}
+                                    delay={card.delay}
                                 />
                             </Col>
                         ))}

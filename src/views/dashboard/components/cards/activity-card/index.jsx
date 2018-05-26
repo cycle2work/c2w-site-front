@@ -19,6 +19,13 @@ const Container = styled.div`
     justify-content: space-around;
 `;
 
+const Animated = styled.div`
+    opacity: ${props => (props.started ? "1" : "0")};
+    transform: translateY(${props => (props.started ? "0" : "32")}px);
+    transition: transform 300ms ease ${props => props.delay}ms,
+        opacity 500ms ease ${props => props.delay}ms;
+`;
+
 const Title = styled.div`
     font-size: 1.5em;
     line-height: 60px;
@@ -80,28 +87,58 @@ export default class ActivityCard extends Component {
         unit: PropTypes.string,
         performance: PropTypes.string,
         time: PropTypes.string,
-        more: PropTypes.bool
+        more: PropTypes.bool,
+        delay: PropTypes.number
     };
 
     static defaultProps = {
-        number: "0"
+        number: "0",
+        delay: 0
     };
 
+    constructor(props) {
+        super(props);
+        this.state = { started: false };
+    }
+
+    componentDidUpdate() {
+        const { started } = this.state;
+        if (!started) {
+            setTimeout(() => {
+                this.setState({ started: true });
+            }, 50);
+        }
+    }
+
     render() {
-        const { fromColor, toColor, title, number, unit, performance, time, more } = this.props;
+        const {
+            fromColor,
+            toColor,
+            title,
+            number,
+            unit,
+            performance,
+            time,
+            more,
+            delay
+        } = this.props;
+        const { started } = this.state;
+
         return (
             <Container fromColor={fromColor} toColor={toColor}>
-                <Title>{title.toUpperCase()}</Title>
-                <NumberContainer>
-                    <Number>{number}</Number>
-                    <Unit>{unit}</Unit>
-                </NumberContainer>
-                <Comparison>
-                    <What more={more}>
-                        {`${more ? "↑" : "↓"} ${performance}${unit} ${more ? "more" : "less"}`}
-                    </What>
-                    <When>{time}</When>
-                </Comparison>
+                <Animated started={started} delay={delay}>
+                    <Title>{title.toUpperCase()}</Title>
+                    <NumberContainer>
+                        <Number>{number}</Number>
+                        <Unit>{unit}</Unit>
+                    </NumberContainer>
+                    <Comparison>
+                        <What more={more}>
+                            {`${more ? "↑" : "↓"} ${performance}${unit} ${more ? "more" : "less"}`}
+                        </What>
+                        <When>{time}</When>
+                    </Comparison>
+                </Animated>
             </Container>
         );
     }
