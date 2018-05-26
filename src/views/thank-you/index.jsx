@@ -31,6 +31,11 @@ const Text = styled.p`
     font-size: 16px;
 `;
 
+const Disabled = styled.div`
+    opacity: 0.5;
+    cursor: auto;
+`;
+
 class ThankYouPage extends Component {
     static propTypes = {
         joinNow: PropTypes.func.isRequired,
@@ -65,9 +70,15 @@ class ThankYouPage extends Component {
                             {"Thanks for making the world better!"}
                         </Text>
                         <br />
-                        <Link to="/dashboard">
-                            <Button label={`${user ? "Dashboard" : "Wait..."}`} />
-                        </Link>
+                        {user ? (
+                            <Link to="/dashboard">
+                                <Button label="Dashboard" />
+                            </Link>
+                        ) : (
+                            <Disabled>
+                                <Button label="Loading..." disabled={true} />
+                            </Disabled>
+                        )}
                     </Col>
                 </CenteredRow>
             </Container>

@@ -1,48 +1,52 @@
 import PropTypes from "prop-types";
-import React, {Component} from "react";
+import React, { Component } from "react";
 
-import {primaryColor, white} from "../../commons/colors";
+import styled from "styled-components";
+
+import { primaryColor, white } from "../../commons/colors";
+
+const ButtonContainer = styled.div`
+    background: ${props => props.backgroundColor};
+    border-radius: 30px;
+    color: ${props => props.textColor};
+    cursor: ${props => (props.disabled ? "default" : "pointer")};
+    line-height: 45px;
+    display: inline-block;
+    padding: 0 60px;
+    text-align: center;
+    font-size: calc(14px + 0.2vw);
+    font-weight: 500;
+    text-style: uppercase;
+    boxshadow: 0px 8px 40px -9px rgba(28, 27, 41, 0.5);
+    user-select: none;
+`;
 
 export default class Button extends Component {
-
     static propTypes = {
         backgroundColor: PropTypes.string,
         label: PropTypes.string,
         onClick: PropTypes.func,
-        textColor: PropTypes.string
-    }
+        textColor: PropTypes.string,
+        disabled: PropTypes.bool
+    };
 
     static defaultProps = {
         backgroundColor: primaryColor,
         label: "",
         textColor: white
-    }
+    };
 
-    render () {
-        const {backgroundColor, label, onClick, textColor} = this.props;
+    render() {
+        const { backgroundColor, label, onClick, textColor, disabled } = this.props;
         return (
-            <div
+            <ButtonContainer
+                disabled={disabled}
                 onClick={onClick}
-                style={{
-                    background: backgroundColor,
-                    borderRadius: 30,
-                    color: textColor,
-                    cursor: "pointer",
-                    lineHeight: "45px",
-                    display: "inline-block",
-                    padding: "0px 60px",
-                    textAlign: "center",
-                    fontSize: "calc(14px + 0.2vw)",
-                    fontWeight: 500,
-                    textStyle: "uppercase",
-                    WebkitBoxShadow: "0px 8px 40px -9px rgba(28, 27, 41, 0.5)",
-                    MozBoxShadow: "0px 8px 40px -9px rgba(28, 27, 41, 0.5)",
-                    boxShadow: "0px 8px 40px -9px rgba(28, 27, 41, 0.5)"
-                }}
+                textColor={textColor}
+                backgroundColor={backgroundColor}
             >
                 {label}
-            </div>
+            </ButtonContainer>
         );
     }
-
 }
