@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 
 import styled from "styled-components";
 
+import AnimatedContainer from "../../../../../components/animated-container";
+
 const Container = styled.div`
     height: 400px;
     background: linear-gradient(
@@ -17,13 +19,6 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-`;
-
-const Animated = styled.div`
-    opacity: ${props => (props.started ? "1" : "0")};
-    transform: translateY(${props => (props.started ? "0" : "32")}px);
-    transition: transform 300ms ease ${props => props.delay}ms,
-        opacity 500ms ease ${props => props.delay}ms;
 `;
 
 const Title = styled.div`
@@ -92,23 +87,8 @@ export default class ActivityCard extends Component {
     };
 
     static defaultProps = {
-        number: "0",
-        delay: 0
+        number: "0"
     };
-
-    constructor(props) {
-        super(props);
-        this.state = { started: false };
-    }
-
-    componentDidUpdate() {
-        const { started } = this.state;
-        if (!started) {
-            setTimeout(() => {
-                this.setState({ started: true });
-            }, 50);
-        }
-    }
 
     render() {
         const {
@@ -122,11 +102,10 @@ export default class ActivityCard extends Component {
             more,
             delay
         } = this.props;
-        const { started } = this.state;
 
         return (
             <Container fromColor={fromColor} toColor={toColor}>
-                <Animated started={started} delay={delay}>
+                <AnimatedContainer delay={delay}>
                     <Title>{title.toUpperCase()}</Title>
                     <NumberContainer>
                         <Number>{number}</Number>
@@ -138,7 +117,7 @@ export default class ActivityCard extends Component {
                         </What>
                         <When>{time}</When>
                     </Comparison>
-                </Animated>
+                </AnimatedContainer>
             </Container>
         );
     }
