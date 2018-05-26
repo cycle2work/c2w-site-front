@@ -19,6 +19,11 @@ const ButtonContainer = styled.div`
     text-style: uppercase;
     boxshadow: 0px 8px 40px -9px rgba(28, 27, 41, 0.5);
     user-select: none;
+    transition: box-shadow 500ms ease;
+
+    &:hover {
+        box-shadow: 0 1px 30px 0 rgba(0, 0, 0, 0.15);
+    }
 `;
 
 export default class Button extends Component {

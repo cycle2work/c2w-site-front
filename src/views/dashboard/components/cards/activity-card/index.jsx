@@ -15,7 +15,7 @@ const Container = styled.div`
     border-radius: 16px;
     color: white;
     margin: 24px 0;
-    box-shadow: 0 1px 30px 0 rgba(0, 0, 0, 0.15), 0 1px 30px 0 rgba(0, 0, 0, 0.15);
+    box-shadow: 0 1px 30px 0 rgba(0, 0, 0, 0.3);
     display: flex;
     flex-direction: column;
     justify-content: space-around;
