@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import moment from "moment";
 
 import { Col, Row } from "antd";
 
@@ -18,6 +17,7 @@ import SubHeader from "./components/sub-header";
 import gradient from "../../assets/images/gradient_mondora.png";
 
 import { lighterGrey } from "../../commons/colors";
+import { getStats } from "../../libs/stats";
 
 const Container = styled.div`
     min-height: 100vh;
@@ -44,7 +44,10 @@ class Dashboard extends Component {
 
     static defaultProps = {
         dashboard: {
-            activities: []
+            activities: [],
+            club: {
+                activities: []
+            }
         },
         user: {
             profile: "",
@@ -63,69 +66,66 @@ class Dashboard extends Component {
     render() {
         const {
             user,
-            dashboard: { activities }
+            dashboard: { activities, club }
         } = this.props;
 
-        const month = moment.utc().format("MM");
-        const previousMonth = moment
-            .utc()
-            .subtract({ months: 1 })
-            .format("MM");
+        const userStats = getStats(activities);
+        const clubStats = getStats(club ? club.activities : []);
 
-        const totalPrevious = activities
-            .filter(x => x.month === previousMonth)
-            .reduce((total, activity) => (total + activity.distance) / 1000, 0);
-
-        const total = activities
-            .filter(x => x.month === month)
-            .reduce((total, activity) => (total + activity.distance) / 1000, 0);
-
-        const more = total >= totalPrevious;
-
-        const delta = total - totalPrevious;
-
-        const stats = {
-            km: total,
-            deltaKm: delta,
-            co2: total / 600,
-            deltaCo2: delta / 600,
-            euro: total * 0.2,
-            deltaEuro: delta * 0.2
-        };
-
-        const cards = [
+        const userCards = [
             {
                 title: "Your total",
                 fromColor: "#1E5799",
                 toColor: "#207CCA",
-                number: stats.km.toFixed(0),
+                number: userStats.km.toFixed(0),
                 unit: "Km",
-                performance: stats.deltaKm.toFixed(0),
+                performance: userStats.deltaKm.toFixed(0),
                 time: "than last month",
                 delay: 150,
-                more
+                more: userStats.more
             },
             {
                 title: "You saved",
                 fromColor: "#FF3E84",
                 toColor: "#F9CB00",
-                number: stats.co2.toFixed(2),
+                number: userStats.co2.toFixed(2),
                 unit: "Kg/CO2",
-                performance: stats.deltaCo2.toFixed(2),
+                performance: userStats.deltaCo2.toFixed(2),
                 time: "than last month",
                 delay: 300,
-                more
+                more: userStats.more
             },
             {
                 title: "You earned",
                 fromColor: "#8C1CC9",
                 toColor: "#2CD1FF",
-                number: stats.euro.toFixed(0),
+                number: userStats.euro.toFixed(0),
                 unit: "€",
-                performance: stats.deltaEuro.toFixed(0),
+                performance: userStats.deltaEuro.toFixed(0),
                 time: "than last month",
                 delay: 450,
-                more
+                more: userStats.more
+            }
+        ];
+
+        const clubCards = [
+            {
+                title: "Team total",
+                number: clubStats.km.toFixed(0),
+                unit: "Km",
+                performance: clubStats.deltaKm.toFixed(0),
+                time: "than last month",
+                more: clubStats.more,
+                delay: 600
+            },
+            {
+                title: "Team saved",
+                number: clubStats.co2.toFixed(0),
+                unit: "Kg/CO2",
+                performance: clubStats.deltaCo2.toFixed(2),
+                time: "than last month",
+                more: clubStats.more,
+                delay: 750
             }
         ];
 
@@ -139,7 +139,7 @@ class Dashboard extends Component {
                         <Col xs={22} sm={12} lg={9}>
                             <UserCard user={user} />
                         </Col>
-                        {cards.map((card, index) => (
+                        {userCards.map((card, index) => (
                             <Col xs={20} sm={10} lg={5} key={index}>
                                 <ActivityCard
                                     fromColor={card.fromColor}
@@ -162,18 +162,19 @@ class Dashboard extends Component {
                         <Col xs={22} lg={12}>
                             <TeamCard />
                         </Col>
-                        <Col xs={18} lg={6}>
-                            <StatCard />
-                        </Col>
-                        <Col xs={18} lg={6}>
-                            <StatCard
-                                title="Team saved"
-                                number={2.3}
-                                unit={"Kg/CO2"}
-                                performance={"↑ 10€ more"}
-                                time={"than last month"}
-                            />
-                        </Col>
+                        {clubCards.map((card, index) => (
+                            <Col xs={18} lg={6} key={index}>
+                                <StatCard
+                                    title={card.title}
+                                    number={card.number}
+                                    unit={card.unit}
+                                    performance={card.performance}
+                                    time={card.time}
+                                    more={card.more}
+                                    delay={card.delay}
+                                />
+                            </Col>
+                        ))}
                     </Row>
                 </MaxWidth>
             </Container>

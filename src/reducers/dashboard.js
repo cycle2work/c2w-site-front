@@ -8,7 +8,10 @@ const defaultState = {
     started: false,
     success: false,
     error: false,
-    activities: []
+    activities: [],
+    club: {
+        activities: []
+    }
 };
 
 export default function dashboard(state = defaultState, { type, payload }) {
@@ -23,7 +26,8 @@ export default function dashboard(state = defaultState, { type, payload }) {
                 ...state,
                 started: false,
                 error: false,
-                activities: payload.activities
+                activities: payload.activities || [],
+                club: payload.club || { activities: [] }
             };
         case FETCH_DASHBOARD_ERROR:
             return {
