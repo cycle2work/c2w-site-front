@@ -21,9 +21,15 @@ const Container = styled.div`
     justify-content: space-around;
 `;
 
+const FixedHeight = styled.div`
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+`;
+
 const Title = styled.div`
     font-size: 1.5em;
-    line-height: 60px;
     font-weight: bold;
     text-align: center;
 `;
@@ -32,14 +38,14 @@ const NumberContainer = styled.div`
     width: 180px;
     height: 180px;
     border-radius: 90px;
-    margin: 30px auto;
+    margin: 36px auto;
     background-color: rgba(255, 255, 255, 0.2);
     border: 1px solid rgba(255, 255, 255, 0);
     box-shadow: 0px 0px 0px 15px rgba(255, 255, 255, 0.1);
     text-align: center;
     line-height: 1;
     font-size: calc(45px + 0.8vw);
-    font-weight: 500;
+    font-weight: bold;
 `;
 
 const Number = styled.p`
@@ -70,7 +76,7 @@ const What = styled.p`
 
 const When = styled.p`
     color: grey;
-    margin-top: -19px;
+    margin-top: -16px;
 `;
 
 export default class ActivityCard extends Component {
@@ -106,17 +112,23 @@ export default class ActivityCard extends Component {
         return (
             <Container fromColor={fromColor} toColor={toColor}>
                 <AnimatedContainer delay={delay}>
-                    <Title>{title.toUpperCase()}</Title>
+                    <FixedHeight>
+                        <Title>{title.toUpperCase()}</Title>
+                    </FixedHeight>
                     <NumberContainer>
                         <Number>{number}</Number>
                         <Unit>{unit}</Unit>
                     </NumberContainer>
-                    <Comparison>
-                        <What more={more}>
-                            {`${more ? "↑" : "↓"} ${performance}${unit} ${more ? "more" : "less"}`}
-                        </What>
-                        <When>{time}</When>
-                    </Comparison>
+                    <FixedHeight>
+                        <Comparison>
+                            <What more={more}>
+                                {`${more ? "↑" : "↓"} ${performance}${unit} ${
+                                    more ? "more" : "less"
+                                }`}
+                            </What>
+                            <When>{time}</When>
+                        </Comparison>
+                    </FixedHeight>
                 </AnimatedContainer>
             </Container>
         );
