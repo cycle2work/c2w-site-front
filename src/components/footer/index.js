@@ -20,29 +20,38 @@ export default class Footer extends Component {
                         <Col xs={24} md={12} style={style.footerCol}>
                             <div className="textWrp">
                                 <strong>
-                                    {`mondora S.r.l. società soggetta
-                                        all’attività di direzione e coordinamento di TeamSystem S.p.A. -
-                                        Sede: Via Umberto Visconti di Modrone 33, 20122 Milano`}
+                                    {`Made with ❤ in Valtellina by mondora`} <br />
+                                    {`Via Umberto Visconti di Modrone 33, 20122 Milano`}
                                     <br />
                                 </strong>
                             </div>
                         </Col>
                         <Col xs={24} md={6} style={style.footerCol}>
                             <div className="textWrp">
-                                <a href="/#/privacy" style={{ color: colors.lighterGrey }} target="_blank">
+                                <a
+                                    href="/#/privacy"
+                                    style={{ color: colors.lighterGrey }}
+                                    target="_blank"
+                                >
                                     <strong>{"Privacy Policy"}</strong>
                                 </a>
                                 <br />
                                 <span>
                                     <strong>{"Email. "}</strong>
-                                    <a href="mailto:info@cycle2work.io" style={{ color: colors.lighterGrey }}>
+                                    <a
+                                        href="mailto:info@cycle2work.io"
+                                        style={{ color: colors.lighterGrey }}
+                                    >
                                         {"info@cycle2work.io"}
                                     </a>
                                 </span>
                                 <br />
                                 <span>
                                     <strong>{"Tel: "}</strong>
-                                    <a href="tel:+3903421856264" style={{ color: colors.lighterGrey }}>
+                                    <a
+                                        href="tel:+3903421856264"
+                                        style={{ color: colors.lighterGrey }}
+                                    >
                                         {"+39 0342 1856 264 "}
                                     </a>
                                 </span>
@@ -52,7 +61,7 @@ export default class Footer extends Component {
                             <div className="buttonWrp">
                                 <Button
                                     backgroundColor={colors.primaryColor}
-                                    label={"SERVE AIUTO ?"}
+                                    label={"NEED HELP ?"}
                                     onClick={this.sendEmail}
                                     textColor={colors.white}
                                 />
@@ -65,7 +74,7 @@ export default class Footer extends Component {
                         <Col xs={24}>
                             <p style={{ margin: "0" }}>
                                 {`© Copyright 2017 - mondora S.r.l. - Cycle2Work
-                                    Partita Iva 03680680968. Tutti i diritti riservati`}
+                                    IT03680680968. All rights reserved.`}
                             </p>
                         </Col>
                     </Row>
