@@ -134,7 +134,7 @@ class Dashboard extends Component {
                 <MaxWidth>
                     <Row type="flex" justify={"center"} gutter={24}>
                         <Col xs={24}>
-                            <SubHeader label="Your mounth data" />
+                            <SubHeader label="Your month data" />
                         </Col>
                         <Col xs={22} sm={12} lg={9}>
                             <UserCard user={user} />
@@ -157,7 +157,7 @@ class Dashboard extends Component {
                     </Row>
                     <Row type="flex" justify={"center"} gutter={24}>
                         <Col xs={24}>
-                            <SubHeader label="Team mounth data" />
+                            <SubHeader label="Team month data" />
                         </Col>
                         <Col xs={22} lg={12}>
                             <TeamCard />
