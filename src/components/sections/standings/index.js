@@ -3,6 +3,8 @@ import { Col, Row } from "antd";
 import PropTypes from "prop-types";
 import React, { Component } from "react";
 
+import sortby from "lodash.sortby";
+
 import JoinNow from "../../join-now";
 import StandingsTable from "../../standings-table";
 import Podium from "../../podium";
@@ -18,8 +20,12 @@ export default class StandingsSection extends Component {
     };
 
     render() {
-        const { reports, reports: { data } } = this.props;
-        const standingsData = (data || []).map((report, index) => {
+        const {
+            reports,
+            reports: { data }
+        } = this.props;
+        const sorted = sortby(data, x => x.distance).reverse();
+        const standingsData = (sorted || []).map((report, index) => {
             return {
                 key: `${index}`,
                 position: `${index}`,
