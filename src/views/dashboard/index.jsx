@@ -120,7 +120,7 @@ class Dashboard extends Component {
             },
             {
                 title: "Team saved",
-                number: clubStats.co2.toFixed(0),
+                number: clubStats.co2.toFixed(2),
                 unit: "Kg/CO2",
                 performance: clubStats.deltaCo2.toFixed(2),
                 time: "than last month",
