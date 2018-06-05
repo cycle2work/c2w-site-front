@@ -58,12 +58,14 @@ export default class ActivityCard extends Component {
 
     render() {
         const { user } = this.props;
+        const state = user.state || "";
+        const country = user.country || "";
         return (
             <Container>
                 <ProfileImage imageUrl={user.profile} />
                 <Comparison>
                     <Username>{`${user.firstname} ${user.lastname}`}</Username>
-                    <Where>{`${user.state} ${user.country}`}</Where>
+                    <Where>{`${state} ${country}`}</Where>
                 </Comparison>
             </Container>
         );
