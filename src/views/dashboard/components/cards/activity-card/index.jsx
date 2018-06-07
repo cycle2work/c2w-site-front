@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 
 import styled from "styled-components";
 
+import AnimatedNumber from "react-animated-number";
+
 import AnimatedContainer from "../../../../../components/animated-container";
 
 const Container = styled.div`
@@ -84,9 +86,10 @@ export default class ActivityCard extends Component {
         fromColor: PropTypes.string,
         toColor: PropTypes.string,
         title: PropTypes.string,
-        number: PropTypes.string,
+        number: PropTypes.number,
+        decimals: PropTypes.number,
         unit: PropTypes.string,
-        performance: PropTypes.string,
+        performance: PropTypes.number,
         time: PropTypes.string,
         more: PropTypes.bool,
         delay: PropTypes.number
@@ -102,6 +105,7 @@ export default class ActivityCard extends Component {
             toColor,
             title,
             number,
+            decimals,
             unit,
             performance,
             time,
@@ -116,13 +120,15 @@ export default class ActivityCard extends Component {
                         <Title>{title.toUpperCase()}</Title>
                     </FixedHeight>
                     <NumberContainer>
-                        <Number>{number}</Number>
+                        <Number>
+                            <AnimatedNumber value={number} formatValue={n => n.toFixed(decimals)} />
+                        </Number>
                         <Unit>{unit}</Unit>
                     </NumberContainer>
                     <FixedHeight>
                         <Comparison>
                             <What more={more}>
-                                {`${more ? "↑" : "↓"} ${performance}${unit} ${
+                                {`${more ? "↑" : "↓"} ${performance.toFixed(decimals)}${unit} ${
                                     more ? "more" : "less"
                                 }`}
                             </What>

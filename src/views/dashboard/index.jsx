@@ -77,9 +77,10 @@ class Dashboard extends Component {
                 title: "Your total",
                 fromColor: "#1E5799",
                 toColor: "#207CCA",
-                number: userStats.km.toFixed(0),
+                number: userStats.km,
+                decimals: 0,
                 unit: "Km",
-                performance: userStats.deltaKm.toFixed(0),
+                performance: userStats.deltaKm,
                 time: "than last month",
                 delay: 150,
                 more: userStats.more
@@ -88,9 +89,10 @@ class Dashboard extends Component {
                 title: "You saved",
                 fromColor: "#FF3E84",
                 toColor: "#F9CB00",
-                number: userStats.co2.toFixed(2),
+                number: userStats.co2,
+                decimals: 2,
                 unit: "Kg/CO2",
-                performance: userStats.deltaCo2.toFixed(2),
+                performance: userStats.deltaCo2,
                 time: "than last month",
                 delay: 300,
                 more: userStats.more
@@ -99,9 +101,10 @@ class Dashboard extends Component {
                 title: "You earned",
                 fromColor: "#8C1CC9",
                 toColor: "#2CD1FF",
-                number: userStats.euro.toFixed(0),
+                number: userStats.euro,
+                decimals: 0,
                 unit: "€",
-                performance: userStats.deltaEuro.toFixed(0),
+                performance: userStats.deltaEuro,
                 time: "than last month",
                 delay: 450,
                 more: userStats.more
@@ -111,18 +114,20 @@ class Dashboard extends Component {
         const clubCards = [
             {
                 title: "Team total",
-                number: clubStats.km.toFixed(0),
+                number: clubStats.km,
+                decimals: 0,
                 unit: "Km",
-                performance: clubStats.deltaKm.toFixed(0),
+                performance: clubStats.deltaKm,
                 time: "than last month",
                 more: clubStats.more,
                 delay: 600
             },
             {
                 title: "Team saved",
-                number: clubStats.co2.toFixed(2),
+                number: clubStats.co2,
+                decimals: 2,
                 unit: "Kg/CO2",
-                performance: clubStats.deltaCo2.toFixed(2),
+                performance: clubStats.deltaCo2,
                 time: "than last month",
                 more: clubStats.more,
                 delay: 750
@@ -141,17 +146,7 @@ class Dashboard extends Component {
                         </Col>
                         {userCards.map((card, index) => (
                             <Col xs={20} sm={10} lg={5} key={index}>
-                                <ActivityCard
-                                    fromColor={card.fromColor}
-                                    toColor={card.toColor}
-                                    title={card.title}
-                                    number={card.number}
-                                    unit={card.unit}
-                                    performance={card.performance}
-                                    time={card.time}
-                                    more={card.more}
-                                    delay={card.delay}
-                                />
+                                <ActivityCard {...card} />
                             </Col>
                         ))}
                     </Row>
@@ -164,15 +159,7 @@ class Dashboard extends Component {
                         </Col>
                         {clubCards.map((card, index) => (
                             <Col xs={18} lg={6} key={index}>
-                                <StatCard
-                                    title={card.title}
-                                    number={card.number}
-                                    unit={card.unit}
-                                    performance={card.performance}
-                                    time={card.time}
-                                    more={card.more}
-                                    delay={card.delay}
-                                />
+                                <StatCard {...card} />
                             </Col>
                         ))}
                     </Row>

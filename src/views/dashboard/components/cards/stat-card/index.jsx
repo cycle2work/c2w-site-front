@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 
 import styled from "styled-components";
 
+import AnimatedNumber from "react-animated-number";
+
 import AnimatedContainer from "../../../../../components/animated-container";
 
 const Container = styled.div`
@@ -64,9 +66,10 @@ const When = styled.p`
 export default class StatCard extends Component {
     static propTypes = {
         title: PropTypes.string,
-        number: PropTypes.string,
+        number: PropTypes.number,
+        decimals: PropTypes.number,
         unit: PropTypes.string,
-        performance: PropTypes.string,
+        performance: PropTypes.number,
         time: PropTypes.string,
         more: PropTypes.bool,
         delay: PropTypes.number
@@ -81,19 +84,23 @@ export default class StatCard extends Component {
     };
 
     render() {
-        const { title, number, unit, performance, time, more, delay } = this.props;
+        const { title, number, decimals, unit, performance, time, more, delay } = this.props;
 
         return (
             <Container>
                 <AnimatedContainer delay={delay}>
                     <Title>{title.toUpperCase()}</Title>
                     <NumberContainer>
-                        <Number>{number}</Number>
+                        <Number>
+                            <AnimatedNumber value={number} formatValue={n => n.toFixed(decimals)} />
+                        </Number>
                         <Unit>{unit}</Unit>
                     </NumberContainer>
                     <Comparison>
                         <What more={more}>
-                            {`${more ? "↑" : "↓"} ${performance}${unit} ${more ? "more" : "less"}`}
+                            {`${more ? "↑" : "↓"} ${performance.toFixed(decimals)}${unit} ${
+                                more ? "more" : "less"
+                            }`}
                         </What>
                         <When>{time}</When>
                     </Comparison>
