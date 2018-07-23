@@ -8,6 +8,7 @@ import styled from "styled-components";
 
 import { fetchData } from "../../actions/dashboard";
 
+import Header from "./components/header";
 import ActivityCard from "./components/cards/activity-card";
 import UserCard from "./components/cards/user-card";
 import TeamCard from "./components/cards/team-card";
@@ -136,6 +137,7 @@ class Dashboard extends Component {
 
         return (
             <Container>
+                <Header user={user} />
                 <MaxWidth>
                     <Row type="flex" justify={"center"} gutter={24}>
                         <Col xs={24}>
