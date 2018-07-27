@@ -30,8 +30,8 @@ export default class StandingsSection extends Component {
                 key: `${index}`,
                 position: `${index + 1}°`,
                 company: report.name,
-                km: `${Math.round(report.distance / 1000)} km`,
-                co2: `${Math.round(report.distance / 7140)} g`,
+                km: `${Math.round(report.distance / 1000)}`,
+                co2: `${(report.distance / 600000).toFixed(2)}`,
                 mineCompany: true
             };
         });

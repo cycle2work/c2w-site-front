@@ -20,7 +20,7 @@ const columns = [
         key: "km"
     },
     {
-        title: "CO2",
+        title: "Kg/CO2",
         dataIndex: "co2",
         key: "co2"
     }
