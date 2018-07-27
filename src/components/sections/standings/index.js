@@ -28,7 +28,7 @@ export default class StandingsSection extends Component {
         const standingsData = (sorted || []).map((report, index) => {
             return {
                 key: `${index}`,
-                position: `${index}`,
+                position: `${index + 1}°`,
                 company: report.name,
                 km: `${Math.round(report.distance / 1000)} km`,
                 co2: `${Math.round(report.distance / 7140)} g`,
