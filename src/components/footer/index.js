@@ -4,8 +4,21 @@ import React, { Component } from "react";
 import * as colors from "../../commons/colors";
 import Button from "../button";
 
+import styled from "styled-components";
 import { style } from "./style";
 import "./style.css";
+
+const HelpContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100%;
+
+    @media screen and (max-width: 1200px) {
+        align-items: flex-start;
+    }
+`;
 
 export default class Footer extends Component {
     sendEmail() {
@@ -16,7 +29,7 @@ export default class Footer extends Component {
         return (
             <div id="contacts" style={style.footerWrp}>
                 <div style={style.footer}>
-                    <Row gutter={14} style={style.customRow}>
+                    <Row gutter={16} type="flex" style={style.customRow}>
                         <Col xs={24} md={12} style={style.footerCol}>
                             <div className="textWrp">
                                 <strong>
@@ -58,14 +71,15 @@ export default class Footer extends Component {
                             </div>
                         </Col>
                         <Col xs={24} sm={12} md={6} style={style.footerCol}>
-                            <div className="buttonWrp">
+                            <HelpContainer>
                                 <Button
                                     backgroundColor={colors.primaryColor}
-                                    label={"NEED HELP ?"}
+                                    label={"NEED HELP?"}
                                     onClick={this.sendEmail}
                                     textColor={colors.white}
                                 />
-                            </div>
+                                <img height={32} src="strava.svg" alt="Powered by Strava" />
+                            </HelpContainer>
                         </Col>
                     </Row>
                 </div>
