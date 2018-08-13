@@ -63,12 +63,12 @@ const UpperLabelRight = styled.span`
     font-weight: 300;
 `;
 
-const ExitButton = styled.i`
-    font-size: 16px;
-    line-height: 60px;
-    margin-left: 10px;
-    cursor: pointer;
-`;
+// const ExitButton = styled.i`
+//     font-size: 16px;
+//     line-height: 60px;
+//     margin-left: 10px;
+//     cursor: pointer;
+// `;
 
 export default class Header extends Component {
     static propTypes = {
