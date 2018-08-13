@@ -31,7 +31,6 @@ export const style = {
         background: colors.backgroundJoin,
         borderRadius: "10px",
         maxHeight: 380,
-        maxWidth: 380,
         padding: "40px"
     },
     icon: {
@@ -40,7 +39,7 @@ export const style = {
         fontSize: "calc(18px + 0.3vw)",
         fontWeight: "bold",
         position: "relative",
-        verticalAlign:"top",
+        verticalAlign: "top",
         width: "10%"
     },
     button: {

@@ -4,16 +4,17 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 
 import AnimatedNumber from "react-animated-number";
-
 import AnimatedContainer from "../../../../../components/animated-container";
+
+import * as colors from "../../../../../commons/colors";
 
 const Container = styled.div`
     height: 250px;
-    background: white;
+    background-color: ${colors.white};
     border-radius: 16px;
-    color: black;
+    color: ${colors.black};
     margin: 24px 0;
-    box-shadow: 0 1px 30px 0 rgba(0, 0, 0, 0.15), 0 1px 30px 0 rgba(0, 0, 0, 0.15);
+    box-shadow: 0 1px 20px 0 rgba(0, 0, 0, 0.15), 0 1px 20px 0 rgba(0, 0, 0, 0.15);
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -22,29 +23,30 @@ const Container = styled.div`
 const Title = styled.div`
     font-size: 1.5em;
     line-height: 60px;
-    font-weight: bold;
+    font-weight: 600;
     text-align: center;
 `;
 
 const NumberContainer = styled.div`
     text-align: center;
     font-size: calc(45px + 0.8vw);
-    font-weight: 500;
+    font-weight: 600;
 `;
 
 const Number = styled.p`
     font-size: calc(40px + 0.8vw);
-    font-weight: bold;
+    font-weight: 600;
+    color: ${colors.primaryColor};
 `;
 
 const Unit = styled.p`
     font-size: calc(12px + 0.8vw);
-    font-weight: lighter;
+    font-weight: 300;
     margin-top: -12px;
 `;
 
 const Comparison = styled.div`
-    background-color: lightgray;
+    background-color: ${colors.lighterGrey};
     border-radius: 30px;
     height: 50px;
     margin: 16px 24px;
@@ -54,12 +56,12 @@ const Comparison = styled.div`
 
 const What = styled.p`
     font-size: 16px;
-    font-weight: bold;
-    color: red;
+    font-weight: 600;
+    color: ${colors.red};
 `;
 
 const When = styled.p`
-    color: whitesmoke;
+    color: ${colors.grey};
     margin-top: -19px;
 `;
 

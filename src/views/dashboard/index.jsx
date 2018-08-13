@@ -2,11 +2,13 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
-import { Col, Row } from "antd";
+import { Col, Row, Icon } from "antd";
 
 import styled from "styled-components";
 
 import { fetchData } from "../../actions/dashboard";
+
+import moment from "moment";
 
 import Header from "./components/header";
 import ActivityCard from "./components/cards/activity-card";
@@ -15,15 +17,12 @@ import TeamCard from "./components/cards/team-card";
 import StatCard from "./components/cards/stat-card";
 import SubHeader from "./components/sub-header";
 
-import gradient from "../../assets/images/gradient_mondora.png";
-
-import { lighterGrey } from "../../commons/colors";
+import { lighterGrey, white, primaryColor } from "../../commons/colors";
 import { getStats } from "../../libs/stats";
 
 const Container = styled.div`
     min-height: 100vh;
     background-color: ${lighterGrey};
-    background-image: url(${gradient});
     background-size: contain;
     background-repeat: "repeat-y";
 `;
@@ -31,7 +30,41 @@ const Container = styled.div`
 const MaxWidth = styled.div`
     max-width: 1400px;
     margin: auto;
+    padding: 60px 16px;
+`;
+
+const Calendar = styled.div`
+    float: right;
+    font-size: calc(12px + 0.2vw);
+    line-height: 32px;
+    color: black;
+    margin: 10px 16px 0 0;
     padding: 0 16px;
+    background-color: ${white};
+    border-radius: 16px;
+    @media screen and (max-width: 767px) {
+        margin: 0;
+        color: ${white};
+        border-radius: 0;
+        width: 100%;
+        text-align: right;
+        background-color: ${primaryColor};
+    }
+`;
+
+const DesktopOnly = styled.div`
+    display: block;
+    @media screen and (max-width: 767px) {
+        display: none;
+    }
+`;
+
+const MobileOnly = styled.div`
+    font-size: calc(10px + 0.2vw);
+    display: none;
+    @media screen and (max-width: 767px) {
+        display: block;
+    }
 `;
 
 class Dashboard extends Component {
@@ -76,8 +109,8 @@ class Dashboard extends Component {
         const userCards = [
             {
                 title: "Your total",
-                fromColor: "#1E5799",
-                toColor: "#207CCA",
+                fromColor: "#fe00ac",
+                toColor: "#6567e5",
                 number: userStats.km,
                 decimals: 0,
                 unit: "Km",
@@ -138,29 +171,41 @@ class Dashboard extends Component {
         return (
             <Container>
                 <Header user={user} />
+                <Row>
+                    <Calendar>
+                        <DesktopOnly>
+                            <Icon type="calendar" />
+                            {` ${moment().format("MMMM D, YYYY")}`}
+                        </DesktopOnly>
+                        <MobileOnly>{` ${moment().format("DD/MM/YYYY")}`}</MobileOnly>
+                    </Calendar>
+                </Row>
                 <MaxWidth>
                     <Row type="flex" justify={"center"} gutter={24}>
                         <Col xs={24}>
                             <SubHeader label="Your month data" />
                         </Col>
-                        <Col xs={22} sm={12} lg={9}>
+                        <Col xs={24} sm={18} lg={9}>
                             <UserCard user={user} />
                         </Col>
                         {userCards.map((card, index) => (
-                            <Col xs={20} sm={10} lg={5} key={index}>
+                            <Col xs={20} sm={8} lg={5} key={index}>
                                 <ActivityCard {...card} />
                             </Col>
                         ))}
                     </Row>
+                </MaxWidth>
+                <div style={{ height: 1, backgroundColor: "lightgrey", width: "100%" }} />
+                <MaxWidth>
                     <Row type="flex" justify={"center"} gutter={24}>
                         <Col xs={24}>
                             <SubHeader label="Team month data" />
                         </Col>
-                        <Col xs={22} lg={12}>
+                        <Col xs={24} sm={18} lg={12}>
                             <TeamCard />
                         </Col>
                         {clubCards.map((card, index) => (
-                            <Col xs={18} lg={6} key={index}>
+                            <Col xs={20} sm={12} lg={6} key={index}>
                                 <StatCard {...card} />
                             </Col>
                         ))}

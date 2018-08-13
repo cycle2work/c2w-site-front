@@ -1,7 +1,7 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import MobileMenu from "../../mobile-menu";
 import "../../../index.css";
-import {primaryColor, black} from "../../../commons/colors";
+import { primaryColor, black } from "../../../commons/colors";
 
 import logo from "../../../assets/images/logo_cycle2work.svg";
 import "./style.css";
@@ -43,7 +43,7 @@ const styles = {
 };
 
 export default class Header extends Component {
-    constructor (props) {
+    constructor(props) {
         super(props);
         this.state = {
             classFixed: "",
@@ -53,24 +53,26 @@ export default class Header extends Component {
                 howItWorks: "How it works",
                 factsAndFigures: "Facts and figures",
                 why: "Why",
-                join: "Join",
+                join: "Join Now",
                 standings: "Standings"
             }
         };
         this.handleScroll = this.handleScroll.bind(this);
     }
-    
-    componentDidMount () {
+
+    componentDidMount() {
         window.addEventListener("scroll", this.handleScroll);
     }
 
-    componentWillUnmount () {
+    componentWillUnmount() {
         window.removeEventListener("scroll", this.handleScroll);
     }
 
-    handleScroll () {
+    handleScroll() {
         /* Trucco per farlo funzionare anche su IE */
-        const topMultibrowser = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
+        const topMultibrowser =
+            (document.documentElement && document.documentElement.scrollTop) ||
+            document.body.scrollTop;
         if (topMultibrowser > 140) {
             this.setState({
                 classFixed: "fixed"
@@ -82,19 +84,15 @@ export default class Header extends Component {
         }
     }
 
-    getItem (item) {
+    getItem(item) {
         return (
-            <a
-                href={"#".concat(item)}
-                key={item}
-                className="desktopMenuLink"
-            >
+            <a href={"#".concat(item)} key={item} className="desktopMenuLink">
                 <span>{this.state.menus[item]}</span>
             </a>
         );
     }
 
-    getMenu () {
+    getMenu() {
         const items = [
             this.getItem("features"),
             this.getItem("howItWorks"),
@@ -104,32 +102,24 @@ export default class Header extends Component {
             this.getItem("standings")
         ];
 
-        return (
-            <div>
-                {items}
-            </div>
-        );
+        return <div>{items}</div>;
     }
-    
-    render () {
+
+    render() {
         return (
             <div>
                 <div className="showMobile">
                     <div style={styles.mobileMenuWrp}>
-                        <img
-                            alt="Logo Cycle2Work"
-                            src={logo}
-                            style={styles.logoMobileMenu}
-                        />
+                        <img alt="Logo Cycle2Work" src={logo} style={styles.logoMobileMenu} />
                         <MobileMenu
                             links={[
-                                {label: "Cycle2Work", url: "firstSection"},
-                                {label: "Features", url: "features"},
-                                {label: "How it works", url: "howItWorks"},
-                                {label: "Facts and figures", url: "factsAndFigures"},
-                                {label: "Why", url: "why"},
-                                {label: "Join", url: "join"},
-                                {label: "Standings", url: "standings"}
+                                { label: "Cycle2Work", url: "firstSection" },
+                                { label: "Features", url: "features" },
+                                { label: "How it works", url: "howItWorks" },
+                                { label: "Facts and figures", url: "factsAndFigures" },
+                                { label: "Why", url: "why" },
+                                { label: "Join", url: "join" },
+                                { label: "Standings", url: "standings" }
                             ]}
                         />
                     </div>
@@ -151,7 +141,7 @@ export default class Header extends Component {
                                     height: !this.state.classFixed ? 100 : 60,
                                     width: !this.state.classFixed ? 100 : 60
                                 }}
-                            />    
+                            />
                             <div
                                 style={{
                                     ...styles.desktopMenu,

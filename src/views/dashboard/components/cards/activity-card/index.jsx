@@ -4,8 +4,8 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 
 import AnimatedNumber from "react-animated-number";
-
 import AnimatedContainer from "../../../../../components/animated-container";
+import * as colors from "../../../../../commons/colors";
 
 const Container = styled.div`
     height: 400px;
@@ -59,6 +59,7 @@ const Number = styled.p`
 const Unit = styled.p`
     font-size: calc(12px + 0.8vw);
     font-weight: lighter;
+    font-weight: 300;
 `;
 
 const Comparison = styled.div`
@@ -73,7 +74,7 @@ const Comparison = styled.div`
 const What = styled.p`
     font-size: 16px;
     font-weight: bold;
-    color: ${props => (props.more ? "green" : "red")};
+    color: ${props => (props.more ? colors.green : colors.green)};
 `;
 
 const When = styled.p`

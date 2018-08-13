@@ -1,23 +1,22 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
-import { Col, Row, Icon } from "antd";
-
+import { Col, Row } from "antd";
 import styled from "styled-components";
-
-import moment from "moment";
 
 import logo from "../../../../assets/images/logo_cycle2work.svg";
 import * as colors from "../../../../commons/colors";
 
 const Container = styled.div`
     color: white;
-    background: linear-gradient(180deg, ${colors.primaryColor} 50%, transparent 50%);
-    font-size: 1.6em;
-    font-weight: bolder;
+    background-color: ${colors.primaryColor};
+    @media screen and (max-width: 767px) {
+        height: auto;
+    }
 `;
 
 const LogoContainer = styled.div`
+    position: absolute;
     width: 96px;
     height: 96px;
     margin: 16px;
@@ -25,24 +24,50 @@ const LogoContainer = styled.div`
     background-color: white;
     padding: 8px;
     box-shadow: 0 1px 30px 0 rgba(0, 0, 0, 0.3);
+    z-index: 1;
+    @media screen and (max-width: 767px) {
+        left: calc(50% - 33px);
+        margin: 0;
+        top: 50px;
+        width: 66px;
+        height: 66px;
+    }
 `;
 
-const UpperLabel = styled.p`
-    margin-top: 24px;
+const UpperLabelLeft = styled.p`
+    line-height: 60px;
+    margin: 0 0 0 120px;
+    font-size: calc(14px + 0.2vw);
+    font-weight: 400;
+    padding: 0 20px;
+    @media screen and (max-width: 767px) {
+        display: none;
+    }
 `;
 
-const ExitButton = styled.div`
-    padding: 8px;
+const UserInfo = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 0 20px;
+    @media screen and (max-width: 767px) {
+        border-bottom: 1px solid ${colors.white};
+        justify-content: space-between;
+    }
 `;
 
-const Calendar = styled.div`
-    font-size: 0.8em;
-    line-height: 32px;
-    color: black;
-    margin: 24px 16px 0 0;
-    padding: 0 16px;
-    background-color: white;
-    border-radius: 16px;
+const UpperLabelRight = styled.span`
+    text-align: right;
+    line-height: 60px;
+    font-size: calc(12px + 0.2vw);
+    font-weight: 300;
+`;
+
+const ExitButton = styled.i`
+    font-size: 16px;
+    line-height: 60px;
+    margin-left: 10px;
+    cursor: pointer;
 `;
 
 export default class Header extends Component {
@@ -66,26 +91,21 @@ export default class Header extends Component {
         const { user, company } = this.props;
         return (
             <Container>
-                <Row>
-                    <Col md={12} xs={24}>
-                        <Row type="flex">
-                            <LogoContainer>
-                                <img src={logo} alt="Cycle2work.io" />
-                            </LogoContainer>
-                            <UpperLabel>{company}</UpperLabel>
-                        </Row>
+                <LogoContainer>
+                    <img src={logo} alt="Cycle2work.io" />
+                </LogoContainer>
+                <Row type="flex">
+                    <Col xs={{ span: 24, order: 2 }} sm={{ span: 12, order: 1 }}>
+                        <UpperLabelLeft>{company}</UpperLabelLeft>
                     </Col>
-                    <Col md={12} xs={24}>
-                        <Row type="flex" justify="end">
-                            <UpperLabel>{`Hello, ${user.firstname} ${user.lastname}!`}</UpperLabel>
-                            <ExitButton />
-                        </Row>
-                        <Row type="flex" justify="end">
-                            <Calendar>
-                                <Icon type="calendar" />
-                                {` ${moment().format("MMMM D, YYYY")}`}
-                            </Calendar>
-                        </Row>
+                    <Col xs={{ span: 24, order: 1 }} sm={{ span: 12, order: 2 }}>
+                        <UserInfo>
+                            <UpperLabelRight>
+                                {"Hello, "}
+                                <strong>{`${user.firstname} ${user.lastname}!`}</strong>
+                            </UpperLabelRight>
+                            {/* <ExitButton className="fas fa-sign-out-alt" /> */}
+                        </UserInfo>
                     </Col>
                 </Row>
             </Container>

@@ -10,25 +10,36 @@ const ButtonContainer = styled.div`
     border-radius: 30px;
     color: ${props => props.textColor};
     cursor: ${props => (props.disabled ? "default" : "pointer")};
-    line-height: 45px;
     display: inline-block;
-    padding: 0 60px;
+    padding: 12px 60px;
     text-align: center;
     font-size: calc(14px + 0.2vw);
+    line-height: calc(20px + 0.2vw);
     font-weight: 500;
-    text-style: uppercase;
-    boxshadow: 0px 8px 40px -9px rgba(28, 27, 41, 0.5);
+    box-shadow: 0px 8px 40px -9px rgba(28, 27, 41, 0.5);
     user-select: none;
-    transition: box-shadow 500ms ease;
+    transition: box-shadow 400ms ease;
 
     &:hover {
         box-shadow: 0 1px 30px 0 rgba(0, 0, 0, 0.15);
+        opacity: 0.8;
     }
+    @media screen and (max-width: 991px) {
+        padding: 12px 22px;
+    }
+`;
+
+const Icon = styled.img`
+    max-width: 20px;
+    height: 20px;
+    float: right;
+    margin-left: 5px;
 `;
 
 export default class Button extends Component {
     static propTypes = {
         backgroundColor: PropTypes.string,
+        iconImage: PropTypes.string,
         label: PropTypes.string,
         onClick: PropTypes.func,
         textColor: PropTypes.string,
@@ -42,7 +53,7 @@ export default class Button extends Component {
     };
 
     render() {
-        const { backgroundColor, label, onClick, textColor, disabled } = this.props;
+        const { backgroundColor, iconImage, label, onClick, textColor, disabled } = this.props;
         return (
             <ButtonContainer
                 disabled={disabled}
@@ -51,6 +62,7 @@ export default class Button extends Component {
                 backgroundColor={backgroundColor}
             >
                 {label}
+                {iconImage ? <Icon src={iconImage} alt={label} /> : null}
             </ButtonContainer>
         );
     }

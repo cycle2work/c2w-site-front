@@ -2,15 +2,19 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 
 import styled from "styled-components";
+import * as colors from "../../../../../commons/colors";
 
 const Container = styled.div`
     height: 400px;
-    background: white;
+    background-color: ${colors.white};
     border-radius: 16px;
     color: black;
     margin: 24px 0;
     padding: 45px 0;
     box-shadow: 0 1px 30px 0 rgba(0, 0, 0, 0.15), 0 1px 30px 0 rgba(0, 0, 0, 0.15);
+    @media screen and (max-width: 767px) {
+        height: auto;
+    }
 `;
 
 const ProfileImage = styled.div`
@@ -19,14 +23,13 @@ const ProfileImage = styled.div`
     border-radius: 90px;
     margin: 0px auto;
     padding: 60px 0;
-    border: 1px solid rgba(255, 255, 255, 0);
-    box-shadow: 0px 0px 0px 15px rgba(0, 0, 0, 0.05);
+    border: 15px solid ${colors.lighterGrey};
     background-image: url(${props => props.imageUrl});
     background-size: cover;
     text-align: center;
     line-height: 1;
     font-size: calc(45px + 0.8vw);
-    font-weight: 500;
+    font-weight: 400;
 `;
 
 const Comparison = styled.div`
@@ -34,16 +37,21 @@ const Comparison = styled.div`
     margin: 60px 24px 0 24px;
     text-align: center;
     line-height: 35px;
+    @media screen and (max-width: 767px) {
+        height: auto;
+        margin: 10px;
+    }
 `;
 
 const Username = styled.p`
-    font-size: 20px;
-    font-weight: bold;
+    font-size: calc(16px + 0.2vw);
+    font-weight: 400;
+    margin: 0;
 `;
 
-const Where = styled.p`
-    color: grey;
-    font-size: 14px;
+const Where = styled.span`
+    color: ${colors.grey};
+    font-size: calc(12px + 0.2vw);
 `;
 
 export default class ActivityCard extends Component {

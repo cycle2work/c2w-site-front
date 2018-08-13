@@ -8,7 +8,6 @@ import { primaryColor } from "../../../../commons/colors";
 const StyledHeader = styled.h2`
     color: ${primaryColor};
     font-weight: bold;
-    margin: 24px;
 `;
 
 export default class SubHeader extends Component {
