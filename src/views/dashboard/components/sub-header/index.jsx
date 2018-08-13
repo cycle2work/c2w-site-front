@@ -7,7 +7,10 @@ import { primaryColor } from "../../../../commons/colors";
 
 const StyledHeader = styled.h2`
     color: ${primaryColor};
-    font-weight: bold;
+    font-weight: 600;
+    @media screen and (max-width: 1200px) {
+        text-align: center;
+    }
 `;
 
 export default class SubHeader extends Component {
