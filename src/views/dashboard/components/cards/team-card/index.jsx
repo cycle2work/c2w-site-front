@@ -25,7 +25,7 @@ const TeamImage = styled.div`
     margin: 50px;
     border-radius: 6px;
     border: 15px solid ${colors.lighterGrey};
-    background-image: url("https://dgalywyr863hv.cloudfront.net/pictures/clubs/148440/4989684/2/large.jpg");
+    background-image: url(${props => props.imageUrl});
     background-size: cover;
     @media screen and (max-width: 991px) {
         margin: 30px auto;
@@ -85,7 +85,7 @@ export default class TeamCard extends Component {
     static defaultProps = {
         team: {
             name: "Mondora srl sb",
-            image: "default",
+            image: "https://dgalywyr863hv.cloudfront.net/pictures/clubs/148440/4989684/2/large.jpg",
             members: "7",
             state: "Berbenno di Valtellina",
             country: "- SO"
@@ -98,7 +98,7 @@ export default class TeamCard extends Component {
             <Container>
                 <Row type="flex" justify="center" align="middle" gutter={24}>
                     <Col xs={24} md={10}>
-                        <TeamImage imageUrl={team.profile} />
+                        <TeamImage imageUrl={team.image} />
                     </Col>
                     <Col xs={24} md={14}>
                         <TeamInfo>
