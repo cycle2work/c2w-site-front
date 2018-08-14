@@ -74,7 +74,7 @@ const Comparison = styled.div`
 const What = styled.p`
     font-size: 16px;
     font-weight: bold;
-    color: ${props => (props.more ? colors.green : colors.green)};
+    color: ${props => (props.more ? colors.green : colors.red)};
 `;
 
 const When = styled.p`
