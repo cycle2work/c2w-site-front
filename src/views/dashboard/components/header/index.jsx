@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 import { Col, Row } from "antd";
@@ -91,9 +92,11 @@ export default class Header extends Component {
         const { user, company } = this.props;
         return (
             <Container>
-                <LogoContainer>
-                    <img src={logo} alt="Cycle2work.io" />
-                </LogoContainer>
+                <Link to="/">
+                    <LogoContainer>
+                        <img src={logo} alt="Cycle2work.io" />
+                    </LogoContainer>
+                </Link>
                 <Row type="flex">
                     <Col xs={{ span: 24, order: 2 }} sm={{ span: 12, order: 1 }}>
                         <UpperLabelLeft>{company}</UpperLabelLeft>
