@@ -7,7 +7,7 @@ import { primaryColor } from "../../../../commons/colors";
 
 const StyledHeader = styled.h2`
     color: ${primaryColor};
-    font-weight: 600;
+    font-weight: 700;
     @media screen and (max-width: 1200px) {
         text-align: center;
     }

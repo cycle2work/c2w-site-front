@@ -19,7 +19,7 @@ export const style = {
     paragraph: {
         color: colors.black,
         display: "inline-block",
-        fontSize: "calc(12px + 0.3vw)",
+        fontSize: "calc(14px + 0.3vw)",
         margin: "0 auto",
         paddingBottom: "10px",
         paddingLeft: "15px",

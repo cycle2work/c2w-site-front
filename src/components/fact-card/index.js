@@ -1,11 +1,10 @@
-import {Col} from "antd";
+import { Col } from "antd";
 import PropTypes from "prop-types";
-import React, {Component} from "react";
+import React, { Component } from "react";
 
 import * as colors from "../../commons/colors";
 
 export default class Card extends Component {
-
     static propTypes = {
         icon: PropTypes.string,
         lg: PropTypes.number,
@@ -13,16 +12,12 @@ export default class Card extends Component {
         text: PropTypes.string,
         title: PropTypes.string,
         xs: PropTypes.number
-    }
+    };
 
-    render () {
-        const {icon, lg, md, text, title, xs} = this.props;
+    render() {
+        const { icon, lg, md, text, title, xs } = this.props;
         return (
-            <Col
-                lg={lg}
-                xs={xs}
-                md={md}
-            >
+            <Col lg={lg} xs={xs} md={md}>
                 <div
                     style={{
                         backgroundColor: colors.white,
@@ -38,17 +33,21 @@ export default class Card extends Component {
                         boxShadow: "0px 8px 60px -9px rgba(28, 27, 41, 0.3)"
                     }}
                 >
-                    <img alt={"fact"} style={{height: "calc(65px + 1vw)"}} src={icon} />
+                    <img alt={"fact"} style={{ height: "calc(65px + 1vw)" }} src={icon} />
                     <div
                         style={{
-                            fontSize: "calc(22px + 0.3vw)", fontWeight: 500, color: colors.black
+                            fontSize: "calc(22px + 0.3vw)",
+                            fontWeight: 500,
+                            color: colors.black
                         }}
                     >
                         {title}
                     </div>
                     <div
                         style={{
-                            fontSize: "calc(12px + 0.3vw)", textAlign: "center", color: colors.grey
+                            fontSize: "calc(14px + 0.3vw)",
+                            textAlign: "center",
+                            color: colors.grey
                         }}
                     >
                         {text}
@@ -57,5 +56,4 @@ export default class Card extends Component {
             </Col>
         );
     }
-
 }

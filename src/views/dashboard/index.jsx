@@ -35,7 +35,7 @@ const MaxWidth = styled.div`
 
 const Calendar = styled.div`
     float: right;
-    font-size: calc(12px + 0.2vw);
+    font-size: calc(14px + 0.2vw);
     line-height: 32px;
     color: black;
     margin: 10px 16px 0 0;

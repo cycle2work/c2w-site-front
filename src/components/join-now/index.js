@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import Button from "../button";
 
-import StravaLogo from "../../assets/images/strava_icon.png";
+import StravaLogo from "../../assets/images/strava_logo.png";
 import { primaryColor, white } from "../../commons/colors";
 
 import { STRAVA_LINK } from "../../config";
@@ -13,7 +13,7 @@ export default class JoinNow extends Component {
             <a href={STRAVA_LINK}>
                 <Button
                     backgroundColor={primaryColor}
-                    label={"JOIN with STRAVA"}
+                    label={"JOIN with"}
                     iconImage={StravaLogo}
                     textColor={white}
                 />

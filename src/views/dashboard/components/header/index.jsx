@@ -38,7 +38,7 @@ const LogoContainer = styled.div`
 const UpperLabelLeft = styled.p`
     line-height: 60px;
     margin: 0 0 0 120px;
-    font-size: calc(14px + 0.2vw);
+    font-size: calc(16px + 0.2vw);
     font-weight: 400;
     padding: 0 20px;
     @media screen and (max-width: 767px) {
@@ -60,8 +60,8 @@ const UserInfo = styled.div`
 const UpperLabelRight = styled.span`
     text-align: right;
     line-height: 60px;
-    font-size: calc(12px + 0.2vw);
-    font-weight: 300;
+    font-size: calc(14px + 0.2vw);
+    font-weight: 400;
 `;
 
 // const ExitButton = styled.i`

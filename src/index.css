@@ -1,18 +1,18 @@
 @import "~antd/dist/antd.css";
 
 body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 300;
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
 }
 
-
-.ant-table-middle .ant-table-title, .ant-table-middle .ant-table-footer {
-  font-size: calc(14px + 0.2vw);
-  font-weight: 600;
-  color: black;
-  padding: 20px 8px 20px 8px !important;
+.ant-table-middle .ant-table-title,
+.ant-table-middle .ant-table-footer {
+    font-size: calc(16px + 0.2vw);
+    font-weight: 700;
+    color: black;
+    padding: 20px 8px 20px 8px !important;
 }
 
 @media screen and (min-width: 991px) {

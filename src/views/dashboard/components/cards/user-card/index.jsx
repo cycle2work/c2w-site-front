@@ -51,7 +51,7 @@ const Username = styled.p`
 
 const Where = styled.span`
     color: ${colors.grey};
-    font-size: calc(12px + 0.2vw);
+    font-size: calc(14px + 0.2vw);
 `;
 
 export default class ActivityCard extends Component {

@@ -32,7 +32,7 @@ const FixedHeight = styled.div`
 
 const Title = styled.div`
     font-size: 1.5em;
-    font-weight: bold;
+    font-weight: 700;
     text-align: center;
 `;
 
@@ -47,19 +47,18 @@ const NumberContainer = styled.div`
     text-align: center;
     line-height: 1;
     font-size: calc(45px + 0.8vw);
-    font-weight: bold;
+    font-weight: 700;
 `;
 
 const Number = styled.p`
     margin-top: 48px;
     font-size: calc(40px + 0.8vw);
-    font-weight: bold;
+    font-weight: 700;
 `;
 
 const Unit = styled.p`
-    font-size: calc(12px + 0.8vw);
-    font-weight: lighter;
-    font-weight: 300;
+    font-size: calc(14px + 0.8vw);
+    font-weight: 400;
 `;
 
 const Comparison = styled.div`
@@ -73,7 +72,7 @@ const Comparison = styled.div`
 
 const What = styled.p`
     font-size: 16px;
-    font-weight: bold;
+    font-weight: 700;
     color: ${props => (props.more ? colors.green : colors.red)};
 `;
 

@@ -16,7 +16,7 @@ export const style = {
         color: colors.primaryColor
     },
     paragraph: {
-        fontSize: "calc(12px + 0.3vw)",
+        fontSize: "calc(14px + 0.3vw)",
         color: colors.grey,
         marginBottom: 40
     }

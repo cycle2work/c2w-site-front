@@ -47,12 +47,12 @@ const Name = styled.p`
 
 const Where = styled.span`
     color: ${colors.grey};
-    font-size: calc(12px + 0.2vw);
+    font-size: calc(14px + 0.2vw);
 `;
 
 const Members = styled.p`
     color: ${colors.black};
-    font-size: calc(12px + 0.2vw);
+    font-size: calc(14px + 0.2vw);
     line-height: 40px;
     font-weight: 400;
     margin-top: 30px;

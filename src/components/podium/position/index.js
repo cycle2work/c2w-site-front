@@ -15,7 +15,7 @@ const Container = styled.div`
 
 const PositionLabel = styled.div`
     font-size: calc(28px + 0.2vw);
-    font-weight: 600;
+    font-weight: 700;
     padding-left: 10px;
     color: ${colors.black};
     @media screen and (max-width: 991px) {
@@ -33,8 +33,8 @@ const Image = styled.img`
 `;
 
 const Company = styled.div`
-    font-size: calc(14px + 0.2vw);
-    font-weight: 600;
+    font-size: calc(16px + 0.2vw);
+    font-weight: 700;
     color: ${colors.black};
 `;
 
@@ -56,13 +56,13 @@ const MeasureContainer = styled.div`
 `;
 
 const Co2Number = styled.div`
-    font-size: calc(14px + 0.2vw);
-    font-weight: 600;
+    font-size: calc(16px + 0.2vw);
+    font-weight: 700;
 `;
 
 const KmNumber = styled.div`
-    font-size: calc(14px + 0.2vw);
-    font-weight: 600;
+    font-size: calc(16px + 0.2vw);
+    font-weight: 700;
 `;
 
 const Unit = styled.div`

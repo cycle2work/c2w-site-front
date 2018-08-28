@@ -20,7 +20,7 @@ export const style = {
         paddingBottom: "30px"
     },
     paragraph: {
-        fontSize: "calc(12px + 0.3vw)",
+        fontSize: "calc(14px + 0.3vw)",
         color: colors.grey
     }
 };

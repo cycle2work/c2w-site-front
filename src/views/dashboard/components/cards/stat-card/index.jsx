@@ -23,25 +23,25 @@ const Container = styled.div`
 const Title = styled.div`
     font-size: 1.5em;
     line-height: 60px;
-    font-weight: 600;
+    font-weight: 700;
     text-align: center;
 `;
 
 const NumberContainer = styled.div`
     text-align: center;
     font-size: calc(45px + 0.8vw);
-    font-weight: 600;
+    font-weight: 700;
 `;
 
 const Number = styled.p`
     font-size: calc(40px + 0.8vw);
-    font-weight: 600;
+    font-weight: 700;
     color: ${colors.primaryColor};
 `;
 
 const Unit = styled.p`
-    font-size: calc(12px + 0.8vw);
-    font-weight: 300;
+    font-size: calc(14px + 0.8vw);
+    font-weight: 400;
     margin-top: -12px;
 `;
 
@@ -56,7 +56,7 @@ const Comparison = styled.div`
 
 const What = styled.p`
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 700;
     color: ${colors.red};
 `;
 

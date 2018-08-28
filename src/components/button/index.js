@@ -11,9 +11,9 @@ const ButtonContainer = styled.div`
     color: ${props => props.textColor};
     cursor: ${props => (props.disabled ? "default" : "pointer")};
     display: inline-block;
-    padding: 12px 60px;
+    padding: 12px 40px;
     text-align: center;
-    font-size: calc(14px + 0.2vw);
+    font-size: calc(16px + 0.2vw);
     line-height: calc(20px + 0.2vw);
     font-weight: 500;
     box-shadow: 0px 8px 40px -9px rgba(28, 27, 41, 0.5);
@@ -30,10 +30,14 @@ const ButtonContainer = styled.div`
 `;
 
 const Icon = styled.img`
-    max-width: 20px;
     height: 20px;
     float: right;
     margin-left: 5px;
+
+    @media screen and (max-width: 600px) {
+        float: none;
+        height: 15px;
+    }
 `;
 
 export default class Button extends Component {
