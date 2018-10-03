@@ -60,7 +60,7 @@
         "netlify": "echo '/*    /index.html   200' > build/_redirects",
         "build": "react-scripts build && yarn netlify",
         "coverage": "nyc npm test",
-        "lint": "eslint src test mock-server --ext .jsx --ext .js",
+        "lint": "eslint src mock-server --ext .jsx --ext .js",
         "test:watch": "react-scripts test --env=jsdom",
         "test": "react-scripts test --env=jsdom --coverage",
         "mock-server": "mock-server --serveConfig --watch"
