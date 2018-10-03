@@ -50,7 +50,7 @@ const Where = styled.span`
     font-size: calc(14px + 0.2vw);
 `;
 
-const Members = styled.p`
+const Members = styled.div`
     color: ${colors.black};
     font-size: calc(14px + 0.2vw);
     line-height: 40px;

@@ -15,13 +15,14 @@
         "moment": "^2.19.1",
         "nyc": "^11.2.1",
         "prop-types": "^15.6.0",
+        "query-string": "^6.2.0",
         "react": "^16.0.0",
         "react-animated-number": "^0.4.4",
         "react-burger-menu": "^2.1.9",
         "react-dom": "^16.0.0",
         "react-redux": "^5.0.6",
         "react-router-dom": "^4.2.2",
-        "react-scripts": "1.0.16",
+        "react-scripts": "2.0.3",
         "react-scroll": "^1.6.4",
         "redux": "^3.7.2",
         "redux-localstorage-simple": "^2.1.1",
@@ -40,7 +41,6 @@
         "cross-env": "^5.1.0",
         "enzyme": "^3.1.0",
         "enzyme-adapter-react-16": "^1.0.1",
-        "eslint": "^4.8.0",
         "eslint-config-react-app": "^2.0.1",
         "eslint-loader": "1.9.0",
         "eslint-plugin-flowtype": "2.39.1",
@@ -64,5 +64,6 @@
         "test:watch": "react-scripts test --env=jsdom",
         "test": "react-scripts test --env=jsdom --coverage",
         "mock-server": "mock-server --serveConfig --watch"
-    }
+    },
+    "browserslist": [">0.2%", "not dead", "not ie <= 11", "not op_mini all"]
 }

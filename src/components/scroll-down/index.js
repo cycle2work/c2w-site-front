@@ -1,8 +1,8 @@
-import {Icon} from "antd";
-import React, {Component} from "react";
-import {animateScroll} from "react-scroll";
+import { Icon } from "antd";
+import React, { Component } from "react";
+import { animateScroll } from "react-scroll";
 
-import {primaryColorLighter} from "../../commons/colors";
+import { primaryColorLighter } from "../../commons/colors";
 import "./style.css";
 
 const styles = {
@@ -11,6 +11,7 @@ const styles = {
         position: "relative"
     },
     button: {
+        cursor: "pointer",
         fontSize: 60,
         margin: "0px auto",
         textAlign: "center",
@@ -23,19 +24,13 @@ const styles = {
 };
 
 export default class ScrollDown extends Component {
-
-    render () {
+    render() {
         return (
             <div style={styles.container}>
-                <a onClick={() => animateScroll.scrollTo(1000)} className={"buttonScrollWrp"}>
-                    <Icon
-                        style={styles.button}
-                        type="down-circle"
-                        className="buttonScrollEffect"
-                    />
-                </a>
+                <div onClick={() => animateScroll.scrollTo(1000)} className={"buttonScrollWrp"}>
+                    <Icon style={styles.button} type="down-circle" className="buttonScrollEffect" />
+                </div>
             </div>
         );
     }
-
 }
