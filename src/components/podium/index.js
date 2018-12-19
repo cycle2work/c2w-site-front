@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
+import sortby from "lodash.sortby";
+
 import { Col, Row } from "antd";
 
 import Position from "./position";
@@ -42,9 +44,10 @@ export default class Podium extends Component {
     };
 
     render() {
-        const [first, second, third] = this.props.reports.data.sort(
-            (a, b) => (a.distance > b.distance ? -1 : 1)
-        );
+        const [first, second, third] = sortby(this.props.reports.data, [
+            "distance",
+            "name"
+        ]).reverse();
 
         if (!first && !second && !third) {
             return null;

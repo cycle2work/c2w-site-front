@@ -24,7 +24,7 @@ export default class StandingsSection extends Component {
             reports,
             reports: { data }
         } = this.props;
-        const sorted = sortby(data, x => x.distance).reverse();
+        const sorted = sortby(data, ["distance", "name"]).reverse();
         const standingsData = (sorted || []).map((report, index) => {
             return {
                 key: `${index}`,
