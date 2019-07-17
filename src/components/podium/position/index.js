@@ -92,7 +92,7 @@ export default class Position extends Component {
                 <Company>{name}</Company>
                 <Step>
                     <MeasureContainer>
-                        <Co2Number>{`${((distance || 0) / 600000).toFixed(2)}`}</Co2Number>
+                        <Co2Number>{`${((distance || 0) / 1000 * 0.229).toFixed(2)}`}</Co2Number>
                         <Unit>{"Kg CO2"}</Unit>
                     </MeasureContainer>
                     <MeasureContainer>
