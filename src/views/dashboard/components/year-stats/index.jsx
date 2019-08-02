@@ -91,7 +91,7 @@ const YearStats = ({ monthsData = [] }) => {
                             <Unit>
                                 {month &&
                                     moment()
-                                        .month(month)
+                                        .month(month - 1)
                                         .format("MMMM")}
                             </Unit>
                             <Number>
