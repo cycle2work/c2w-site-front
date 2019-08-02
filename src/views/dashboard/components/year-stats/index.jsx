@@ -34,7 +34,8 @@ const TooltipContainer = styled.div`
 `;
 
 const YearStats = ({ monthsData = [] }) => {
-    const [selected, setSelected] = useState();
+    const [number, setNumber] = useState();
+    const [month, setMonth] = useState();
 
     const months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
@@ -69,10 +70,8 @@ const YearStats = ({ monthsData = [] }) => {
                                             event.payload[0].payload &&
                                             event.payload[0].payload.month
                                         ) {
-                                            setSelected({
-                                                month: event.payload[0].payload.month,
-                                                distance: event.payload[0].payload.distance / 1000
-                                            });
+                                            setNumber(event.payload[0].payload.distance / 1000);
+                                            setMonth(event.payload[0].payload.month);
                                         }
                                     }}
                                 />
@@ -88,22 +87,18 @@ const YearStats = ({ monthsData = [] }) => {
                         </ResponsiveContainer>
                     </ChartContainer>
                     <TooltipContainer>
-                        {selected && (
-                            <NumberContainer>
-                                <Unit>
-                                    {moment()
-                                        .month(selected.month)
+                        <NumberContainer>
+                            <Unit>
+                                {month &&
+                                    moment()
+                                        .month(month)
                                         .format("MMMM")}
-                                </Unit>
-                                <Number>
-                                    <AnimatedNumber
-                                        value={selected.distance}
-                                        formatValue={n => n.toFixed(1)}
-                                    />
-                                </Number>
-                                <Unit>{"Km"}</Unit>
-                            </NumberContainer>
-                        )}
+                            </Unit>
+                            <Number>
+                                <AnimatedNumber value={number} formatValue={n => n.toFixed(1)} />
+                            </Number>
+                            <Unit>{"Km"}</Unit>
+                        </NumberContainer>
                     </TooltipContainer>
                 </Grid>
             </AnimatedContainer>
