@@ -82,7 +82,8 @@ class Dashboard extends Component {
             activities: [],
             club: {
                 activities: []
-            }
+            },
+            monthsData: []
         },
         user: {
             profile: "",
@@ -101,7 +102,7 @@ class Dashboard extends Component {
     render() {
         const {
             user,
-            dashboard: { activities, club, yearData }
+            dashboard: { activities, club, monthsData }
         } = this.props;
 
         const userStats = getStats(activities);
@@ -169,7 +170,7 @@ class Dashboard extends Component {
             }
         ];
 
-        const yearTotalKm = (yearData || []).reduce((sum, month) => sum + month.distance / 1000, 0);
+        const yearTotalKm = monthsData.reduce((sum, month) => sum + month.distance / 1000, 0);
         const yearTotalCO2 = yearTotalKm * 0.229;
 
         return (
@@ -224,7 +225,7 @@ class Dashboard extends Component {
                             <StatCard
                                 title={"Total CO2"}
                                 number={yearTotalCO2}
-                                decimals={1}
+                                decimals={2}
                                 unit={"Kg CO2"}
                                 performance={yearTotalCO2}
                                 time={"than last year"}
@@ -234,7 +235,7 @@ class Dashboard extends Component {
                         </Col>
 
                         <Col xs={20} sm={16} lg={12}>
-                            <YearStats yearData={yearData} />
+                            <YearStats monthsData={monthsData} />
                         </Col>
                     </Row>
                 </MaxWidth>

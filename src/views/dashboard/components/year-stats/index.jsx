@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 
+import moment from "moment";
+
 import styled from "styled-components";
 
 import AnimatedNumber from "react-animated-number/build/AnimatedNumber";
@@ -31,13 +33,13 @@ const TooltipContainer = styled.div`
     align-items: center;
 `;
 
-const YearStats = ({ yearData = [] }) => {
-    const [number, setNumber] = useState();
+const YearStats = ({ monthsData = [] }) => {
+    const [selected, setSelected] = useState();
 
     const months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
     const monthlyData = months.map(month => {
-        const data = yearData.find(data => data.month === month) || { distance: 0 };
+        const data = monthsData.find(data => data.month === month) || { distance: 0 };
         return {
             ...month,
             ...data
@@ -61,8 +63,16 @@ const YearStats = ({ yearData = [] }) => {
                             >
                                 <Tooltip
                                     content={event => {
-                                        if (event.payload && event.payload[0]) {
-                                            setNumber(event.payload[0].value / 1000);
+                                        if (
+                                            event.payload &&
+                                            event.payload[0] &&
+                                            event.payload[0].payload &&
+                                            event.payload[0].payload.month
+                                        ) {
+                                            setSelected({
+                                                month: event.payload[0].payload.month,
+                                                distance: event.payload[0].payload.distance / 1000
+                                            });
                                         }
                                     }}
                                 />
@@ -78,12 +88,22 @@ const YearStats = ({ yearData = [] }) => {
                         </ResponsiveContainer>
                     </ChartContainer>
                     <TooltipContainer>
-                        <NumberContainer>
-                            <Number>
-                                <AnimatedNumber value={number} formatValue={n => n.toFixed(1)} />
-                            </Number>
-                            <Unit>{"Km"}</Unit>
-                        </NumberContainer>
+                        {selected && (
+                            <NumberContainer>
+                                <Unit>
+                                    {moment()
+                                        .month(selected.month)
+                                        .format("MMMM")}
+                                </Unit>
+                                <Number>
+                                    <AnimatedNumber
+                                        value={selected.distance}
+                                        formatValue={n => n.toFixed(1)}
+                                    />
+                                </Number>
+                                <Unit>{"Km"}</Unit>
+                            </NumberContainer>
+                        )}
                     </TooltipContainer>
                 </Grid>
             </AnimatedContainer>
@@ -91,6 +111,6 @@ const YearStats = ({ yearData = [] }) => {
     );
 };
 
-YearStats.propTypes = { yearData: PropTypes.array };
+YearStats.propTypes = { monthsData: PropTypes.array };
 
 export default YearStats;
