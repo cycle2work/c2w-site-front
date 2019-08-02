@@ -1,27 +1,36 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import moment from "moment";
 import styled from "styled-components";
-import AnimatedNumber from "react-animated-number";
+
+import moment from "moment";
+
+import AnimatedNumber from "react-animated-number/build/AnimatedNumber";
 
 import { AreaChart, Area, ResponsiveContainer, Tooltip } from "recharts";
 
 import AnimatedContainer from "../../../../components/animated-container";
 
-import BaseCard from "../cards/base-card";
-
 import * as colors from "../../../../commons/colors";
 
-const NumberContainer = styled.div`
-    margin: 0 16px;
+import { Title, Container, NumberContainer, Number, Unit } from "../cards/stat-card";
+
+const Grid = styled.div`
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
 `;
 
-const Number = styled.p`
-    text-align: right;
-    font-size: 3em;
-    font-weight: 700;
-    color: ${colors.black};
+const ChartContainer = styled.div`
+    grid-area: 1 / 1 / 2 / 2;
+`;
+
+const TooltipContainer = styled.div`
+    grid-area: 1 / 2 / 2 / 3;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `;
 
 const YearStats = ({ yearData }) => {
@@ -35,45 +44,52 @@ const YearStats = ({ yearData }) => {
         };
     });
 
-    const yearTotal = monthlyData.reduce((sum, month) => sum + month.distance, 0);
-
     return (
-        <AnimatedContainer>
-            <BaseCard>
-                <NumberContainer>
-                    <Number>
-                        <AnimatedNumber value={yearTotal / 1000} formatValue={n => n.toFixed(0)} />
-                        <span>{" Km"}</span>
-                    </Number>
-                </NumberContainer>
-                <ResponsiveContainer height="100%" width="100%">
-                    <AreaChart
-                        data={monthlyData}
-                        margin={{
-                            bottom: 0
-                        }}
-                    >
-                        <Tooltip
-                            cursor={false}
-                            formatter={value => `${(value / 1000).toFixed(0)} Km`}
-                            labelFormatter={value =>
-                                moment()
-                                    .month(value)
-                                    .format("MMMM")
-                            }
-                        />
+        <Container>
+            <AnimatedContainer>
+                <Title>{"YEAR AND KMs BY MONTHS"}</Title>
 
-                        <Area
-                            type="monotone"
-                            dataKey="distance"
-                            stroke={colors.primaryColor}
-                            strokeWidth={0}
-                            fill={colors.primaryColor}
-                        />
-                    </AreaChart>
-                </ResponsiveContainer>
-            </BaseCard>
-        </AnimatedContainer>
+                <Grid>
+                    <ChartContainer>
+                        <ResponsiveContainer height={192} width="100%">
+                            <AreaChart
+                                data={monthlyData}
+                                margin={{
+                                    top: 16,
+                                    bottom: 0
+                                }}
+                            >
+                                <Tooltip
+                                    cursor={false}
+                                    formatter={value => `${(value / 1000).toFixed(0)} Km`}
+                                    labelFormatter={value =>
+                                        moment()
+                                            .month(value)
+                                            .format("MMMM")
+                                    }
+                                />
+
+                                <Area
+                                    type="monotone"
+                                    dataKey="distance"
+                                    stroke={colors.primaryColor}
+                                    strokeWidth={0}
+                                    fill={colors.primaryColor}
+                                />
+                            </AreaChart>
+                        </ResponsiveContainer>
+                    </ChartContainer>
+                    <TooltipContainer>
+                        {/* <NumberContainer>
+                            <Number>
+                                <AnimatedNumber value={1} formatValue={n => n.toFixed(1)} />
+                            </Number>
+                            <Unit>{"Km"}</Unit>
+                        </NumberContainer> */}
+                    </TooltipContainer>
+                </Grid>
+            </AnimatedContainer>
+        </Container>
     );
 };
 

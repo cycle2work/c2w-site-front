@@ -169,6 +169,9 @@ class Dashboard extends Component {
             }
         ];
 
+        const yearTotalKm = yearData.reduce((sum, month) => sum + month.distance / 1000, 0);
+        const yearTotalCO2 = yearTotalKm * 0.229;
+
         return (
             <Container>
                 <Header user={user} />
@@ -203,9 +206,37 @@ class Dashboard extends Component {
                         <Col xs={24}>
                             <SubHeader label="Your yearly data" />
                         </Col>
-                    </Row>
 
-                    <YearStats yearData={yearData} />
+                        <Col xs={20} sm={8} lg={6}>
+                            <StatCard
+                                title={"Total Km"}
+                                number={yearTotalKm}
+                                decimals={0}
+                                unit={"Km"}
+                                performance={yearTotalKm}
+                                time={"than last year"}
+                                more={true}
+                                delay={750}
+                            />
+                        </Col>
+
+                        <Col xs={20} sm={8} lg={6}>
+                            <StatCard
+                                title={"Total CO2"}
+                                number={yearTotalCO2}
+                                decimals={1}
+                                unit={"Kg CO2"}
+                                performance={yearTotalCO2}
+                                time={"than last year"}
+                                more={true}
+                                delay={900}
+                            />
+                        </Col>
+
+                        <Col xs={20} sm={16} lg={12}>
+                            <YearStats yearData={yearData} />
+                        </Col>
+                    </Row>
                 </MaxWidth>
 
                 <MaxWidth>

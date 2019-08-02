@@ -8,8 +8,8 @@ import AnimatedContainer from "../../../../../components/animated-container";
 
 import * as colors from "../../../../../commons/colors";
 
-const Container = styled.div`
-    height: 250px;
+export const Container = styled.div`
+    height: 256px;
     background-color: ${colors.white};
     border-radius: 16px;
     color: ${colors.black};
@@ -20,26 +20,26 @@ const Container = styled.div`
     justify-content: space-around;
 `;
 
-const Title = styled.div`
+export const Title = styled.div`
     font-size: 1.5em;
-    line-height: 60px;
+    line-height: 64px;
     font-weight: 700;
     text-align: center;
 `;
 
-const NumberContainer = styled.div`
+export const NumberContainer = styled.div`
     text-align: center;
     font-size: calc(45px + 0.8vw);
     font-weight: 700;
 `;
 
-const Number = styled.p`
+export const Number = styled.p`
     font-size: calc(40px + 0.8vw);
     font-weight: 700;
     color: ${colors.primaryColor};
 `;
 
-const Unit = styled.p`
+export const Unit = styled.p`
     font-size: calc(14px + 0.8vw);
     font-weight: 400;
     margin-top: -12px;
