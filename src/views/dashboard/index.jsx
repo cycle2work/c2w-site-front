@@ -170,7 +170,10 @@ class Dashboard extends Component {
             }
         ];
 
-        const yearTotalKm = monthsData.reduce((sum, month) => sum + month.distance / 1000, 0);
+        const yearTotalKm = (monthsData || []).reduce(
+            (sum, month) => sum + month.distance / 1000,
+            0
+        );
         const yearTotalCO2 = yearTotalKm * 0.229;
 
         return (
