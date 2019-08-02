@@ -4,6 +4,9 @@ export const AWS_API =
 export const AWS_USERS_API =
     process.env.REACT_APP_AWS_USERS_API ||
     "https://04q8z8tigc.execute-api.eu-west-1.amazonaws.com/prod/c2w-lambda-users-master";
+export const AWS_DASHBOARD_API =
+    process.env.REACT_APP_AWS_DASHBOARD_API ||
+    "https://ob1fvvg611.execute-api.eu-west-1.amazonaws.com/default/c2w-lambda-api-dashboard-master";
 
 export const STRAVA_AUTH_URL =
     process.env.REACT_APP_STRAVA_AUTH_URL || "https://www.strava.com/oauth/authorize";

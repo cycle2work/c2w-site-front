@@ -11,11 +11,12 @@ export default class Card extends Component {
         md: PropTypes.number,
         text: PropTypes.string,
         title: PropTypes.string,
-        xs: PropTypes.number
+        xs: PropTypes.number,
+        children: PropTypes.node
     };
 
     render() {
-        const { icon, lg, md, text, title, xs } = this.props;
+        const { icon, lg, md, text, title, xs, children } = this.props;
         return (
             <Col lg={lg} xs={xs} md={md}>
                 <div
@@ -33,16 +34,21 @@ export default class Card extends Component {
                         boxShadow: "0px 8px 60px -9px rgba(28, 27, 41, 0.3)"
                     }}
                 >
-                    <img alt={"fact"} style={{ height: "calc(65px + 1vw)" }} src={icon} />
-                    <div
-                        style={{
-                            fontSize: "calc(22px + 0.3vw)",
-                            fontWeight: 500,
-                            color: colors.black
-                        }}
-                    >
-                        {title}
-                    </div>
+                    {title && (
+                        <>
+                            <img alt={"fact"} style={{ height: "calc(65px + 1vw)" }} src={icon} />
+                            <div
+                                style={{
+                                    fontSize: "calc(22px + 0.3vw)",
+                                    fontWeight: 500,
+                                    color: colors.black
+                                }}
+                            >
+                                {title}
+                            </div>
+                        </>
+                    )}
+
                     <div
                         style={{
                             fontSize: "calc(14px + 0.3vw)",
@@ -50,7 +56,7 @@ export default class Card extends Component {
                             color: colors.grey
                         }}
                     >
-                        {text}
+                        {text || children}
                     </div>
                 </div>
             </Col>

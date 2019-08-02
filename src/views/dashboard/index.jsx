@@ -19,6 +19,7 @@ import SubHeader from "./components/sub-header";
 
 import { lighterGrey, white, primaryColor } from "../../commons/colors";
 import { getStats } from "../../libs/stats";
+import YearStats from "./components/year-stats";
 
 const Container = styled.div`
     min-height: 100vh;
@@ -30,7 +31,7 @@ const Container = styled.div`
 const MaxWidth = styled.div`
     max-width: 1400px;
     margin: auto;
-    padding: 60px 16px;
+    padding: 16px;
 `;
 
 const Calendar = styled.div`
@@ -100,7 +101,7 @@ class Dashboard extends Component {
     render() {
         const {
             user,
-            dashboard: { activities, club }
+            dashboard: { activities, club, yearData }
         } = this.props;
 
         const userStats = getStats(activities);
@@ -180,6 +181,7 @@ class Dashboard extends Component {
                         <MobileOnly>{` ${moment().format("DD/MM/YYYY")}`}</MobileOnly>
                     </Calendar>
                 </Row>
+
                 <MaxWidth>
                     <Row type="flex" justify={"center"} gutter={24}>
                         <Col xs={24}>
@@ -195,7 +197,17 @@ class Dashboard extends Component {
                         ))}
                     </Row>
                 </MaxWidth>
-                <div style={{ height: 1, backgroundColor: "lightgrey", width: "100%" }} />
+
+                <MaxWidth>
+                    <Row type="flex" justify={"center"} gutter={24}>
+                        <Col xs={24}>
+                            <SubHeader label="Your yearly data" />
+                        </Col>
+                    </Row>
+
+                    <YearStats yearData={yearData} />
+                </MaxWidth>
+
                 <MaxWidth>
                     <Row type="flex" justify={"center"} gutter={24}>
                         <Col xs={24}>

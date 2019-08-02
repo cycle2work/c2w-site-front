@@ -1,6 +1,7 @@
 import {
     FETCH_DASHBOARD_START,
     FETCH_DASHBOARD_SUCCESS,
+    FETCH_DASHBOARD_YEAR_SUCCESS,
     FETCH_DASHBOARD_ERROR
 } from "../actions/dashboard";
 
@@ -28,6 +29,13 @@ export default function dashboard(state = defaultState, { type, payload }) {
                 error: false,
                 activities: payload.activities || [],
                 club: payload.club || { activities: [] }
+            };
+        case FETCH_DASHBOARD_YEAR_SUCCESS:
+            return {
+                ...state,
+                started: false,
+                error: false,
+                yearData: payload
             };
         case FETCH_DASHBOARD_ERROR:
             return {
