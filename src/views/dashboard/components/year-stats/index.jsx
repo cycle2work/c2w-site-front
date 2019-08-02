@@ -50,7 +50,7 @@ const YearStats = ({ monthsData = [] }) => {
     return (
         <Container>
             <AnimatedContainer delay={1050}>
-                <Title>{"YEAR AND KMs BY MONTHS"}</Title>
+                <Title>{"YEAR BY MONTH"}</Title>
 
                 <Grid>
                     <ChartContainer>
