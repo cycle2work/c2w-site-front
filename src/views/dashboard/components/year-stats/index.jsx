@@ -1,9 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 import styled from "styled-components";
-
-import moment from "moment";
 
 import AnimatedNumber from "react-animated-number/build/AnimatedNumber";
 
@@ -33,7 +31,9 @@ const TooltipContainer = styled.div`
     align-items: center;
 `;
 
-const YearStats = ({ yearData }) => {
+const YearStats = ({ yearData = [] }) => {
+    const [number, setNumber] = useState();
+
     const months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
     const monthlyData = months.map(month => {
@@ -46,7 +46,7 @@ const YearStats = ({ yearData }) => {
 
     return (
         <Container>
-            <AnimatedContainer>
+            <AnimatedContainer delay={1050}>
                 <Title>{"YEAR AND KMs BY MONTHS"}</Title>
 
                 <Grid>
@@ -60,13 +60,11 @@ const YearStats = ({ yearData }) => {
                                 }}
                             >
                                 <Tooltip
-                                    cursor={false}
-                                    formatter={value => `${(value / 1000).toFixed(0)} Km`}
-                                    labelFormatter={value =>
-                                        moment()
-                                            .month(value)
-                                            .format("MMMM")
-                                    }
+                                    content={event => {
+                                        if (event.payload && event.payload[0]) {
+                                            setNumber(event.payload[0].value / 1000);
+                                        }
+                                    }}
                                 />
 
                                 <Area
@@ -80,12 +78,12 @@ const YearStats = ({ yearData }) => {
                         </ResponsiveContainer>
                     </ChartContainer>
                     <TooltipContainer>
-                        {/* <NumberContainer>
+                        <NumberContainer>
                             <Number>
-                                <AnimatedNumber value={1} formatValue={n => n.toFixed(1)} />
+                                <AnimatedNumber value={number} formatValue={n => n.toFixed(1)} />
                             </Number>
                             <Unit>{"Km"}</Unit>
-                        </NumberContainer> */}
+                        </NumberContainer>
                     </TooltipContainer>
                 </Grid>
             </AnimatedContainer>

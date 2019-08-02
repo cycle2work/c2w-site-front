@@ -31,7 +31,7 @@ const Container = styled.div`
 const MaxWidth = styled.div`
     max-width: 1400px;
     margin: auto;
-    padding: 16px;
+    padding: 32px 16px;
 `;
 
 const Calendar = styled.div`
@@ -169,7 +169,7 @@ class Dashboard extends Component {
             }
         ];
 
-        const yearTotalKm = yearData.reduce((sum, month) => sum + month.distance / 1000, 0);
+        const yearTotalKm = (yearData || []).reduce((sum, month) => sum + month.distance / 1000, 0);
         const yearTotalCO2 = yearTotalKm * 0.229;
 
         return (
