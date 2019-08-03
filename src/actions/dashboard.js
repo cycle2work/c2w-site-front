@@ -8,14 +8,16 @@ export const FETCH_DASHBOARD_SUCCESS = "FETCH_DASHBOARD_SUCCESS";
 export const FETCH_DASHBOARD_YEAR_SUCCESS = "FETCH_DASHBOARD_YEAR_SUCCESS";
 export const FETCH_DASHBOARD_ERROR = "FETCH_DASHBOARD_ERROR";
 
-export function fetchData(user, month = moment.utc().format("MM")) {
+// We need the user to select the club that would be enrolled to cycle2work
+// now we're hard coding our club only for testing purposes
+export const fetchData = (athleteId, clubId = 148440, month = moment.utc().format("MM")) => {
     return dispatch => {
         dispatch({
             type: FETCH_DASHBOARD_START
         });
 
         axios
-            .get(`${AWS_API}?user=${user}&month=${month}`)
+            .get(`${AWS_API}?user=${athleteId}&month=${month}`)
             .then(result => {
                 dispatch({
                     type: FETCH_DASHBOARD_SUCCESS,
@@ -30,7 +32,7 @@ export function fetchData(user, month = moment.utc().format("MM")) {
             });
 
         axios
-            .get(`${AWS_DASHBOARD_API}?athleteId=${user}`)
+            .get(`${AWS_DASHBOARD_API}?athleteId=${athleteId}&clubId=${clubId}`)
             .then(result => {
                 dispatch({
                     type: FETCH_DASHBOARD_YEAR_SUCCESS,
@@ -44,4 +46,4 @@ export function fetchData(user, month = moment.utc().format("MM")) {
                 });
             });
     };
-}
+};
