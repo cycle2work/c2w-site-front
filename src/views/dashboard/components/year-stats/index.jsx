@@ -7,7 +7,7 @@ import styled from "styled-components";
 
 import AnimatedNumber from "react-animated-number/build/AnimatedNumber";
 
-import { BarChart, Bar, ResponsiveContainer, Tooltip } from "recharts";
+import { BarChart, Bar, Cell, ResponsiveContainer } from "recharts";
 
 import AnimatedContainer from "../../../../components/animated-container";
 
@@ -30,12 +30,18 @@ const TooltipContainer = styled.div`
 
     display: flex;
     justify-content: center;
-    align-items: center;
+`;
+
+const Month = styled.p`
+    margin-top: 24px;
+    font-size: 16px;
+    text-transform: uppercase;
 `;
 
 const YearStats = ({ monthsData = [] }) => {
     const [number, setNumber] = useState();
     const [month, setMonth] = useState();
+    const [activeIndex, setActiveIndex] = useState();
 
     const months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
@@ -63,20 +69,6 @@ const YearStats = ({ monthsData = [] }) => {
                                     left: 16
                                 }}
                             >
-                                <Tooltip
-                                    content={event => {
-                                        if (
-                                            event.payload &&
-                                            event.payload[0] &&
-                                            event.payload[0].payload &&
-                                            event.payload[0].payload.month
-                                        ) {
-                                            setNumber(event.payload[0].payload.distance / 1000);
-                                            setMonth(event.payload[0].payload.month);
-                                        }
-                                    }}
-                                />
-
                                 <Bar
                                     type="monotone"
                                     dataKey="distance"
@@ -84,22 +76,43 @@ const YearStats = ({ monthsData = [] }) => {
                                     strokeWidth={4}
                                     strokeLinejoin="round"
                                     fill={colors.lighterGrey}
-                                />
+                                >
+                                    {monthlyData.map((entry, index) => {
+                                        const color =
+                                            activeIndex === index
+                                                ? colors.primaryColor
+                                                : colors.lighterGrey;
+
+                                        return (
+                                            <Cell
+                                                cursor="pointer"
+                                                key={`cell-${index}`}
+                                                stroke={color}
+                                                fill={color}
+                                                onClick={() => {
+                                                    setNumber(entry.distance / 1000);
+                                                    setMonth(entry.month);
+                                                    setActiveIndex(index);
+                                                }}
+                                            />
+                                        );
+                                    })}
+                                </Bar>
                             </BarChart>
                         </ResponsiveContainer>
                     </ChartContainer>
                     <TooltipContainer>
                         <NumberContainer>
-                            <Unit>
-                                {month &&
-                                    moment()
-                                        .month(month - 1)
-                                        .format("MMMM")}
-                            </Unit>
                             <Number>
                                 <AnimatedNumber value={number} formatValue={n => n.toFixed(1)} />
                             </Number>
                             <Unit>{"Km"}</Unit>
+                            <Month>
+                                {month &&
+                                    moment()
+                                        .month(month - 1)
+                                        .format("MMMM")}
+                            </Month>
                         </NumberContainer>
                     </TooltipContainer>
                 </Grid>
