@@ -7,7 +7,7 @@ import styled from "styled-components";
 
 import AnimatedNumber from "react-animated-number/build/AnimatedNumber";
 
-import { AreaChart, Area, ResponsiveContainer, Tooltip } from "recharts";
+import { BarChart, Bar, ResponsiveContainer, Tooltip } from "recharts";
 
 import AnimatedContainer from "../../../../components/animated-container";
 
@@ -17,7 +17,7 @@ import { Title, Container, NumberContainer, Number, Unit } from "../cards/stat-c
 
 const Grid = styled.div`
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 60% 40%;
     grid-template-rows: 1fr;
 `;
 
@@ -55,11 +55,12 @@ const YearStats = ({ monthsData = [] }) => {
                 <Grid>
                     <ChartContainer>
                         <ResponsiveContainer height={192} width="100%">
-                            <AreaChart
+                            <BarChart
                                 data={monthlyData}
                                 margin={{
                                     top: 16,
-                                    bottom: 0
+                                    bottom: 16,
+                                    left: 16
                                 }}
                             >
                                 <Tooltip
@@ -76,14 +77,15 @@ const YearStats = ({ monthsData = [] }) => {
                                     }}
                                 />
 
-                                <Area
+                                <Bar
                                     type="monotone"
                                     dataKey="distance"
-                                    stroke={colors.primaryColor}
-                                    strokeWidth={0}
-                                    fill={colors.primaryColor}
+                                    stroke={colors.lighterGrey}
+                                    strokeWidth={4}
+                                    strokeLinejoin="round"
+                                    fill={colors.lighterGrey}
                                 />
-                            </AreaChart>
+                            </BarChart>
                         </ResponsiveContainer>
                     </ChartContainer>
                     <TooltipContainer>
