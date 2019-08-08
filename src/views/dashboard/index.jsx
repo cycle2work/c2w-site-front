@@ -114,7 +114,7 @@ class Dashboard extends Component {
                 fromColor: "#fe00ac",
                 toColor: "#6567e5",
                 number: userStats.km,
-                decimals: 0,
+                decimals: 1,
                 unit: "Km",
                 performance: userStats.deltaKm,
                 time: "than last month",
