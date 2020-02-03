@@ -13,4 +13,4 @@ export const STRAVA_AUTH_URL =
 export const STRAVA_CLIENT_ID = process.env.REACT_APP_STRAVA_CLIENT_ID || "12901";
 export const STRAVA_REDIRECT_URL =
     process.env.REACT_APP_STRAVA_REDIRECT_URL || "http://localhost:3000/thank-you";
-export const STRAVA_LINK = `${STRAVA_AUTH_URL}?client_id=${STRAVA_CLIENT_ID}&response_type=code&redirect_uri=${STRAVA_REDIRECT_URL}`;
+export const STRAVA_LINK = `${STRAVA_AUTH_URL}?client_id=${STRAVA_CLIENT_ID}&response_type=code&redirect_uri=${STRAVA_REDIRECT_URL}&scope=activity:read,profile:read_all`;
