@@ -50,7 +50,7 @@ export default class Header extends Component {
             classFixed: "",
             menus: {
                 firstSection: "Cycle2Work",
-                features: <FormattedMessage id="toolbar.menu" />,
+                features: <FormattedMessage id="toolbar.features" />,
                 howItWorks: <FormattedMessage id="toolbar.howItWorks" />,
                 factsAndFigures: <FormattedMessage id="toolbar.factsAndFigures" />,
                 why: <FormattedMessage id="toolbar.why" />,
