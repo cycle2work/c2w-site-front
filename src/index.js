@@ -8,7 +8,7 @@ import it from "./localization/messages/it.json";
 import { getLanguage } from "./localization";
 import "./index.css";
 
-const language = getLanguage();
+const language = getLanguage("en");
 const messages = {
     en,
     it
