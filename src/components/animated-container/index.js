@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 
 const Animated = styled.div`
-    opacity: ${props => (props.started ? "1" : "0")};
+    opacity: ${props => (props.started ? 1 : 0)};
     transform: translateY(${props => (props.started ? "0" : "32")}px);
     transition: transform 300ms ease ${props => props.delay}ms,
         opacity 500ms ease ${props => props.delay}ms;

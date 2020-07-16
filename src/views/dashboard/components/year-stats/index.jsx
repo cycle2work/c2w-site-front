@@ -39,7 +39,7 @@ const Month = styled.p`
     text-transform: uppercase;
 `;
 
-const YearStats = ({ monthsData = [] }) => {
+const YearStats = ({ activities = [] }) => {
     const [number, setNumber] = useState();
     const [month, setMonth] = useState();
     const [activeIndex, setActiveIndex] = useState();
@@ -47,10 +47,15 @@ const YearStats = ({ monthsData = [] }) => {
     const months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
     const monthlyData = months.map(month => {
-        const data = monthsData.find(data => data.month === month) || { distance: 0 };
+        const monthActivities = activities.filter(data => data.month === month);
+        const totalDistance = monthActivities.reduce(
+            (accumulator, activity) => accumulator + activity.distance,
+            0
+        );
+
         return {
-            ...month,
-            ...data
+            month,
+            distance: totalDistance
         };
     });
 
@@ -125,6 +130,6 @@ const YearStats = ({ monthsData = [] }) => {
     );
 };
 
-YearStats.propTypes = { monthsData: PropTypes.array };
+YearStats.propTypes = { activities: PropTypes.array };
 
 export default YearStats;

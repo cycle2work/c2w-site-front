@@ -98,7 +98,7 @@ export default class ActivityCard extends Component {
     };
 
     static defaultProps = {
-        number: "0"
+        number: 0
     };
 
     render() {

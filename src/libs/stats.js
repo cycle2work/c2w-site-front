@@ -1,21 +1,24 @@
 import moment from "moment";
 
-export const getStats = activities => {
-    const month = parseInt(moment.utc().format("MM"), 10);
-    const previousMonth = parseInt(
-        moment
-            .utc()
-            .subtract({ months: 1 })
-            .format("MM"),
-        10
-    );
+
+export const getMonthlyStats = (activities) => {
+    return getStats(activities, "month", "MM");
+};
+
+export const getYearlyStats = (activities) => {
+    return getStats(activities, "year", "YYYY");
+};
+
+const getStats = (activities, activityTimeField, formatTime) => {
+    const timeSlot = parseInt(moment.utc().format(formatTime), 10);
+    const previousTimeSlot = timeSlot - 1;
 
     const totalPrevious = activities
-        .filter(x => x.month === previousMonth)
+        .filter(x => x[activityTimeField] === previousTimeSlot)
         .reduce((total, activity) => total + activity.distance, 0);
 
     const total = activities
-        .filter(x => x.month === month)
+        .filter(x => x[activityTimeField] === timeSlot)
         .reduce((total, activity) => total + activity.distance, 0);
 
     const more = total >= totalPrevious;

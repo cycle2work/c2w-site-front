@@ -7,7 +7,7 @@ import { Col, Row, Icon } from "antd";
 
 import styled from "styled-components";
 
-import { fetchData } from "../../actions/dashboard";
+import { fetchDashboardData } from "../../actions/dashboard";
 
 import moment from "moment";
 
@@ -17,10 +17,10 @@ import UserCard from "./components/cards/user-card";
 import TeamCard from "./components/cards/team-card";
 import StatCard from "./components/cards/stat-card";
 import SubHeader from "./components/sub-header";
+import YearStats from "./components/year-stats";
 
 import { lighterGrey, white, primaryColor } from "../../commons/colors";
-import { getStats } from "../../libs/stats";
-import YearStats from "./components/year-stats";
+import { getMonthlyStats, getYearlyStats } from "../../libs/stats";
 
 const Container = styled.div`
     min-height: 100vh;
@@ -72,21 +72,14 @@ const MobileOnly = styled.div`
 class Dashboard extends Component {
     static propTypes = {
         user: PropTypes.object,
-        fetchData: PropTypes.func.isRequired,
-        dashboard: PropTypes.shape({
-            activities: PropTypes.array.isRequired
-        })
+        fetchDashboardData: PropTypes.func.isRequired,
+        dashboardData: PropTypes.array
     };
 
     static defaultProps = {
-        dashboard: {
-            activities: [],
-            club: {
-                activities: []
-            },
-            monthsData: []
-        },
+        dashboardData: [],
         user: {
+            id: 0,
             profile: "",
             firstname: "Firstname",
             lastname: "Lastname",
@@ -96,18 +89,29 @@ class Dashboard extends Component {
     };
 
     componentDidMount() {
-        const { user, fetchData } = this.props;
-        fetchData(user.id);
+        const { fetchDashboardData } = this.props;
+        fetchDashboardData();
     }
 
     render() {
-        const {
-            user,
-            dashboard: { activities, club, monthsData }
-        } = this.props;
+        const { user, dashboardData } = this.props;
 
-        const userStats = getStats(activities);
-        const clubStats = getStats(club ? club.activities : []);
+        const currentYear = parseInt(moment.utc().format("YYYY"), 10);
+
+        const clubActivities = dashboardData.filter(
+            activity => activity.clubId === 148440 && activity.year === currentYear
+        );
+        const userActivities = dashboardData.filter(
+            activity => activity.athleteId === user.id && activity.clubId === 148440
+        );
+        const userActivitiesCurrentYear = userActivities.filter(
+            activity => activity.year === currentYear
+        );
+
+
+        const clubStats = getMonthlyStats(clubActivities);
+        const userStats = getMonthlyStats(userActivitiesCurrentYear);
+        const userYearlyStats = getYearlyStats(userActivities);
 
         const userCards = [
             {
@@ -171,12 +175,6 @@ class Dashboard extends Component {
             }
         ];
 
-        const yearTotalKm = (monthsData || []).reduce(
-            (sum, month) => sum + month.distance / 1000,
-            0
-        );
-        const yearTotalCO2 = yearTotalKm * 0.229;
-
         return (
             <Container>
                 <Header user={user} />
@@ -219,12 +217,12 @@ class Dashboard extends Component {
                         <Col xs={20} sm={8} lg={6}>
                             <StatCard
                                 title={<FormattedMessage id="dashboard.stats.km.total" />}
-                                number={yearTotalKm}
+                                number={userYearlyStats.km}
                                 decimals={0}
                                 unit={<FormattedMessage id="dashboard.unit.km" />}
-                                performance={yearTotalKm}
+                                performance={userYearlyStats.deltaKm}
                                 time={<FormattedMessage id="dashboard.stats.comparison.yearly" />}
-                                more={true}
+                                more={userYearlyStats.more}
                                 delay={750}
                             />
                         </Col>
@@ -232,18 +230,18 @@ class Dashboard extends Component {
                         <Col xs={20} sm={8} lg={6}>
                             <StatCard
                                 title={<FormattedMessage id="dashboard.stats.co2.total" />}
-                                number={yearTotalCO2}
+                                number={userYearlyStats.co2}
                                 decimals={2}
                                 unit={<FormattedMessage id="dashboard.unit.co2.kg" />}
-                                performance={yearTotalCO2}
+                                performance={userYearlyStats.deltaCo2}
                                 time={<FormattedMessage id="dashboard.stats.comparison.yearly" />}
-                                more={true}
+                                more={userYearlyStats.more}
                                 delay={900}
                             />
                         </Col>
 
                         <Col xs={20} sm={16} lg={12}>
-                            <YearStats monthsData={monthsData} />
+                            <YearStats activities={userActivitiesCurrentYear} />
                         </Col>
                     </Row>
                 </MaxWidth>
@@ -273,7 +271,7 @@ class Dashboard extends Component {
 export default connect(
     state => ({
         user: state.strava.user,
-        dashboard: state.dashboard
+        dashboardData: state.dashboard.data
     }),
-    { fetchData }
+    { fetchDashboardData }
 )(Dashboard);
