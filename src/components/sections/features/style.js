@@ -12,7 +12,7 @@ export const style = {
     featureBox: {
         textAlign: "center",
         margin: "50px auto",
-        padding: "80px 0",
+        padding: "80px 24px",
         maxWidth: 1200,
         backgroundColor: colors.white,
         borderRadius: "10px",

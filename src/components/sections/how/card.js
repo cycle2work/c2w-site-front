@@ -8,8 +8,8 @@ export default class Card extends Component {
     static propTypes = {
         number: PropTypes.string,
         style: PropTypes.object,
-        text: PropTypes.string,
-        title: PropTypes.string
+        text: PropTypes.node,
+        title: PropTypes.node
     };
 
     render() {
@@ -20,7 +20,8 @@ export default class Card extends Component {
                     className="cardNumber"
                     style={{
                         color: primaryColor,
-                        width: "100%"
+                        width: "100%",
+                        marginBottom: 16
                     }}
                 >
                     {number}

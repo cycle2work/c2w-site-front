@@ -6,13 +6,16 @@ import JoinImage from "../../../assets/images//bg_join.png";
 import Card from "./card";
 import { style } from "./style";
 import "./style.css";
+import { FormattedMessage } from "react-intl";
 
 export default class Join extends Component {
     render() {
         return (
             <div id="join" style={style.container} className="bgMobile">
                 <div style={style.titleWrp}>
-                    <h2 style={style.sectionTitle}>{"Join Cycle2Work to..."}</h2>
+                    <h2 style={style.sectionTitle}>
+                        <FormattedMessage id="section.join.title" />
+                    </h2>
                 </div>
                 <Row type="flex" justify="space-around" style={style.row}>
                     <Col
