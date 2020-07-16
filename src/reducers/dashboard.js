@@ -1,7 +1,6 @@
 import {
     FETCH_DASHBOARD_START,
     FETCH_DASHBOARD_SUCCESS,
-    FETCH_DASHBOARD_YEAR_SUCCESS,
     FETCH_DASHBOARD_ERROR
 } from "../actions/dashboard";
 
@@ -9,11 +8,7 @@ const defaultState = {
     started: false,
     success: false,
     error: false,
-    activities: [],
-    club: {
-        activities: []
-    },
-    monthsData: []
+    data: []
 };
 
 export default function dashboard(state = defaultState, { type, payload }) {
@@ -28,15 +23,7 @@ export default function dashboard(state = defaultState, { type, payload }) {
                 ...state,
                 started: false,
                 error: false,
-                activities: payload.activities || [],
-                club: payload.club || { activities: [] }
-            };
-        case FETCH_DASHBOARD_YEAR_SUCCESS:
-            return {
-                ...state,
-                started: false,
-                error: false,
-                monthsData: payload
+                data: payload || []
             };
         case FETCH_DASHBOARD_ERROR:
             return {

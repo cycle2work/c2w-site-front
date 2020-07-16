@@ -75,7 +75,7 @@ export default class Position extends Component {
         company: PropTypes.shape({
             distance: PropTypes.number,
             name: PropTypes.string,
-            profile: PropTypes.profile
+            profile: PropTypes.shape
         }),
         position: PropTypes.string
     };
