@@ -26,7 +26,7 @@ describe("Button", () => {
         const onClick = spy();
         const element = shallow(<Button onClick={onClick} />);
         element.find("div").simulate("click");
-        expect(onClick).to.have.been.calledOnce;
+        expect(onClick).to.have.been.calledOnce();
     });
 
     it("provides textColor prop to style of div element", () => {

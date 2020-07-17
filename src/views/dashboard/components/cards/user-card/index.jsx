@@ -60,7 +60,8 @@ export default class ActivityCard extends Component {
             firstname: PropTypes.string.isRequired,
             lastname: PropTypes.string.isRequired,
             state: PropTypes.string.isRequired,
-            country: PropTypes.string.isRequired
+            country: PropTypes.string.isRequired,
+            profile: PropTypes.string.isRequired
         })
     };
 
