@@ -6,6 +6,7 @@ import styled from "styled-components";
 import AnimatedNumber from "react-animated-number";
 import AnimatedContainer from "../../../../../components/animated-container";
 import * as colors from "../../../../../commons/colors";
+import { FormattedMessage } from "react-intl";
 
 const Container = styled.div`
     height: 400px;
@@ -34,6 +35,7 @@ const Title = styled.div`
     font-size: 1.5em;
     font-weight: 700;
     text-align: center;
+    text-transform: uppercase;
 `;
 
 const NumberContainer = styled.div`
@@ -85,12 +87,12 @@ export default class ActivityCard extends Component {
     static propTypes = {
         fromColor: PropTypes.string,
         toColor: PropTypes.string,
-        title: PropTypes.string,
+        title: PropTypes.node,
         number: PropTypes.number,
         decimals: PropTypes.number,
-        unit: PropTypes.string,
+        unit: PropTypes.node,
         performance: PropTypes.number,
-        time: PropTypes.string,
+        time: PropTypes.node,
         more: PropTypes.bool,
         delay: PropTypes.number
     };
@@ -117,7 +119,7 @@ export default class ActivityCard extends Component {
             <Container fromColor={fromColor} toColor={toColor}>
                 <AnimatedContainer delay={delay}>
                     <FixedHeight>
-                        <Title>{title.toUpperCase()}</Title>
+                        <Title>{title}</Title>
                     </FixedHeight>
                     <NumberContainer>
                         <Number>
@@ -128,9 +130,10 @@ export default class ActivityCard extends Component {
                     <FixedHeight>
                         <Comparison>
                             <What more={more}>
-                                {`${more ? "↑" : "↓"} ${performance.toFixed(decimals)}${unit} ${
-                                    more ? "more" : "less"
-                                }`}
+                                {more ? "↑" : "↓"} {performance.toFixed(decimals)} {unit}{" "}
+                                <FormattedMessage
+                                    id={`dashboard.stats.${more ? "more" : "less"}`}
+                                />
                             </What>
                             <When>{time}</When>
                         </Comparison>

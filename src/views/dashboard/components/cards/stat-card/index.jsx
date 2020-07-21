@@ -7,6 +7,7 @@ import AnimatedNumber from "react-animated-number";
 import AnimatedContainer from "../../../../../components/animated-container";
 
 import * as colors from "../../../../../commons/colors";
+import { FormattedMessage } from "react-intl";
 
 export const Container = styled.div`
     height: 256px;
@@ -67,12 +68,12 @@ const When = styled.p`
 
 export default class StatCard extends Component {
     static propTypes = {
-        title: PropTypes.string,
+        title: PropTypes.node,
         number: PropTypes.number,
         decimals: PropTypes.number,
-        unit: PropTypes.string,
+        unit: PropTypes.node,
         performance: PropTypes.number,
-        time: PropTypes.string,
+        time: PropTypes.node,
         more: PropTypes.bool,
         delay: PropTypes.number
     };
@@ -87,11 +88,10 @@ export default class StatCard extends Component {
 
     render() {
         const { title, number, decimals, unit, performance, time, more, delay } = this.props;
-
         return (
             <Container>
                 <AnimatedContainer delay={delay}>
-                    <Title>{title.toUpperCase()}</Title>
+                    <Title>{title}</Title>
                     <NumberContainer>
                         <Number>
                             <AnimatedNumber value={number} formatValue={n => n.toFixed(decimals)} />
@@ -100,9 +100,8 @@ export default class StatCard extends Component {
                     </NumberContainer>
                     <Comparison>
                         <What more={more}>
-                            {`${more ? "↑" : "↓"} ${performance.toFixed(decimals)}${unit} ${
-                                more ? "more" : "less"
-                            }`}
+                            {more ? "↑" : "↓"} {performance.toFixed(decimals)} {unit}{" "}
+                            <FormattedMessage id={`dashboard.stats.${more ? "more" : "less"}`} />
                         </What>
                         <When>{time}</When>
                     </Comparison>

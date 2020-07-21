@@ -44,7 +44,7 @@ export default class Button extends Component {
     static propTypes = {
         backgroundColor: PropTypes.string,
         iconImage: PropTypes.string,
-        label: PropTypes.string,
+        label: PropTypes.node,
         onClick: PropTypes.func,
         textColor: PropTypes.string,
         disabled: PropTypes.bool

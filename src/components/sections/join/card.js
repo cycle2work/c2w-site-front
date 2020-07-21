@@ -5,6 +5,7 @@ import JoinNow from "../../join-now";
 
 import { style } from "./style";
 import "./style.css";
+import { FormattedMessage } from "react-intl";
 
 export default class Card extends Component {
     render() {
@@ -12,19 +13,27 @@ export default class Card extends Component {
             <div style={style.box} className="cardJoin">
                 <div style={{ position: "relative" }}>
                     <Icon style={style.icon} type="check-circle-o" />
-                    <p style={style.paragraph}>{"Take care of the environment"}</p>
+                    <p style={style.paragraph}>
+                        <FormattedMessage id="section.join.environment" />
+                    </p>
                 </div>
                 <div style={{ position: "relative" }}>
                     <Icon style={style.icon} type="check-circle-o" />
-                    <p style={style.paragraph}>{"Improve the wellbeing of Workers"}</p>
+                    <p style={style.paragraph}>
+                        <FormattedMessage id="section.join.workers" />
+                    </p>
                 </div>
                 <div style={{ position: "relative" }}>
                     <Icon style={style.icon} type="check-circle-o" />
-                    <p style={style.paragraph}>{"Encourage exercise"}</p>
+                    <p style={style.paragraph}>
+                        <FormattedMessage id="section.join.excercise" />
+                    </p>
                 </div>
                 <div style={{ position: "relative" }}>
                     <Icon style={style.icon} type="check-circle-o" />
-                    <p style={style.paragraph}>{"Reduce the company's carbon footprint"}</p>
+                    <p style={style.paragraph}>
+                        <FormattedMessage id="section.join.co2" />
+                    </p>
                 </div>
                 <div style={style.button}>
                     <JoinNow />

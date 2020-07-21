@@ -7,6 +7,7 @@ import styled from "styled-components";
 
 import logo from "../../../../assets/images/logo_cycle2work.svg";
 import * as colors from "../../../../commons/colors";
+import { FormattedMessage } from "react-intl";
 
 const Container = styled.div`
     color: white;
@@ -104,7 +105,8 @@ export default class Header extends Component {
                     <Col xs={{ span: 24, order: 1 }} sm={{ span: 12, order: 2 }}>
                         <UserInfo>
                             <UpperLabelRight>
-                                {"Hello, "}
+                                <FormattedMessage id="dashboard.header.hello" />
+                                {", "}
                                 <strong>{`${user.firstname} ${user.lastname}!`}</strong>
                             </UpperLabelRight>
                             {/* <ExitButton className="fas fa-sign-out-alt" /> */}

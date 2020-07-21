@@ -5,6 +5,7 @@ import { primaryColor, black } from "../../../commons/colors";
 
 import logo from "../../../assets/images/logo_cycle2work.svg";
 import "./style.css";
+import { FormattedMessage } from "react-intl";
 
 const styles = {
     mobileMenuWrp: {
@@ -49,12 +50,12 @@ export default class Header extends Component {
             classFixed: "",
             menus: {
                 firstSection: "Cycle2Work",
-                features: "Features",
-                howItWorks: "How it works",
-                factsAndFigures: "Facts and figures",
-                why: "Why",
-                join: "Join Now",
-                standings: "Standings"
+                features: <FormattedMessage id="toolbar.features" />,
+                howItWorks: <FormattedMessage id="toolbar.howItWorks" />,
+                factsAndFigures: <FormattedMessage id="toolbar.factsAndFigures" />,
+                why: <FormattedMessage id="toolbar.why" />,
+                join: <FormattedMessage id="toolbar.join" />,
+                standings: <FormattedMessage id="toolbar.standings" />
             }
         };
         this.handleScroll = this.handleScroll.bind(this);
@@ -114,12 +115,24 @@ export default class Header extends Component {
                         <MobileMenu
                             links={[
                                 { label: "Cycle2Work", url: "firstSection" },
-                                { label: "Features", url: "features" },
-                                { label: "How it works", url: "howItWorks" },
-                                { label: "Facts and figures", url: "factsAndFigures" },
-                                { label: "Why", url: "why" },
-                                { label: "Join", url: "join" },
-                                { label: "Standings", url: "standings" }
+                                {
+                                    label: <FormattedMessage id="toolbar.features" />,
+                                    url: "features"
+                                },
+                                {
+                                    label: <FormattedMessage id="toolbar.howItWorks" />,
+                                    url: "howItWorks"
+                                },
+                                {
+                                    label: <FormattedMessage id="toolbar.factsAndFigures" />,
+                                    url: "factsAndFigures"
+                                },
+                                { label: <FormattedMessage id="toolbar.why" />, url: "why" },
+                                { label: <FormattedMessage id="toolbar.join" />, url: "join" },
+                                {
+                                    label: <FormattedMessage id="toolbar.standings" />,
+                                    url: "standings"
+                                }
                             ]}
                         />
                     </div>

@@ -7,6 +7,7 @@ import Button from "../button";
 import styled from "styled-components";
 import { style } from "./style";
 import "./style.css";
+import { FormattedMessage } from "react-intl";
 
 const HelpContainer = styled.div`
     display: flex;
@@ -33,7 +34,7 @@ export default class Footer extends Component {
                         <Col xs={24} md={12} style={style.footerCol}>
                             <div className="textWrp">
                                 <strong>
-                                    {`Made with ❤ in Valtellina by mondora`} <br />
+                                    {`Made with ❤ in Valtellina by Mondora`} <br />
                                     {`Via Umberto Visconti di Modrone 33, 20122 Milano`}
                                     <br />
                                 </strong>
@@ -46,7 +47,7 @@ export default class Footer extends Component {
                                     style={{ color: colors.lighterGrey }}
                                     target="_blank"
                                 >
-                                    <strong>{"Privacy Policy"}</strong>
+                                    <strong>{"Privacy policy"}</strong>
                                 </a>
                                 <br />
                                 <span>
@@ -74,7 +75,7 @@ export default class Footer extends Component {
                             <HelpContainer>
                                 <Button
                                     backgroundColor={colors.primaryColor}
-                                    label={"NEED HELP?"}
+                                    label={<FormattedMessage id="footer.help.button" />}
                                     onClick={this.sendEmail}
                                     textColor={colors.white}
                                 />
@@ -87,7 +88,7 @@ export default class Footer extends Component {
                     <Row gutter={30} style={style.footer}>
                         <Col xs={24}>
                             <p style={{ margin: "0" }}>
-                                {`© Copyright 2017 - mondora S.r.l. - Cycle2Work
+                                {`© Copyright ${new Date().getFullYear()} - Mondora s.r.l. - Cycle2Work
                                     IT03680680968. All rights reserved.`}
                             </p>
                         </Col>

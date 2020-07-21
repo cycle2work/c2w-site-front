@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { FormattedMessage } from "react-intl";
 
 import { Col, Row, Icon } from "antd";
 
@@ -110,38 +111,38 @@ class Dashboard extends Component {
 
         const userCards = [
             {
-                title: "Your total",
+                title: <FormattedMessage id="dashboard.stats.card.km.total" />,
                 fromColor: "#fe00ac",
                 toColor: "#6567e5",
                 number: userStats.km,
                 decimals: 1,
-                unit: "Km",
+                unit: <FormattedMessage id="dashboard.unit.km" />,
                 performance: userStats.deltaKm,
-                time: "than last month",
+                time: <FormattedMessage id="dashboard.stats.comparison.monthly" />,
                 delay: 150,
                 more: userStats.more
             },
             {
-                title: "You saved",
+                title: <FormattedMessage id="dashboard.stats.card.co2.saved" />,
                 fromColor: "#FF3E84",
                 toColor: "#F9CB00",
                 number: userStats.co2,
                 decimals: 2,
-                unit: "Kg CO2",
+                unit: <FormattedMessage id="dashboard.unit.co2.kg" />,
                 performance: userStats.deltaCo2,
-                time: "than last month",
+                time: <FormattedMessage id="dashboard.stats.comparison.monthly" />,
                 delay: 300,
                 more: userStats.more
             },
             {
-                title: "You earned",
+                title: <FormattedMessage id="dashboard.stats.card.money.earned" />,
                 fromColor: "#8C1CC9",
                 toColor: "#2CD1FF",
                 number: userStats.euro,
                 decimals: 0,
-                unit: "€",
+                unit: <FormattedMessage id="dashboard.unit.euro" />,
                 performance: userStats.deltaEuro,
-                time: "than last month",
+                time: <FormattedMessage id="dashboard.stats.comparison.monthly" />,
                 delay: 450,
                 more: userStats.more
             }
@@ -149,22 +150,22 @@ class Dashboard extends Component {
 
         const clubCards = [
             {
-                title: "Team total",
+                title: <FormattedMessage id="dashboard.stats.card.team.total" />,
                 number: clubStats.km,
                 decimals: 0,
-                unit: "Km",
+                unit: <FormattedMessage id="dashboard.unit.km" />,
                 performance: clubStats.deltaKm,
-                time: "than last month",
+                time: <FormattedMessage id="dashboard.stats.comparison.monthly" />,
                 more: clubStats.more,
                 delay: 600
             },
             {
-                title: "Team saved",
+                title: <FormattedMessage id="dashboard.stats.card.team.saved" />,
                 number: clubStats.co2,
                 decimals: 2,
-                unit: "Kg CO2",
+                unit: <FormattedMessage id="dashboard.unit.co2.kg" />,
                 performance: clubStats.deltaCo2,
-                time: "than last month",
+                time: <FormattedMessage id="dashboard.stats.comparison.monthly" />,
                 more: clubStats.more,
                 delay: 750
             }
@@ -192,7 +193,9 @@ class Dashboard extends Component {
                 <MaxWidth>
                     <Row type="flex" justify={"center"} gutter={24}>
                         <Col xs={24}>
-                            <SubHeader label="Your month data" />
+                            <SubHeader
+                                label={<FormattedMessage id="dashboard.subheader.monthly.label" />}
+                            />
                         </Col>
                         <Col xs={24} sm={18} lg={9}>
                             <UserCard user={user} />
@@ -208,17 +211,19 @@ class Dashboard extends Component {
                 <MaxWidth>
                     <Row type="flex" justify={"center"} gutter={24}>
                         <Col xs={24}>
-                            <SubHeader label="Your yearly data" />
+                            <SubHeader
+                                label={<FormattedMessage id="dashboard.subheader.yearly.label" />}
+                            />
                         </Col>
 
                         <Col xs={20} sm={8} lg={6}>
                             <StatCard
-                                title={"Total Km"}
+                                title={<FormattedMessage id="dashboard.stats.km.total" />}
                                 number={yearTotalKm}
                                 decimals={0}
-                                unit={"Km"}
+                                unit={<FormattedMessage id="dashboard.unit.km" />}
                                 performance={yearTotalKm}
-                                time={"than last year"}
+                                time={<FormattedMessage id="dashboard.stats.comparison.yearly" />}
                                 more={true}
                                 delay={750}
                             />
@@ -226,12 +231,12 @@ class Dashboard extends Component {
 
                         <Col xs={20} sm={8} lg={6}>
                             <StatCard
-                                title={"Total CO2"}
+                                title={<FormattedMessage id="dashboard.stats.co2.total" />}
                                 number={yearTotalCO2}
                                 decimals={2}
-                                unit={"Kg CO2"}
+                                unit={<FormattedMessage id="dashboard.unit.co2.kg" />}
                                 performance={yearTotalCO2}
-                                time={"than last year"}
+                                time={<FormattedMessage id="dashboard.stats.comparison.yearly" />}
                                 more={true}
                                 delay={900}
                             />
@@ -246,7 +251,9 @@ class Dashboard extends Component {
                 <MaxWidth>
                     <Row type="flex" justify={"center"} gutter={24}>
                         <Col xs={24}>
-                            <SubHeader label="Team month data" />
+                            <SubHeader
+                                label={<FormattedMessage id="dashboard.stats.team.monthly.label" />}
+                            />
                         </Col>
                         <Col xs={24} sm={18} lg={12}>
                             <TeamCard />

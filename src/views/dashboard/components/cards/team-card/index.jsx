@@ -5,6 +5,7 @@ import { Col, Row } from "antd";
 
 import styled from "styled-components";
 import * as colors from "../../../../../commons/colors";
+import { FormattedMessage } from "react-intl";
 
 const Container = styled.div`
     min-height: 250px;
@@ -110,8 +111,8 @@ export default class TeamCard extends Component {
                             </Name>
                             <Where>{`${team.state} ${team.country}`}</Where>
                             <Members>
-                                <MembersNumber>{"7"}</MembersNumber>
-                                {"Active members"}
+                                <MembersNumber>{"7"}</MembersNumber>{" "}
+                                <FormattedMessage id="dashboard.stats.card.team.members.active" />
                             </Members>
                         </TeamInfo>
                     </Col>

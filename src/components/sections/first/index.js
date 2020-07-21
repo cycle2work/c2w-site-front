@@ -6,21 +6,25 @@ import JoinNow from "../../join-now";
 import homeCyclist from "../../../assets/images/home_cyclist2.png";
 import { style } from "./style";
 import "./style.css";
+import { FormattedMessage } from "react-intl";
 
 export default class FirstSection extends Component {
-
-    render () {
+    render() {
         return (
             <div id="firstSection" className="containerTeaser">
                 <Row style={style.contentRow}>
                     <Col lg={12} md={10} xs={24}>
                         <div className="teaserTextWrp">
-                            <h1 style={style.sectionTitle}>{"Cycle2Work"}</h1>
-                            <h2 style={style.sectionSubtitle}>{"For a healthier, happier world"}</h2>
+                            <h1 style={style.sectionTitle}>
+                                <FormattedMessage id="section.first.title" />
+                            </h1>
+                            <h2 style={style.sectionSubtitle}>
+                                <FormattedMessage id="section.first.subtitle" />
+                            </h2>
                             <div style={style.paragraph}>
-                                {"Want to improve your health and your planet?"}
+                                <FormattedMessage id="section.first.body.1" />
                                 <br />
-                                {"Cycle2Work is here to help! Simply create a company team on Strava, connect to Cycle2Work and start reducing your carbon footprint today."}
+                                <FormattedMessage id="section.first.body.2" />
                             </div>
                             <JoinNow />
                         </div>

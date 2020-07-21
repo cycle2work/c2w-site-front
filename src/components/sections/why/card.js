@@ -7,20 +7,27 @@ export default class Card extends Component {
     static propTypes = {
         icon: PropTypes.string,
         style: PropTypes.object,
-        text: PropTypes.string,
-        title: PropTypes.string
+        text: PropTypes.node,
+        title: PropTypes.node
     };
 
     render() {
         const { icon, style, text, title } = this.props;
         return (
             <div style={style}>
-                {icon ? <img alt={icon} style={{ height: "calc(65px + 1vw)" }} src={icon} /> : null}
+                {icon ? (
+                    <img
+                        alt={icon}
+                        style={{ height: "calc(65px + 1vw)", marginBottom: 8 }}
+                        src={icon}
+                    />
+                ) : null}
                 <div
                     style={{
                         fontSize: "calc(14px + 0.5vw)",
                         fontWeight: 500,
-                        color: black
+                        color: black,
+                        marginBottom: 12
                     }}
                 >
                     {title}

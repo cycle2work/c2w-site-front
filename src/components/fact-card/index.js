@@ -9,8 +9,8 @@ export default class Card extends Component {
         icon: PropTypes.string,
         lg: PropTypes.number,
         md: PropTypes.number,
-        text: PropTypes.string,
-        title: PropTypes.string,
+        text: PropTypes.node,
+        title: PropTypes.node,
         xs: PropTypes.number,
         children: PropTypes.node
     };

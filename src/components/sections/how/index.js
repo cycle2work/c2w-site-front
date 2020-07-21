@@ -9,6 +9,7 @@ import Line2 from "../../../assets/images/line2.svg";
 
 import Card from "./card";
 import { white, black } from "../../../commons/colors";
+import { FormattedMessage } from "react-intl";
 
 const styles = {
     headerStyle: {
@@ -51,7 +52,7 @@ export default class How extends Component {
                             textAlign: "center"
                         }}
                     >
-                        {"How it works"}
+                        <FormattedMessage id="section.how.title" />
                     </h2>
                     <div className="cardWrp" style={{ marginTop: 40 }}>
                         <Row type="flex" justify="space-around" style={styles.rowStyle}>
@@ -65,10 +66,9 @@ export default class How extends Component {
                             <Col xs={{ span: 24, order: 1 }} md={{ span: 8, order: 2 }}>
                                 <Card
                                     number={"01"}
-                                    text={`Create or join your company team by signing into your
-                                        Strava account. Come back on Cycle2Work landing page.`}
+                                    text={<FormattedMessage id="section.how.step.1.body" />}
                                     style={styles.boxCardStyle}
-                                    title={"Sign into Strava App"}
+                                    title={<FormattedMessage id="section.how.step.1.title" />}
                                 />
                             </Col>
                         </Row>
@@ -79,10 +79,9 @@ export default class How extends Component {
                             <Col xs={{ span: 24, order: 1 }} md={{ span: 8, order: 1 }}>
                                 <Card
                                     number={"02"}
-                                    text={`Click on the "JOIN" button below to connect your
-                                        strava team to the Cycle2Work programme.`}
+                                    text={<FormattedMessage id="section.how.step.2.body" />}
                                     style={styles.boxCardStyle}
-                                    title={"Join Cycle2Work"}
+                                    title={<FormattedMessage id="section.how.step.2.title" />}
                                 />
                             </Col>
                             <Col xs={{ span: 24, order: 2 }} md={{ span: 8, order: 2 }}>
@@ -107,12 +106,9 @@ export default class How extends Component {
                             <Col xs={{ span: 24, order: 1 }} md={{ span: 8, order: 2 }}>
                                 <Card
                                     number={"03"}
-                                    text={`Track your cycling commutes and measure your carbon
-                                        footprint reduction. Data can easily be exported for
-                                        your company to create a variety of reward schemes, from
-                                        travel reimbursements to prizes and other incentives`}
+                                    text={<FormattedMessage id="section.how.step.3.body" />}
                                     style={styles.boxCardStyle}
-                                    title={"Start cycling!"}
+                                    title={<FormattedMessage id="section.how.step.3.title" />}
                                 />
                             </Col>
                         </Row>

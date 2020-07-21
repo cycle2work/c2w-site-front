@@ -38,7 +38,7 @@ export default class StandingsTable extends Component {
                 mineCompany: PropTypes.bool
             })
         ),
-        title: PropTypes.string
+        title: PropTypes.node
     };
 
     static defaultProps = {

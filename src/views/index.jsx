@@ -35,20 +35,25 @@ export class Routes extends Component {
 
     render() {
         return (
-            <Route
-                render={props => (
-                    <div>
-                        <Switch>
-                            <Route path="/dashboard" component={Dashboard} />
-                            <Route path="/thank-you" render={() => <ThankYou location={props.location} />} />
-                            <Route path="/" component={Homepage} />
-                        </Switch>
-                        <Footer />
-                        <BackToTop />
-                    </div>
-                )}
-                path="/"
-            />
+            <>
+                <Route
+                    render={props => (
+                        <>
+                            <Switch>
+                                <Route path="/dashboard" component={Dashboard} />
+                                <Route
+                                    path="/thank-you"
+                                    render={() => <ThankYou location={props.location} />}
+                                />
+                                <Route path="/" component={Homepage} />
+                            </Switch>
+                            <Footer />
+                            <BackToTop />
+                        </>
+                    )}
+                    path="/"
+                />
+            </>
         );
     }
 }
