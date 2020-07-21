@@ -13,6 +13,7 @@ import { joinNow } from "../../actions/strava";
 
 import gradient from "../../assets/images/gradient_mondora.png";
 import { grey, white, primaryColor } from "../../commons/colors";
+import { FormattedMessage } from "react-intl";
 
 const Container = styled.div`
     height: 100%;
@@ -100,23 +101,30 @@ class ThankYouPage extends Component {
                         <ContentWrp>
                             <Fa className="fas fa-check-circle" />
                             <Title>
-                                {"THANK "}
-                                <Strong>{"YOU!"}</Strong>
+                                <FormattedMessage id="thank.you.title.thank" />{" "}
+                                <Strong>
+                                    <FormattedMessage id="thank.you.title.you" />
+                                </Strong>
                             </Title>
                             <br />
                             <Text>
-                                {"You can now commute and start saving CO2."}
+                                <FormattedMessage id="thank.you.summary.1" />
                                 <br />
-                                {"Thanks for making the world better!"}
+                                <FormattedMessage id="thank.you.summary.2" />
                             </Text>
                             <br />
                             {user ? (
                                 <Link to="/dashboard">
-                                    <Button label="Explore your DASHBOARD" />
+                                    <Button
+                                        label={<FormattedMessage id="thank.you.button.dashboard" />}
+                                    />
                                 </Link>
                             ) : (
                                 <Disabled>
-                                    <Button label="Loading..." disabled={true} />
+                                    <Button
+                                        label={<FormattedMessage id="thank.you.button.loading" />}
+                                        disabled={true}
+                                    />
                                 </Disabled>
                             )}
                         </ContentWrp>
@@ -139,4 +147,7 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ThankYouPage);
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(ThankYouPage);

@@ -8,6 +8,7 @@ import { primaryColor } from "../../../../commons/colors";
 const StyledHeader = styled.h2`
     color: ${primaryColor};
     font-weight: 700;
+    text-transform: uppercase;
     @media screen and (max-width: 1200px) {
         text-align: center;
     }
@@ -15,10 +16,10 @@ const StyledHeader = styled.h2`
 
 export default class SubHeader extends Component {
     static propTypes = {
-        label: PropTypes.string.isRequired
+        label: PropTypes.node.isRequired
     };
 
     render() {
-        return <StyledHeader>{this.props.label.toUpperCase()}</StyledHeader>;
+        return <StyledHeader>{this.props.label}</StyledHeader>;
     }
 }

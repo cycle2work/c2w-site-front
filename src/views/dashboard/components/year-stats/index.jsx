@@ -14,6 +14,7 @@ import AnimatedContainer from "../../../../components/animated-container";
 import * as colors from "../../../../commons/colors";
 
 import { Title, Container, NumberContainer, Number, Unit } from "../cards/stat-card";
+import { FormattedMessage } from "react-intl";
 
 const Grid = styled.div`
     display: grid;
@@ -56,8 +57,9 @@ const YearStats = ({ monthsData = [] }) => {
     return (
         <Container>
             <AnimatedContainer delay={1050}>
-                <Title>{"YEAR BY MONTH"}</Title>
-
+                <Title>
+                    <FormattedMessage id="dashboard.stats.yearly.title" />
+                </Title>
                 <Grid>
                     <ChartContainer>
                         <ResponsiveContainer height={192} width="100%">
@@ -106,7 +108,9 @@ const YearStats = ({ monthsData = [] }) => {
                             <Number>
                                 <AnimatedNumber value={number} formatValue={n => n.toFixed(1)} />
                             </Number>
-                            <Unit>{"Km"}</Unit>
+                            <Unit>
+                                <FormattedMessage id="dashboard.unit.km" />
+                            </Unit>
                             <Month>
                                 {month &&
                                     moment()
