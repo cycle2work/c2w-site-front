@@ -26,6 +26,7 @@ export const Title = styled.div`
     line-height: 64px;
     font-weight: 700;
     text-align: center;
+    text-transform: uppercase;
 `;
 
 export const NumberContainer = styled.div`
@@ -58,7 +59,7 @@ const Comparison = styled.div`
 const What = styled.p`
     font-size: 16px;
     font-weight: 700;
-    color: ${props => (props.more ? colors.green : colors.red)};
+    color: ${(props) => (props.more ? colors.green : colors.red)};
 `;
 
 const When = styled.p`
@@ -75,7 +76,7 @@ export default class StatCard extends Component {
         performance: PropTypes.number,
         time: PropTypes.node,
         more: PropTypes.bool,
-        delay: PropTypes.number
+        delay: PropTypes.number,
     };
 
     static defaultProps = {
@@ -83,7 +84,7 @@ export default class StatCard extends Component {
         number: 403,
         unit: "Km",
         performance: "↓ 120km less",
-        time: "than last month"
+        time: "than last month",
     };
 
     render() {
@@ -94,7 +95,10 @@ export default class StatCard extends Component {
                     <Title>{title}</Title>
                     <NumberContainer>
                         <Number>
-                            <AnimatedNumber value={number} formatValue={n => n.toFixed(decimals)} />
+                            <AnimatedNumber
+                                value={number}
+                                formatValue={(n) => n.toFixed(decimals)}
+                            />
                         </Number>
                         <Unit>{unit}</Unit>
                     </NumberContainer>
