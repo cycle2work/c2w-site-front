@@ -8,7 +8,7 @@ import * as colors from "../../../../../commons/colors";
 import { FormattedMessage } from "react-intl";
 
 const Container = styled.div`
-    min-height: 250px;
+    min-height: 256px;
     background-color: ${colors.white};
     border-radius: 16px;
     color: black;
