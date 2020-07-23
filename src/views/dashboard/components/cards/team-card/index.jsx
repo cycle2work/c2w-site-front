@@ -8,7 +8,7 @@ import * as colors from "../../../../../commons/colors";
 import { FormattedMessage } from "react-intl";
 
 const Container = styled.div`
-    min-height: 250px;
+    min-height: 256px;
     background-color: ${colors.white};
     border-radius: 16px;
     color: black;
@@ -26,7 +26,7 @@ const TeamImage = styled.div`
     margin: 50px;
     border-radius: 6px;
     border: 15px solid ${colors.lighterGrey};
-    background-image: url(${props => props.imageUrl});
+    background-image: url(${(props) => props.imageUrl});
     background-size: cover;
     @media screen and (max-width: 991px) {
         margin: 30px auto;
@@ -76,21 +76,24 @@ export default class TeamCard extends Component {
     static propTypes = {
         team: PropTypes.shape({
             name: PropTypes.string.isRequired,
-            image: PropTypes.string.isRequired,
-            members: PropTypes.string.isRequired,
+            profile: PropTypes.string.isRequired,
+            member_count: PropTypes.string.isRequired,
+            city: PropTypes.string.isRequired,
+            country: PropTypes.string.isRequired,
             state: PropTypes.string.isRequired,
-            country: PropTypes.string.isRequired
-        })
+        }),
     };
 
     static defaultProps = {
         team: {
             name: "Mondora srl sb",
-            image: "https://dgalywyr863hv.cloudfront.net/pictures/clubs/148440/4989684/2/large.jpg",
-            members: "7",
+            profile:
+                "https://dgalywyr863hv.cloudfront.net/pictures/clubs/148440/4989684/2/large.jpg",
+            member_count: "7",
+            city: "",
             state: "Berbenno di Valtellina",
-            country: "- SO"
-        }
+            country: "- SO",
+        },
     };
 
     render() {
@@ -99,19 +102,14 @@ export default class TeamCard extends Component {
             <Container>
                 <Row type="flex" justify="center" align="middle" gutter={24}>
                     <Col xs={24} md={10}>
-                        <TeamImage imageUrl={team.image} />
+                        <TeamImage imageUrl={team.profile} />
                     </Col>
                     <Col xs={24} md={14}>
                         <TeamInfo>
-                            <Name>
-                                {team.name}{" "}
-                                {/* <a href="mailto:info@mondora.com">
-                                    <i className="fas fa-envelope" />
-                                </a> */}
-                            </Name>
+                            <Name>{team.name}</Name>
                             <Where>{`${team.state} ${team.country}`}</Where>
                             <Members>
-                                <MembersNumber>{"7"}</MembersNumber>{" "}
+                                <MembersNumber>{team.member_count}</MembersNumber>{" "}
                                 <FormattedMessage id="dashboard.stats.card.team.members.active" />
                             </Members>
                         </TeamInfo>

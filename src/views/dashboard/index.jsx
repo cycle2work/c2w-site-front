@@ -11,6 +11,8 @@ import { fetchDashboardData } from "../../actions/dashboard";
 
 import moment from "moment";
 
+import Show from "../../components/show";
+
 import Header from "./components/header";
 import ActivityCard from "./components/cards/activity-card";
 import UserCard from "./components/cards/user-card";
@@ -73,7 +75,7 @@ class Dashboard extends Component {
     static propTypes = {
         user: PropTypes.object,
         fetchDashboardData: PropTypes.func.isRequired,
-        dashboardData: PropTypes.array
+        dashboardData: PropTypes.array,
     };
 
     static defaultProps = {
@@ -84,30 +86,34 @@ class Dashboard extends Component {
             firstname: "Firstname",
             lastname: "Lastname",
             country: "Country",
-            state: "State"
-        }
+            state: "State",
+            clubs: [],
+        },
     };
 
     componentDidMount() {
-        const { fetchDashboardData } = this.props;
-        fetchDashboardData();
+        const { user, fetchDashboardData } = this.props;
+        const [firstClub = {}] = user.clubs;
+
+        fetchDashboardData(firstClub.id);
     }
 
     render() {
         const { user, dashboardData } = this.props;
+        // TODO: replace this with proper club selection
+        const [firstClub = {}] = user.clubs;
 
         const currentYear = parseInt(moment.utc().format("YYYY"), 10);
 
         const clubActivities = dashboardData.filter(
-            activity => activity.clubId === 148440 && activity.year === currentYear
+            (activity) => activity.clubId === firstClub.id && activity.year === currentYear
         );
         const userActivities = dashboardData.filter(
-            activity => activity.athleteId === user.id && activity.clubId === 148440
+            (activity) => activity.athleteId === user.id && activity.clubId === firstClub.id
         );
         const userActivitiesCurrentYear = userActivities.filter(
-            activity => activity.year === currentYear
+            (activity) => activity.year === currentYear
         );
-
 
         const clubStats = getMonthlyStats(clubActivities);
         const userStats = getMonthlyStats(userActivitiesCurrentYear);
@@ -124,7 +130,7 @@ class Dashboard extends Component {
                 performance: userStats.deltaKm,
                 time: <FormattedMessage id="dashboard.stats.comparison.monthly" />,
                 delay: 150,
-                more: userStats.more
+                more: userStats.more,
             },
             {
                 title: <FormattedMessage id="dashboard.stats.card.co2.saved" />,
@@ -136,7 +142,7 @@ class Dashboard extends Component {
                 performance: userStats.deltaCo2,
                 time: <FormattedMessage id="dashboard.stats.comparison.monthly" />,
                 delay: 300,
-                more: userStats.more
+                more: userStats.more,
             },
             {
                 title: <FormattedMessage id="dashboard.stats.card.money.earned" />,
@@ -148,8 +154,8 @@ class Dashboard extends Component {
                 performance: userStats.deltaEuro,
                 time: <FormattedMessage id="dashboard.stats.comparison.monthly" />,
                 delay: 450,
-                more: userStats.more
-            }
+                more: userStats.more,
+            },
         ];
 
         const clubCards = [
@@ -161,7 +167,7 @@ class Dashboard extends Component {
                 performance: clubStats.deltaKm,
                 time: <FormattedMessage id="dashboard.stats.comparison.monthly" />,
                 more: clubStats.more,
-                delay: 600
+                delay: 600,
             },
             {
                 title: <FormattedMessage id="dashboard.stats.card.team.saved" />,
@@ -171,13 +177,13 @@ class Dashboard extends Component {
                 performance: clubStats.deltaCo2,
                 time: <FormattedMessage id="dashboard.stats.comparison.monthly" />,
                 more: clubStats.more,
-                delay: 750
-            }
+                delay: 750,
+            },
         ];
 
         return (
             <Container>
-                <Header user={user} />
+                <Header user={user} team={firstClub} />
                 <Row>
                     <Calendar>
                         <DesktopOnly>
@@ -246,32 +252,36 @@ class Dashboard extends Component {
                     </Row>
                 </MaxWidth>
 
-                <MaxWidth>
-                    <Row type="flex" justify={"center"} gutter={24}>
-                        <Col xs={24}>
-                            <SubHeader
-                                label={<FormattedMessage id="dashboard.stats.team.monthly.label" />}
-                            />
-                        </Col>
-                        <Col xs={24} sm={18} lg={12}>
-                            <TeamCard />
-                        </Col>
-                        {clubCards.map((card, index) => (
-                            <Col xs={20} sm={12} lg={6} key={index}>
-                                <StatCard {...card} />
+                <Show when={firstClub}>
+                    <MaxWidth>
+                        <Row type="flex" justify={"center"} gutter={24}>
+                            <Col xs={24}>
+                                <SubHeader
+                                    label={
+                                        <FormattedMessage id="dashboard.stats.team.monthly.label" />
+                                    }
+                                />
                             </Col>
-                        ))}
-                    </Row>
-                </MaxWidth>
+                            <Col xs={24} sm={18} lg={12}>
+                                <TeamCard team={firstClub} />
+                            </Col>
+                            {clubCards.map((card, index) => (
+                                <Col xs={20} sm={12} lg={6} key={index}>
+                                    <StatCard {...card} />
+                                </Col>
+                            ))}
+                        </Row>
+                    </MaxWidth>
+                </Show>
             </Container>
         );
     }
 }
 
 export default connect(
-    state => ({
+    (state) => ({
         user: state.strava.user,
-        dashboardData: state.dashboard.data
+        dashboardData: state.dashboard.data,
     }),
     { fetchDashboardData }
 )(Dashboard);
