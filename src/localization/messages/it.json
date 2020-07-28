@@ -74,5 +74,6 @@
     "dashboard.stats.team.monthly.label": "Dati mensili del team",
     "dashboard.stats.more": "in più",
     "dashboard.stats.less": "in meno",
-    "dashboard.stats.yearly.title": "ANNO MESE PER MESE"
+    "dashboard.stats.yearly.title": "ANNO MESE PER MESE",
+    "dashboard.team.csv.download": "Scarica CSV"
 }
