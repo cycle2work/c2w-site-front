@@ -74,23 +74,24 @@ const UpperLabelRight = styled.span`
 
 export default class Header extends Component {
     static propTypes = {
-        company: PropTypes.string,
+        team: PropTypes.shape({ name: PropTypes.string.isRequired }),
         user: PropTypes.shape({
             firstname: PropTypes.string.isRequired,
-            lastname: PropTypes.string.isRequired
-        })
+            lastname: PropTypes.string.isRequired,
+        }),
     };
 
     static defaultProps = {
         user: {
             firstname: "Firstname",
-            lastname: "Lastname"
+            lastname: "Lastname",
         },
-        company: "Cycle2Work.io - Mondora Srl Sb"
+        team: { name: "mondora" },
     };
 
     render() {
-        const { user, company } = this.props;
+        const { user, team } = this.props;
+        const teamLabel = team.name ? `- ${team.name}` : "";
         return (
             <Container>
                 <Link to="/">
@@ -100,7 +101,7 @@ export default class Header extends Component {
                 </Link>
                 <Row type="flex">
                     <Col xs={{ span: 24, order: 2 }} sm={{ span: 12, order: 1 }}>
-                        <UpperLabelLeft>{company}</UpperLabelLeft>
+                        <UpperLabelLeft>{`Cycle2Work.io ${teamLabel}`}</UpperLabelLeft>
                     </Col>
                     <Col xs={{ span: 24, order: 1 }} sm={{ span: 12, order: 2 }}>
                         <UserInfo>

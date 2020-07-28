@@ -12,6 +12,7 @@ import { fetchDashboardData } from "../../actions/dashboard";
 import moment from "moment";
 
 import FileSaver from "file-saver";
+import Show from "../../components/show";
 
 import Header from "./components/header";
 import ActivityCard from "./components/cards/activity-card";
@@ -72,8 +73,13 @@ const MobileOnly = styled.div`
     }
 `;
 
-const Dashboard = ({ user, dashboardData }) => {
+const Dashboard = ({ user, dashboardData, fetchDashboardData }) => {
     const [csvData, setCsvData] = useState([]);
+
+    useEffect(() => {
+        const [firstClub = {}] = user.clubs;
+        fetchDashboardData(firstClub.id);
+    }, [fetchDashboardData, user.clubs]);
 
     useEffect(() => {
         if (dashboardData) {
@@ -105,13 +111,15 @@ const Dashboard = ({ user, dashboardData }) => {
         FileSaver.saveAs(blob, "data.csv");
     }, [csvData]);
 
+    const [firstClub = {}] = user.clubs;
+
     const currentYear = parseInt(moment.utc().format("YYYY"), 10);
 
     const clubActivities = dashboardData.filter(
-        (activity) => activity.clubId === 148440 && activity.year === currentYear
+        (activity) => activity.clubId === firstClub.id && activity.year === currentYear
     );
     const userActivities = dashboardData.filter(
-        (activity) => activity.athleteId === user.id && activity.clubId === 148440
+        (activity) => activity.athleteId === user.id && activity.clubId === firstClub.id
     );
     const userActivitiesCurrentYear = userActivities.filter(
         (activity) => activity.year === currentYear
@@ -185,7 +193,7 @@ const Dashboard = ({ user, dashboardData }) => {
 
     return (
         <Container>
-            <Header user={user} />
+            <Header user={user} team={firstClub} />
             <Row>
                 <Calendar>
                     <DesktopOnly>
@@ -253,24 +261,27 @@ const Dashboard = ({ user, dashboardData }) => {
                     </Col>
                 </Row>
             </MaxWidth>
-
-            <MaxWidth>
-                <Row type="flex" justify={"center"} gutter={24}>
-                    <Col xs={24}>
-                        <SubHeader
-                            label={<FormattedMessage id="dashboard.stats.team.monthly.label" />}
-                        />
-                    </Col>
-                    <Col xs={24} sm={18} lg={12}>
-                        <TeamCard />
-                    </Col>
-                    {clubCards.map((card, index) => (
-                        <Col xs={20} sm={12} lg={6} key={index}>
-                            <StatCard {...card} />
+            <Show when={firstClub}>
+                <MaxWidth>
+                    <Row type="flex" justify={"center"} gutter={24}>
+                        <Col xs={24}>
+                            <SubHeader
+                                label={<FormattedMessage id="dashboard.stats.team.monthly.label" />}
+                            />
                         </Col>
-                    ))}
-                </Row>
-                <Row type="flex" justify={"center"} style={{ marginTop: 16 }}>
+                        <Col xs={24} sm={18} lg={12}>
+                            <TeamCard team={firstClub} />
+                        </Col>
+                        {clubCards.map((card, index) => (
+                            <Col xs={20} sm={12} lg={6} key={index}>
+                                <StatCard {...card} />
+                            </Col>
+                        ))}
+                    </Row>
+                </MaxWidth>
+            </Show>
+            <MaxWidth>
+                <Row type="flex" justify={"center"} style={{ marginBottom: 16 }}>
                     <Col>
                         <Button
                             label={<FormattedMessage id="dashboard.team.csv.download" />}

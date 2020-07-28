@@ -3,7 +3,7 @@ import styled from "styled-components";
 import * as colors from "../../../../../commons/colors";
 
 const BaseCard = styled.div`
-    height: 250px;
+    height: 256px;
     background-color: ${colors.white};
     border-radius: 16px;
     color: ${colors.black};
