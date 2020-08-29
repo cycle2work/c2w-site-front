@@ -84,13 +84,14 @@ const Dashboard = ({ user, dashboardData, fetchDashboardData }) => {
     useEffect(() => {
         if (dashboardData) {
             const csvData = dashboardData.reduce((csvData, data) => {
-                const { athleteId, month, distance } = data;
+                const { athleteId, athleteName, month, distance } = data;
                 let previousData = csvData.find(
                     (aggregate) => aggregate.athleteId === athleteId && aggregate.month === month
                 );
                 if (!previousData) {
                     previousData = {
                         athleteId,
+                        athleteName,
                         month,
                         distance,
                     };
@@ -105,8 +106,16 @@ const Dashboard = ({ user, dashboardData, fetchDashboardData }) => {
     }, [dashboardData]);
 
     const downloadCsv = useCallback(() => {
-        let csv = "athleteId;month;distance;\n";
-        csv += csvData.map((row) => `${row.athleteId};${row.month};${row.distance};`).join("\n");
+        // TODO: internationalization
+        let csv = "Nome,Mese,Distanza percosa (km)\n";
+        csv += csvData
+            .map(
+                (row) =>
+                    `${row.athleteName || row.athleteId},${moment()
+                        .month(row.month - 1)
+                        .format("MMMM")},${(row.distance / 1000).toFixed(1)}`
+            )
+            .join("\n");
         const blob = new Blob([Buffer.from(csv)], { type: "text/csv;charset=utf-8" });
         FileSaver.saveAs(blob, "data.csv");
     }, [csvData]);
