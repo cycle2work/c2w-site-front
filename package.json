@@ -10,6 +10,7 @@
         "babel-preset-stage-0": "^6.24.1",
         "bluebird": "^3.7.2",
         "eslint-plugin-jsx-a11y": "6.3.1",
+        "file-saver": "^2.0.2",
         "husky": "^4.2.5",
         "lodash.sortby": "^4.7.0",
         "moment": "^2.27.0",

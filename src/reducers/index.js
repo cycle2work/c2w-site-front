@@ -1,4 +1,4 @@
-import { applyMiddleware, createStore, combineReducers } from "redux";
+import { applyMiddleware, createStore, combineReducers, compose } from "redux";
 import { createLogger } from "redux-logger";
 import thunk from "redux-thunk";
 import { save, load } from "redux-localstorage-simple";
@@ -10,13 +10,18 @@ import reports from "./reports";
 const reducers = combineReducers({
     strava,
     dashboard,
-    reports
+    reports,
 });
 
 const logger = createLogger({
-    collapsed: true
+    collapsed: true,
 });
 
-const store = createStore(reducers, load(), applyMiddleware(thunk, logger, save()));
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(
+    reducers,
+    load(),
+    composeEnhancers(applyMiddleware(thunk, logger, save()))
+);
 
 export default store;

@@ -73,5 +73,6 @@
     "dashboard.stats.team.monthly.label": "Team monthly data",
     "dashboard.stats.more": "more",
     "dashboard.stats.less": "less",
-    "dashboard.stats.yearly.title": "YEAR BY MONTH"
+    "dashboard.stats.yearly.title": "YEAR BY MONTH",
+    "dashboard.team.csv.download": "Download CSV"
 }
