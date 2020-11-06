@@ -16,7 +16,7 @@
         "moment": "^2.27.0",
         "nyc": "^15.1.0",
         "prop-types": "^15.6.0",
-        "query-string": "^6.13.1",
+        "query-string": "^6.13.7",
         "react": "^16.13.1",
         "react-animated-number": "^0.4.4",
         "react-burger-menu": "^2.7.0",
