@@ -12822,10 +12822,10 @@ react-app-polyfill@^1.0.6:
     regenerator-runtime "^0.13.3"
     whatwg-fetch "^3.0.0"
 
-react-burger-menu@^2.7.0:
-  version "2.7.0"
-  resolved "https://registry.yarnpkg.com/react-burger-menu/-/react-burger-menu-2.7.0.tgz#1191a72e94fb9fe4664e93e182b0fb24e023b1f8"
-  integrity sha512-UKi2tPlvcKPhoylhVM37BaV4dnbuSmU68H7idKvUfS8q7O+MsC5AE9tsY6SkO5jWFPuFnTTkKsJJPn7Dl92S3w==
+react-burger-menu@^3.0.3:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/react-burger-menu/-/react-burger-menu-3.0.3.tgz#be1268423b7a4a21d99243ae63842e480a5ba70b"
+  integrity sha512-BqOZnAktmd6uoiQYcKQmx8RFaZXbol5K8cApN2rKWz/qg1U4IPYGeHPKkLaYKDBelQz4IPaD2GMzo4PKCvXwNg==
   dependencies:
     browserify-optional "^1.0.0"
     classnames "^2.2.6"
