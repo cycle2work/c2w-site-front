@@ -13,7 +13,7 @@
         "file-saver": "^2.0.2",
         "husky": "^4.2.5",
         "lodash.sortby": "^4.7.0",
-        "moment": "^2.27.0",
+        "moment": "^2.29.1",
         "nyc": "^15.1.0",
         "prop-types": "^15.6.0",
         "query-string": "^6.13.1",
