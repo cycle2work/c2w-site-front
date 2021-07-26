@@ -34,7 +34,7 @@
         "styled-components": "^5.1.1"
     },
     "devDependencies": {
-        "@commitlint/cli": "^9.1.1",
+        "@commitlint/cli": "^13.1.0",
         "@commitlint/config-conventional": "^9.1.1",
         "@staticdeploy/app-server": "^4.1.0",
         "@staticdeploy/mock-server": "^2.0.0",
