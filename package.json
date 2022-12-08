@@ -26,7 +26,7 @@
         "react-router-dom": "^5.2.0",
         "react-scripts": "3.4.1",
         "react-scroll": "^1.8.0",
-        "recharts": "^1.8.5",
+        "recharts": "^2.2.0",
         "redux": "^4.0.5",
         "redux-localstorage-simple": "^2.2.0",
         "redux-logger": "^3.0.6",
